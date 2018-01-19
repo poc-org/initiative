@@ -19,7 +19,7 @@
       <os:HttpRequest key="transcript_data" href="https://dxc-itg-api.sabacloud.com/v1/transcripts?SabaCertificate=${ViewParams.sabaContext.certificate}"/>
 
 /* Added by Shakeel for the Job Role data for testing */
-     <os:HttpRequest key="jobrole_data" href="https://dxc-itg-api.sabacloud.com/v1/role/roles000000000003140?includeassociation=true&SabaCertificate=${ViewParams.sabaContext.certificate}"/>
+     <os:HttpRequest key="jobrole_data" href="https://dxc-itg-api.sabacloud.com/v1/role/roles000000000003140?includeassociation=true&SabaCertificate=${ViewParams.sabaContext.apiCertificate}"/>
     </script>
 
     <style type="text/css">
@@ -126,7 +126,7 @@
     <script type="text/os-template">
       <!-- *** style this UI, add an inline or referenced stylesheet earlier in this config file *** -->
       <!-- this is what is presented as the microapp UI -->
-      <h2>View Params Data </h2>
+      <h2>View Params Data 1234</h2>
       <div id="1" style="display: block; width: 95%; word-break: break-all;"></div>
       <br>
       <h2>Profile data via API</h2>
