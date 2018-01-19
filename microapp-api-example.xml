@@ -76,7 +76,7 @@
 
           var divstuff = "<p>Your user name is: "+ userName +"<br> Your user id is: "+ userId +"</p>";
           var divstuff = divstuff + "Raw JSON: <br>"+ viewDataString +"Test Certificate "+ gadgets.json.stringify(jobroleData);
-          //div1.innerHTML = divstuff;
+          div1.innerHTML = divstuff;
 
           gadgets.window.adjustHeight()
 
@@ -136,7 +136,7 @@
     <script type="text/os-template">
       <!-- *** style this UI, add an inline or referenced stylesheet earlier in this config file *** -->
       <!-- this is what is presented as the microapp UI -->
-      <h2>View Params Data 9999</h2>
+      <h2>View Params Data 121212</h2>
       <div id="1" style="display: block; width: 95%; word-break: break-all;"></div>
       <br>
       <h2>Profile data via API</h2>
