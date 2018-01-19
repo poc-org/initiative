@@ -72,7 +72,7 @@
 
           var divstuff = "<p>Your first name is: "+ firstName +"<br> Your last name is: "+ lastName +"</p>";
           var divstuff = divstuff + "Raw JSON: <br>"+ apiDataString;
-          div2.innerHTML = divstuff;
+          //div2.innerHTML = divstuff;
           
           gadgets.window.adjustHeight()
 
@@ -101,8 +101,7 @@
 // added by shakeel for jobrole testing data start 
 	 //did we get any Role data from saba api ?
         if (jobroleData){
-          var apiDataJobRole = gadgets.json.stringify(jobroleData);
-          
+          var apiDataJobRole = gadgets.json.stringify(jobroleData);          
           var divstuff = "<p>Stuff!</p>";
           var divstuff = divstuff + "Raw JSON: <br>"+ apiDataJobRole;
           div4.innerHTML = divstuff;
