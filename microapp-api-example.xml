@@ -54,7 +54,7 @@
           userId = viewData.sabaContext.userId;
 
           var divstuff = "<p>Your user name is: "+ userName +"<br> Your user id is: "+ userId +"</p>";
-          var divstuff = divstuff + "Raw JSON: <br>"+ viewDataString +"Test Certificate "+ gadgets.json.stringify(learningData)";
+          var divstuff = divstuff + "Raw JSON: <br>"+ viewDataString +"Test Certificate "+ gadgets.json.stringify(jobroleData)";
           div1.innerHTML = divstuff;
 
           gadgets.window.adjustHeight()
