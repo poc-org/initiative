@@ -54,7 +54,7 @@
           userId = viewData.sabaContext.userId;
 
           var divstuff = "<p>Your user name is: "+ userName +"<br> Your user id is: "+ userId +"</p>";
-          var divstuff = divstuff + "Raw JSON: <br>"+ viewDataString +"Test API Responce "+ gadgets.json.stringify(jobrole_data);
+          var divstuff = divstuff + "Raw JSON: <br>"+ viewDataString +"Test API Responce ";
           div1.innerHTML = divstuff;
 
           gadgets.window.adjustHeight()
@@ -97,20 +97,7 @@
           //console.log("error loading profile api data");
           div3.innerHTML = "error loading profile api data";
         }
-// added by shakeel for jobrole testing data start 
-	 //did we get any Role data from saba api ?
-        if (jobroleData){
-          var apiDataJobRole = gadgets.json.stringify(jobroleData);
-          
-          var divstuff = "<p>Stuff!</p>";
-          var divstuff = divstuff + "Raw JSON: <br>"+ apiDataJobRole;
-          div4.innerHTML = divstuff;
-          gadgets.window.adjustHeight()
-        } else {
-          //console.log("error loading profile api data");
-          div4.innerHTML = "error loading profile api data";
-        }
-// added by shakeel for jobrole testing data end
+
         if (transData){
           console.log(transData);
         }
