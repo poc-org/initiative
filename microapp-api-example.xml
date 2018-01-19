@@ -101,7 +101,8 @@
 	 //did we get any Role data from saba api ?
         if (jobroleData){
           var apiDataJobRole = gadgets.json.stringify(jobroleData),
-          
+          firstName = jobroleData.content.fname,
+          lastName = jobroleData.content.lname
           var divstuff = "<p>Stuff!</p>";
           var divstuff = divstuff + "Raw JSON: <br>"+ apiDataJobRole;
           div4.innerHTML = divstuff;
@@ -133,7 +134,7 @@
       <h2>Enrollment data via API</h2>
       <div id="3" style="display: block; width: 95%; word-break: break-all;"></div>
 // added by shakeel for jobrole testing data Start 
-      <h2>Role Data data via API</h2>
+      <h2>Job Role Data data via API</h2>
       <div id="4" style="display: block; width: 95%; word-break: break-all;"></div>
 // added by shakeel for jobrole testing data end 
     </script>
