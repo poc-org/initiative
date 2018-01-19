@@ -19,7 +19,7 @@
       <os:HttpRequest key="transcript_data" href="https://dxc-itg-api.sabacloud.com/v1/transcripts?SabaCertificate=${ViewParams.sabaContext.certificate}"/>
 
 /* Added by Shakeel for the Job Role data for testing */
-     <os:HttpRequest key="job_role" href="https://dxc-itg-api.sabacloud.com/v1/role/roles000000000003140?includeassociation=true?SabaCertificate=${ViewParams.sabaContext.certificate}"/>	
+     <os:HttpRequest key="jobrole_data" href="https://dxc-itg-api.sabacloud.com/v1/role/roles000000000003140?includeassociation=true?SabaCertificate=${ViewParams.sabaContext.certificate}"/>	
     </script>
 
     <style type="text/css">
@@ -35,11 +35,11 @@
             learningData = opensocial.data.DataContext.getDataSet('enrollments_data'),
             transData = opensocial.data.DataContext.getDataSet('transcript_data'),
 
-            jobroleData = opensocial.data.DataContext.getDataSet('job_role'), // Added by Shakeel for JobRole Data testing 
+            jobroleData = opensocial.data.DataContext.getDataSet('jobrole_data'), // Added by Shakeel for JobRole Data testing 
             viewData = gadgets.views.getParams(), //this brings in the ViewParams data passed from Saba
             div1 = document.getElementById("1"),
             div2 = document.getElementById("2"),
-            div3 = document.getElementById("3");
+            div3 = document.getElementById("3"),
             div4 = document.getElementById("4"); // added by shakeel for Jobrole data testing
 
             //console.log(profileData.content.contact_email);
