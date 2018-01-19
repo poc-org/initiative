@@ -19,7 +19,7 @@
       <os:HttpRequest key="transcript_data" href="https://dxc-itg-api.sabacloud.com/v1/transcripts?SabaCertificate=${ViewParams.sabaContext.certificate}"/>
 
 /* Added by Shakeel for the Job Role data for testing */
-     <os:HttpRequest key="jobrole_data" href="https://dxc-itg-api.sabacloud.com/v1/role/roles000000000003140?includeassociation=true?SabaCertificate=31363130646534313639315E235E61343037317A735E235E4E41335431534E42303038315E235E656E5F55535E235E536162615E235E2D315E235E24414240302C02142BBB79EB229AF23916126C7C0B45557613352C4302146FA0A7D60CC301D1DE086F11A38D71CEAAC6DFA5"/>	
+     <os:HttpRequest key="jobrole_data" href="https://dxc-itg-api.sabacloud.com/v1/role/roles000000000003140?includeassociation=true?SabaCertificate=${ViewParams.sabaContext.certificate}"/>	
     </script>
 
     <style type="text/css">
