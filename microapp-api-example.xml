@@ -101,8 +101,7 @@
 	 //did we get any Role data from saba api ?
         if (jobroleData){
           var apiDataJobRole = gadgets.json.stringify(jobroleData),
-          firstName = jobroleData.content.fname,
-          lastName = jobroleData.content.lname;
+          
           var divstuff = "<p>Stuff!</p>";
           var divstuff = divstuff + "Raw JSON: <br>"+ apiDataJobRole;
           div4.innerHTML = divstuff;
