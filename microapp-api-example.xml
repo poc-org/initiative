@@ -59,7 +59,7 @@
                            
                //var test =
                    //submitRoleQuery();
-				   UserAction()
+				   UserAction();
                //alert(test);
                //var test = OnSuccess(response, status);
                //alert(test+'Shakeel');
@@ -230,7 +230,7 @@
                     <tr>
                         <td align="center"  style="font-weight:bold;">
                                                     
-                            Please Enter Your Initiative/ Progarm Code 1010101
+                            Please Enter Your Initiative/ Progarm Code 121212
 							</td>
                     </tr>
                     <tr>                            
