@@ -94,9 +94,9 @@
                type: "GET",
                url: urlAPIRole,
                data: jobRoleSearchURLParam,
-               contentType: "application/json; charset=utf-8",   //contentType is for request
+               contentType: "application/json",   //contentType is for request
                //dataType: "json",   //datatype is for response, this has problem with base64 string; could be json, html, text, etc
-               dataType: "text/os-data",
+               dataType: "text",
                success: OnSuccess,
                error: OnError
 
@@ -108,7 +108,7 @@
        function OnSuccess(response, status) {
            var roleId;
            //alert("success here")
-           //alert(response);
+           alert(response);
            //var str = data.replace(/(?:\r\n|\r|\n)/g, '');
            obj = JSON.parse(response);
            var counter = obj.totalResults;
@@ -122,7 +122,7 @@
               // alert("roleID=" + roleId);
                //varRoleID = roleId;
                //response = roleId;
-               submitEmpProfileListQuery(roleId);
+               //submitEmpProfileListQuery(roleId);
        }
 
        function OnError(request, status, error) {
@@ -217,7 +217,7 @@
                     <tr>
                         <td align="center"  style="font-weight:bold;">
                                                     
-                            Please Enter Your Initiative/ Progarm Code 1212121
+                            Please Enter Your Initiative/ Progarm Code 00000
                         </td>
                     </tr>
                     <tr>                            
