@@ -36,7 +36,7 @@
             transData = opensocial.data.DataContext.getDataSet('transcript_data'),
 
             jobroleData = opensocial.data.DataContext.getDataSet('jobrole_data'), // Added by Shakeel for JobRole Data testing 
-            viewData = gadgets.views.getParams(), //this brings in the ViewParams data passed from Saba
+            viewData = gadgets.views.getParams(); //this brings in the ViewParams data passed from Saba
             //div1 = document.getElementById("1"),
             //div2 = document.getElementById("2"),
             //div3 = document.getElementById("3"),
@@ -200,7 +200,7 @@
            $("#lblData").html(request.statusText);
        }
 
-      gadgets.util.registerOnLoadHandler(init);
+     // gadgets.util.registerOnLoadHandler(init);
 
     </script>
 
