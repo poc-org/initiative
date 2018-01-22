@@ -19,7 +19,7 @@
       <os:HttpRequest key="transcript_data" href="https://dxc-itg-api.sabacloud.com/v1/transcripts?SabaCertificate=${ViewParams.sabaContext.certificate}"/>
 
 /* Added by Shakeel for the Job Role data for testing */
-     <os:HttpRequest key="jobrole_data" href="https://dxc-itg-api.sabacloud.com/v1/role/roles000000000003140?includeassociation=true&SabaCertificate=${ViewParams.sabaContext.apiCertificate}"/>
+     <os:HttpRequest key="jobrole_data" href="https://dxc-itg-api.sabacloud.com/v1/role/roles000000000003140?includeassociation=true&SabaCertificate=${ViewParams.sabaContext.Certificate}"/>
     </script>
 
     <style type="text/css">
@@ -49,24 +49,6 @@
 
 
 
-// added by shakeel for jobrole testing data start 
-	 //did we get any Role data from saba api ?
-        if (jobroleData){
-	      var jobRoleDataString = gadgets.json.stringify(jobroleData),
-          userName = viewData.sabaContext.userName,
-          userId = viewData.sabaContext.userId;
-
-
-          var divstuff = "<p>Your user name is: "+ userName +"<br> Your user id is: "+ userId +"</p>";
-          var divstuff = divstuff + "Raw JSON: <br>"+  jobRoleDataString;
-          div4.innerHTML = divstuff;
-
-          gadgets.window.adjustHeight()
-        } else {
-          //console.log("error loading profile api data");
-          div4.innerHTML = "error loading profile api data";
-        }
-// added by shakeel for jobrole testing data end
 
         //did we get any gadget view data?
         if (viewData){
@@ -123,6 +105,24 @@
         }
 
 
+// added by shakeel for jobrole testing data start 
+	 //did we get any Role data from saba api ?
+        if (jobroleData){
+	      var jobRoleDataString = gadgets.json.stringify(jobroleData),
+          userName = viewData.sabaContext.userName,
+          userId = viewData.sabaContext.userId;
+
+
+          var divstuff = "<p>Your user name is: "+ userName +"<br> Your user id is: "+ userId +"</p>";
+          var divstuff = divstuff + "Raw JSON: <br>"+  jobRoleDataString;
+          div4.innerHTML = divstuff;
+
+          gadgets.window.adjustHeight()
+        } else {
+          //console.log("error loading profile api data");
+          div4.innerHTML = "error loading profile api data";
+        }
+// added by shakeel for jobrole testing data end
         if (transData){
           console.log(transData);
         }
