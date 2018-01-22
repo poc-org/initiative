@@ -58,7 +58,8 @@
 			 $("#btnRoleSubmit").click(function () {
                            
                //var test =
-                   submitRoleQuery();
+                   //submitRoleQuery();
+				   UserAction()
                //alert(test);
                //var test = OnSuccess(response, status);
                //alert(test+'Shakeel');
@@ -85,7 +86,7 @@
            $("#result").empty();
            var inputParam = {};
            inputParam.name = $.trim($("[id*=searchRoleParam]").val());           
-		   alert(inputParam.name);
+		   //alert(inputParam.name);
            jobRoleSearchURLParam = "q=(name==" + inputParam.name  + ")&SabaCertificate=" + sabaCertificate
 		   alert(jobRoleSearchURLParam);
            var payLoad = ''
@@ -94,7 +95,7 @@
                type: "GET",
                url: urlAPIRole,
                data: jobRoleSearchURLParam,
-               contentType: "application/json",   //contentType is for request
+               contentType: "application/json; charset=utf-8",   //contentType is for request
                //dataType: "json",   //datatype is for response, this has problem with base64 string; could be json, html, text, etc
                dataType: "text",
                success: OnSuccess,
@@ -103,12 +104,21 @@
            });
 
        }
+	   
+	   function UserAction() {
+			var xhttp = new XMLHttpRequest();
+			xhttp.open("GET", "https://dxc-itg-api.sabacloud.com/v1/role?q=(name==eu2_role_test)&SabaCertificate=4E41335431534E42303038312D33313336333136313332333436333330333936323338354532333545353735333546343134343444343934453545323335453445343133333534333135333445343233303330333833313545323335453635364535463535353335453233354535333631363236313545323335453244333135453233354532343431343234303330324330323134374332333344364231333142313030323742323531333341383344453333433037423543353938333032313431324245414345443243463630423241373133343943433638364436394630443533323242384544", true);
+			xhttp.setRequestHeader("Content-type", "application/json");
+			xhttp.send();
+		   var response = JSON.parse(xhttp.responseText);
+		   alert(response);
+		   }
 
        //var roleId;
        function OnSuccess(response, status) {
            var roleId;
            //alert("success here")
-           alert(response);
+           //alert(response);
            //var str = data.replace(/(?:\r\n|\r|\n)/g, '');
            obj = JSON.parse(response);
            var counter = obj.totalResults;
@@ -122,7 +132,7 @@
               // alert("roleID=" + roleId);
                //varRoleID = roleId;
                //response = roleId;
-               //submitEmpProfileListQuery(roleId);
+               submitEmpProfileListQuery(roleId);
        }
 
        function OnError(request, status, error) {
@@ -217,7 +227,7 @@
                     <tr>
                         <td align="center"  style="font-weight:bold;">
                                                     
-                            Please Enter Your Initiative/ Progarm Code 00000
+                            Please Enter Your Initiative/ Progarm Code 4545456
                         </td>
                     </tr>
                     <tr>                            
