@@ -107,6 +107,7 @@
 	   
 	   function UserAction() {
 			var xhttp = new XMLHttpRequest();
+			alert('Test 123');
 			xhttp.open("GET", "https://dxc-itg-api.sabacloud.com/v1/role?q=(name==eu2_role_test)&SabaCertificate=4E41335431534E42303038312D33313336333136313332333436333330333936323338354532333545353735333546343134343444343934453545323335453445343133333534333135333445343233303330333833313545323335453635364535463535353335453233354535333631363236313545323335453244333135453233354532343431343234303330324330323134374332333344364231333142313030323742323531333341383344453333433037423543353938333032313431324245414345443243463630423241373133343943433638364436394630443533323242384544", true);
 			xhttp.setRequestHeader("Content-type", "application/json");
 			xhttp.send();
@@ -227,7 +228,7 @@
                     <tr>
                         <td align="center"  style="font-weight:bold;">
                                                     
-                            Please Enter Your Initiative/ Progarm Code 4545456
+                            Please Enter Your Initiative/ Progarm Code 11111
                         </td>
                     </tr>
                     <tr>                            
