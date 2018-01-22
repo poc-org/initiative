@@ -49,24 +49,7 @@
 
 
 
-// added by shakeel for jobrole testing data start 
-	 //did we get any Role data from saba api ?
-        if (jobroleData){
-	      var jobRoleDataString = gadgets.json.stringify(jobroleData),
-          userName = viewData.sabaContext.userName,
-          userId = viewData.sabaContext.userId;
 
-
-          var divstuff = "<p>Your user name is: "+ userName +"<br> Your user id is: "+ userId +"</p>";
-          var divstuff = divstuff + "Raw JSON: <br>"+  jobRoleDataString;
-          div4.innerHTML = divstuff;
-
-          gadgets.window.adjustHeight()
-        } else {
-          //console.log("error loading profile api data");
-          div4.innerHTML = "error loading profile api data";
-        }
-// added by shakeel for jobrole testing data end
 
       }
  var sabaCertificate = "4E41335431534E42303038312D33313336333136313332333436333330333936323338354532333545353735333546343134343444343934453545323335453445343133333534333135333445343233303330333833313545323335453635364535463535353335453233354535333631363236313545323335453244333135453233354532343431343234303330324330323134374332333344364231333142313030323742323531333341383344453333433037423543353938333032313431324245414345443243463630423241373133343943433638364436394630443533323242384544";
@@ -128,7 +111,7 @@
        function OnSuccess(response, status) {
            var roleId;
            //alert("success here")
-           //alert(response);
+           alert(response);
            //var str = data.replace(/(?:\r\n|\r|\n)/g, '');
            obj = JSON.parse(response);
            var counter = obj.totalResults;
@@ -225,18 +208,7 @@
     </script>
 
     <script type="text/os-template">
-    <!-- Header of the Page Start -->
-    <div id="" class="header_logo">
-        <div class="hp_logo" style="height:100px">
-            <div style="float:left;height:inherit;margin-right:50px;vertical-align:middle">
-                <a href="https://my.dxc.com/">
-                    <img class="logo_img" src="/Image/dxc_logo_hz_wht_rgb_150.png"   alt="DXC Technology   | Big Data, Cloud, Mobility &amp; Security Solutions &amp; Services" aria-hidden="true" />
-                </a>
-            </div>
-        </div>
-    </div>
-    <div style="height:30px"></div>
-    <!-- Header of the Page END-->
+   
 
     <!-- Search Box Start-->
     <div id="divRoleForm">
@@ -246,7 +218,7 @@
                     <tr>
                         <td align="center"  style="font-weight:bold;">
                                                     
-                            Please Enter Your Initiative/ Progarm Code
+                            Please Enter Your Initiative/ Progarm Code 1234
                         </td>
                     </tr>
                     <tr>                            
