@@ -251,7 +251,8 @@ function OnError(request, status, error) {
 	alert("error here")
 	alert (JSON.stringify(request))
 	alert (JSON.stringify(error))
-        $("#lblData").html(request.statusText);
+        //$("#lblData").html(request.statusText);
+$("#result").append('<p class="textCounter">Saba Certificate: ' + sabaCertificate)           
 }
 
 </script>
