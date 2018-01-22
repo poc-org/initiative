@@ -176,7 +176,7 @@ body
 <script type="text/javascript">
 
 var viewData = gadgets.views.getParams();
-var sabaCertificate = viewData.sabaContext.certificate;
+var sabaCertificate = viewData.sabaContext.apiCertificate;
 var userId = viewData.sabaContext.userId;
 
 $(function () {
