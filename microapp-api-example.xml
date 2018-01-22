@@ -201,9 +201,10 @@
         if (viewData){
           var viewDataString = gadgets.json.stringify(viewData),
           userName = viewData.sabaContext.userName,
+          sabaCert = viewData.sabaContext.certificate,  
           userId = viewData.sabaContext.userId;
 
-          var divstuff = "<p>Your user name is: "+ userName +"<br> Your user id is: "+ userId +"</p>";
+          var divstuff = "<p>Your user name is: "+ userName +"<br> Your user id is: "+ userId +  "<br> saba Cert from context: "+ sabaCert +   "</p>";
           var divstuff = divstuff + "Raw JSON: <br>"+ viewDataString +"Test Certificate "+ gadgets.json.stringify(jobroleData);
           div1.innerHTML = divstuff;
 
