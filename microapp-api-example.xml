@@ -54,7 +54,8 @@
        var urlAPIRole = "https://dxc-itg-api.sabacloud.com/v1/role";
        var varRoleID;
 
-       $(function () {           $("#btnRoleSubmit").click(function () {
+       $(function () {       
+			 $("#btnRoleSubmit").click(function () {
                            
                //var test =
                    submitRoleQuery();
@@ -86,6 +87,7 @@
            inputParam.name = $.trim($("[id*=searchRoleParam]").val());           
 		   alert(inputParam.name);
            jobRoleSearchURLParam = "q=(name==" + inputParam.name  + ")&SabaCertificate=" + sabaCertificate
+		   alert(jobRoleSearchURLParam);
            var payLoad = ''
 
            $.ajax({
@@ -93,8 +95,8 @@
                url: urlAPIRole,
                data: jobRoleSearchURLParam,
                contentType: "application/json; charset=utf-8",   //contentType is for request
-               //dataType: "json",   //datatype is for response, this has problem with base64 string; could be json, html, text, etc
-               dataType: "text",
+               dataType: "json",   //datatype is for response, this has problem with base64 string; could be json, html, text, etc
+               //dataType: "text",
                success: OnSuccess,
                error: OnError
 
@@ -215,7 +217,7 @@
                     <tr>
                         <td align="center"  style="font-weight:bold;">
                                                     
-                            Please Enter Your Initiative/ Progarm Code &&&&&&&
+                            Please Enter Your Initiative/ Progarm Code 1212121
                         </td>
                     </tr>
                     <tr>                            
