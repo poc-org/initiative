@@ -152,4 +152,151 @@
 
   ]]>
   </Content>
+	
+	<Content type="html" view="profile">
+  <![CDATA[
+
+    <script xmlns:os="http://ns.opensocial.org/2008/markup" type="text/os-data">
+      /* here we can use data passed from the gadget to make an API call before the microapp is rendered. You must replace "your.sabacloud.com" with your site url. */
+
+      <os:HttpRequest key="profile_data" href="https://dxc-itg-api.sabacloud.com/v1/people/${ViewParams.sabaContext.userId}:(socialProfile,coreProfile,lname,fname,email,is_manager,person_no,customValues)?SabaCertificate=${ViewParams.sabaContext.certificate}"/>
+
+      <os:HttpRequest key="enrollments_data" href="https://dxc-itg-api.sabacloud.com/v1/enrollment?SabaCertificate=${ViewParams.sabaContext.certificate}"/>
+
+      <os:HttpRequest key="transcript_data" href="https://dxc-itg-api.sabacloud.com/v1/transcripts?SabaCertificate=${ViewParams.sabaContext.certificate}"/>
+
+/* Added by Shakeel for the Job Role data for testing */
+     <os:HttpRequest key="jobrole_data" href="https://dxc-itg-api.sabacloud.com/v1/role/roles000000000003140?includeassociation=true&SabaCertificate=${ViewParams.sabaContext.Certificate}"/>
+    </script>
+
+    <style type="text/css">
+      /* you could put a stylesheet in here too or link one in */
+
+      /* you can also link in javascript as you would a regular web page rather than coding it inline */
+    </style>
+
+    <script type="text/javascript">
+
+      function init(){
+        var profileData = opensocial.data.DataContext.getDataSet('profile_data'), // these 3 lines bring in the variables from above containing the API data
+            learningData = opensocial.data.DataContext.getDataSet('enrollments_data'),
+            transData = opensocial.data.DataContext.getDataSet('transcript_data'),
+
+            jobroleData = opensocial.data.DataContext.getDataSet('jobrole_data'), // Added by Shakeel for JobRole Data testing 
+            viewData = gadgets.views.getParams(), //this brings in the ViewParams data passed from Saba
+            div1 = document.getElementById("1"),
+            div2 = document.getElementById("2"),
+            div3 = document.getElementById("3"),
+            div4 = document.getElementById("4"); // added by shakeel for Jobrole data testing
+
+            //console.log(profileData.content.contact_email);
+            //debug json data
+            //console.log(viewData);
+            //console.log(profileData);
+
+
+
+
+        //did we get any gadget view data?
+        if (viewData){
+          var viewDataString = gadgets.json.stringify(viewData),
+          userName = viewData.sabaContext.userName,
+          userId = viewData.sabaContext.userId;
+
+          var divstuff = "<p>Your user name is: "+ userName +"<br> Your user id is: "+ userId +"</p>";
+          var divstuff = divstuff + "Raw JSON: <br>"+ viewDataString +"Test Certificate "+ gadgets.json.stringify(jobroleData);
+          div1.innerHTML = divstuff;
+
+          gadgets.window.adjustHeight()
+
+        } else {
+          //console.log("error loading gadget view data");
+          div1.innerHTML = "error loading gadget view data";
+        }
+
+
+
+
+        //did we get any saba api data?
+        if (profileData){
+          var apiDataString = gadgets.json.stringify(profileData),
+          firstName = profileData.content.fname,
+          lastName = profileData.content.lname;
+
+          var divstuff = "<p>Your first name is: "+ firstName +"<br> Your last name is: "+ lastName +"</p>";
+          var divstuff = divstuff + "Raw JSON: <br>"+ apiDataString;
+          //div2.innerHTML = divstuff;
+          
+          gadgets.window.adjustHeight()
+
+        } else {
+          //console.log("error loading profile api data");
+          div2.innerHTML = "error loading profile api data";
+        }
+
+        //did we get any more saba api data?
+        if (learningData){
+          var apiDataString2 = gadgets.json.stringify(learningData),
+          firstName = learningData.content.fname,
+          lastName = learningData.content.lname;
+
+          var divstuff = "<p>Stuff!</p>";
+          var divstuff = divstuff + "Raw JSON: <br>"+ apiDataString2;
+          div3.innerHTML = divstuff;
+
+          gadgets.window.adjustHeight()
+
+        } else {
+          //console.log("error loading profile api data");
+          div3.innerHTML = "error loading profile api data";
+        }
+
+
+// added by shakeel for jobrole testing data start 
+	 //did we get any Role data from saba api ?
+        if (jobroleData){
+	      var jobRoleDataString = gadgets.json.stringify(jobroleData),
+          userName = viewData.sabaContext.userName,
+          userId = viewData.sabaContext.userId;
+
+
+          var divstuff = "<p>Your user name is: "+ userName +"<br> Your user id is: "+ userId +"</p>";
+          var divstuff = divstuff + "Raw JSON: <br>"+  jobRoleDataString;
+          div4.innerHTML = divstuff;
+
+          gadgets.window.adjustHeight()
+        } else {
+          //console.log("error loading profile api data");
+          div4.innerHTML = "error loading profile api data";
+        }
+// added by shakeel for jobrole testing data end
+        if (transData){
+          console.log(transData);
+        }
+
+      }
+
+      gadgets.util.registerOnLoadHandler(init);
+
+    </script>
+
+    <script type="text/os-template">
+      <!-- *** style this UI, add an inline or referenced stylesheet earlier in this config file *** -->
+      <!-- this is what is presented as the microapp UI -->
+      <h2>View Params Data 121212</h2>
+      <div id="1" style="display: block; width: 95%; word-break: break-all;"></div>
+      <br>
+      <h2>Profile data via API</h2>
+      <div id="2" style="display: block; width: 95%; word-break: break-all;"></div>
+      <br>
+      <h2>Enrollment data via API</h2>
+      <div id="3" style="display: block; width: 95%; word-break: break-all;"></div>
+// added by shakeel for jobrole testing data Start 
+      <h2>Job Role Data data via API</h2>
+      <div id="4" style="display: block; width: 95%; word-break: break-all;"></div>
+// added by shakeel for jobrole testing data end 
+    </script>
+
+  ]]>
+  </Content>
 </Module>
