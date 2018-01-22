@@ -156,147 +156,129 @@
 	<Content type="html" view="profile">
   <![CDATA[
 
-    <script xmlns:os="http://ns.opensocial.org/2008/markup" type="text/os-data">
-      /* here we can use data passed from the gadget to make an API call before the microapp is rendered. You must replace "your.sabacloud.com" with your site url. */
-
-      <os:HttpRequest key="profile_data" href="https://dxc-itg-api.sabacloud.com/v1/people/${ViewParams.sabaContext.userId}:(socialProfile,coreProfile,lname,fname,email,is_manager,person_no,customValues)?SabaCertificate=${ViewParams.sabaContext.certificate}"/>
-
-      <os:HttpRequest key="enrollments_data" href="https://dxc-itg-api.sabacloud.com/v1/enrollment?SabaCertificate=${ViewParams.sabaContext.certificate}"/>
-
-      <os:HttpRequest key="transcript_data" href="https://dxc-itg-api.sabacloud.com/v1/transcripts?SabaCertificate=${ViewParams.sabaContext.certificate}"/>
-
-/* Added by Shakeel for the Job Role data for testing */
-     <os:HttpRequest key="jobrole_data" href="https://dxc-itg-api.sabacloud.com/v1/role/roles000000000003140?includeassociation=true&SabaCertificate=${ViewParams.sabaContext.Certificate}"/>
-    </script>
-
-    <style type="text/css">
-      /* you could put a stylesheet in here too or link one in */
-
-      /* you can also link in javascript as you would a regular web page rather than coding it inline */
-    </style>
-
-    <script type="text/javascript">
-
-      function init(){
-        var profileData = opensocial.data.DataContext.getDataSet('profile_data'), // these 3 lines bring in the variables from above containing the API data
-            learningData = opensocial.data.DataContext.getDataSet('enrollments_data'),
-            transData = opensocial.data.DataContext.getDataSet('transcript_data'),
-
-            jobroleData = opensocial.data.DataContext.getDataSet('jobrole_data'), // Added by Shakeel for JobRole Data testing 
-            viewData = gadgets.views.getParams(), //this brings in the ViewParams data passed from Saba
-            div1 = document.getElementById("1"),
-            div2 = document.getElementById("2"),
-            div3 = document.getElementById("3"),
-            div4 = document.getElementById("4"); // added by shakeel for Jobrole data testing
-
-            //console.log(profileData.content.contact_email);
-            //debug json data
-            //console.log(viewData);
-            //console.log(profileData);
+<style>
+body
+{
+   font-family:Arial, Calibri, Courier New;
+   font-size:12px
+}
 
 
+.textCounter {
+ color:#808080
+}
+
+ 
+</style>
+
+<script src='http://ajax.googleapis.com/ajax/libs/jquery/1.9.1/jquery.min.js' type='text/javascript'></script>
+
+<script type="text/javascript">
+
+var viewData = gadgets.views.getParams();
+var sabaCertificate = viewData.sabaContext.certificate;
+var userId = viewData.sabaContext.userId;
+
+$(function () {
 
 
-        //did we get any gadget view data?
-        if (viewData){
-          var viewDataString = gadgets.json.stringify(viewData),
-          userName = viewData.sabaContext.userName,
-          sabaCert = viewData.sabaContext.certificate,  
-          userId = viewData.sabaContext.userId;
-
-          var divstuff = "<p>Your user name is: "+ userName +"<br> Your user id is: "+ userId +  "<br> saba Cert from context: "+ sabaCert +   "</p>";
-          var divstuff = divstuff + "Raw JSON: <br>"+ viewDataString +"Test Certificate "+ gadgets.json.stringify(jobroleData);
-          div1.innerHTML = divstuff;
-
-          gadgets.window.adjustHeight()
-
-        } else {
-          //console.log("error loading gadget view data");
-          div1.innerHTML = "error loading gadget view data";
-        }
+    $("#btnSubmit").click(function () {         	
+		submitQuery()
+    });
+	
+	$('#jobRoleParam').keydown(function (event) {
+		var keypressed = event.keyCode || event.which;		
+		if (keypressed == 13) {
+			submitQuery()
+			event.preventDefault();							
+		}
+	});
+	
+});
 
 
+function submitQuery() {
+	$( "#result" ).empty();	
+	var inputParam = {};		
+	inputParam.name = $.trim($("[id*=jobRoleParam]").val());
+    alert(inputParam.name) 
+	//sabaCertificate="4E41335431534E42303038312D33313336333136313332333436333330333936323338354532333545353735333546343134343444343934453545323335453445343133333534333135333445343233303330333833313545323335453635364535463535353335453233354535333631363236313545323335453244333135453233354532343431343234303330324330323134374332333344364231333142313030323742323531333341383344453333433037423543353938333032313431324245414345443243463630423241373133343943433638364436394630443533323242384544";
+ 
+     
+    jobRoleSearchURLParam =  "q=(name==" + inputParam.name + ")&SabaCertificate="+sabaCertificate
+	alert(jobRoleSearchURLParam)
+	//var payLoad = '{"_source":["id","employeeId","firstName","lastName","resumeType","email","country","updatedOn","department"],"query":{"match":{"file.content":"'+ inputParam.name + '"}},"highlight":{"fields":{"file.content":{}}}}'
+  	var payLoad = ''
+	
+	$.ajax({
+		type: "GET",
+		url: "https://dxc-itg-api.sabacloud.com/v1/role",		
+		data: jobRoleSearchURLParam,
+		contentType: "application/json; charset=utf-8",   //contentType is for request
+		//dataType: "json",   //datatype is for response, this has problem with base64 string; could be json, html, text, etc
+		dataType: "text",
+		success: OnSuccess,
+		error: OnError
+
+	});
+
+}
 
 
-        //did we get any saba api data?
-        if (profileData){
-          var apiDataString = gadgets.json.stringify(profileData),
-          firstName = profileData.content.fname,
-          lastName = profileData.content.lname;
+function OnSuccess(response, status) {
+	//	alert("success here")
+	//	alert (response)
+    //var str = data.replace(/(?:\r\n|\r|\n)/g, '');
+	obj = JSON.parse(response); 
+	
+	var counter = obj.totalResults;
+	
+		
+	$("#result").append('<p class="textCounter">Number of results: ' + counter)  
+	
+	$("#result").append('<p></p>');
+	for (j = 0 ; j < counter ; j++) {
+	     
 
-          var divstuff = "<p>Your first name is: "+ firstName +"<br> Your last name is: "+ lastName +"</p>";
-          var divstuff = divstuff + "Raw JSON: <br>"+ apiDataString;
-          //div2.innerHTML = divstuff;
-          
-          gadgets.window.adjustHeight()
+		var roleId = obj.results[j].id
+		//alert ("roleID=" + roleId)
+		$("#result").append('<p class="textCounter">Role ID: ' + roleId)           
+    }
+}	
+		
+ 
+function OnError(request, status, error) {
+	alert("error here")
+	alert (JSON.stringify(request))
+	alert (JSON.stringify(error))
+        $("#lblData").html(request.statusText);
+}
 
-        } else {
-          //console.log("error loading profile api data");
-          div2.innerHTML = "error loading profile api data";
-        }
-
-        //did we get any more saba api data?
-        if (learningData){
-          var apiDataString2 = gadgets.json.stringify(learningData),
-          firstName = learningData.content.fname,
-          lastName = learningData.content.lname;
-
-          var divstuff = "<p>Stuff!</p>";
-          var divstuff = divstuff + "Raw JSON: <br>"+ apiDataString2;
-          div3.innerHTML = divstuff;
-
-          gadgets.window.adjustHeight()
-
-        } else {
-          //console.log("error loading profile api data");
-          div3.innerHTML = "error loading profile api data";
-        }
+</script>
 
 
-// added by shakeel for jobrole testing data start 
-	 //did we get any Role data from saba api ?
-        if (jobroleData){
-	      var jobRoleDataString = gadgets.json.stringify(jobroleData),
-          userName = viewData.sabaContext.userName,
-          userId = viewData.sabaContext.userId;
 
+<form>
+<div>
+<center>
+<table border="0" cellpadding="0" cellspacing="0">
+<tr>
 
-          var divstuff = "<p>Your user name is: "+ userName +"<br> Your user id is: "+ userId +"</p>";
-          var divstuff = divstuff + "Raw JSON: <br>"+  jobRoleDataString;
-          div4.innerHTML = divstuff;
+    <td>
 
-          gadgets.window.adjustHeight()
-        } else {
-          //console.log("error loading profile api data");
-          div4.innerHTML = "error loading profile api data";
-        }
-// added by shakeel for jobrole testing data end
-        if (transData){
-          console.log(transData);
-        }
+        <input type="text" id="jobRoleParam" size="70">
+		<input type="button" id="btnSubmit" value="Search">
+		
 
-      }
+    </td>
+</tr>
+</table>
+</center>
+</div>
 
-      gadgets.util.registerOnLoadHandler(init);
+<div id="result" style="margin: 50px 170px 0px 170px;">
 
-    </script>
-
-    <script type="text/os-template">
-      <!-- *** style this UI, add an inline or referenced stylesheet earlier in this config file *** -->
-      <!-- this is what is presented as the microapp UI -->
-      <h2>View Params Data 121212</h2>
-      <div id="1" style="display: block; width: 95%; word-break: break-all;"></div>
-      <br>
-      <h2>Profile data via API</h2>
-      <div id="2" style="display: block; width: 95%; word-break: break-all;"></div>
-      <br>
-      <h2>Enrollment data via API</h2>
-      <div id="3" style="display: block; width: 95%; word-break: break-all;"></div>
-// added by shakeel for jobrole testing data Start 
-      <h2>Job Role Data data via API</h2>
-      <div id="4" style="display: block; width: 95%; word-break: break-all;"></div>
-// added by shakeel for jobrole testing data end 
-    </script>
+</div>
 
   ]]>
   </Content>
