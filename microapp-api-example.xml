@@ -139,10 +139,11 @@
             console.log(obj.data);
 			console.log(obj.errors);
 			console.log(obj.text);
-			alert(" Role Details  --- "+obj.data)
+			//alert(" Role Details  --- "+obj.data)
 			if(obj.data)
 			{
-				var jsonObj = jQuery.parseJSON(obj);
+				alert(" Role Details  --- "+obj.data)
+				var jsonObj = obj);
 				data = '<table border="2"><tr><td><b>Object Name</b></td><td><b>Type</b></td></tr>';
 			   var i = 0;
 			   for (i = 0; i < jsonObj["associations"].learningevent.length; i++) {
@@ -179,7 +180,7 @@
                     <tr>
                         <td align="center"  style="font-weight:bold;">
                                                     
-                            Please Enter Your Initiative/ Progarm Code $$$$$
+                            Please Enter Your Initiative/ Progarm Code **************
 			</td>
                     </tr>
                     <tr>                            
