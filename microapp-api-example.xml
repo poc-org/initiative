@@ -89,7 +89,7 @@
            var inputParam = {};
            inputParam.name = $.trim($("[id*=searchRoleParam]").val());           
 		   alert(inputParam.name)
-           urlAPIRole = urlAPIRole+"q=(name==" + inputParam.name  + ")&SabaCertificate=" + sabaCertificate
+           urlAPIRole = urlAPIRole+"?q=(name==" + inputParam.name  + ")&SabaCertificate=" + sabaCertificate
            var payLoad = '';
 		alert(urlAPIRole);
 
@@ -142,7 +142,7 @@
                     <tr>
                         <td align="center"  style="font-weight:bold;">
                                                     
-                            Please Enter Your Initiative/ Progarm Code TTTTT
+                            Please Enter Your Initiative/ Progarm Code HHHH
 							</td>
                     </tr>
                     <tr>                            
