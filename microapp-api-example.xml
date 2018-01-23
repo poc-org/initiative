@@ -29,6 +29,7 @@
       /* you can also link in javascript as you would a regular web page rather than coding it inline */
     </style>
 	<script src='http://ajax.googleapis.com/ajax/libs/jquery/1.9.1/jquery.min.js' type='text/javascript'></script>
+	
     <script type="text/javascript">
 
       function init(){
@@ -59,8 +60,8 @@
 			 $("#btnRoleSubmit").click(function () {
                            
                //var test =
-                   //submitRoleQuery();
-				   UserAction();
+                   submitRoleQuery();
+				   //UserAction();
                //alert(test);
                //var test = OnSuccess(response, status);
                //alert(test+'Shakeel');
@@ -87,9 +88,8 @@
            $("#result").empty();
            var inputParam = {};
            inputParam.name = $.trim($("[id*=searchRoleParam]").val());           
-		   //alert(inputParam.name);
+		   alert(inputParam.name)
            jobRoleSearchURLParam = "q=(name==" + inputParam.name  + ")&SabaCertificate=" + sabaCertificate
-		   alert(jobRoleSearchURLParam);
            var payLoad = ''
 
            $.ajax({
@@ -105,41 +105,13 @@
            });
 
        }
-	   function requestCallback(response){
-	   alert(response);
-	   }
-	   function UserAction() {
-
- 		var inputParam = {};
-           inputParam.name = $.trim($("[id*=searchRoleParam]").val());   
-			 alert(inputParam.name);
-		   
-		   var url = "https://dxc-itg-api.sabacloud.com/v1/role?q=(name==eu2_role_test)&SabaCertificate=4E41335431534E42303038312D33313336333136313332333436333330333936323338354532333545353735333546343134343444343934453545323335453445343133333534333135333445343233303330333833313545323335453635364535463535353335453233354535333631363236313545323335453244333135453233354532343431343234303330324330323134374332333344364231333142313030323742323531333341383344453333433037423543353938333032313431324245414345443243463630423241373133343943433638364436394630443533323242384544";
-          gadgets.util.osapi.get({
-          "href": url,
-         "format": "text"
-      }).execute(requestCallback);
-		   }
 
        //var roleId;
        function OnSuccess(response, status) {
            var roleId;
-           //alert("success here")
-           //alert(response);
-           //var str = data.replace(/(?:\r\n|\r|\n)/g, '');
-           obj = JSON.parse(response);
-           var counter = obj.totalResults;
-           // $("#result").append('<p class="textCounter">Number of results: ' + counter)
-           //$("#result").append('<p></p>');
-           //alert(counter);
-               for (j = 0 ; j < counter ; j++) {
-                    roleId = obj.results[j].id
-                   //alert("roleID=" + roleId);
-               }
-              // alert("roleID=" + roleId);
-               //varRoleID = roleId;
-               //response = roleId;
-               submitEmpProfileListQuery(roleId);
+           alert("success here")
+           alert(response);
+           
        }
 
        function OnError(request, status, error) {
@@ -150,73 +122,8 @@
        }
        
       
-
-       function submitEmpProfileListQuery(roleId) {
-           $("#result").empty();           
-           //var inputParam = {};          
-           urlAPIEmpDetails = urlAPIRole + '/' + roleId;
-          // alert(urlAPIEmpDetails);          
-           //jobRoleSearchURLParam = "q=(name==" + inputParam.name + ")&33SabaCertificate=" + sabaCertificate
-           jobEmpSearchURLParam = "includeassociation=true&SabaCertificate=" + sabaCertificate
-           //alert(jobRoleSearchURLParam + '   Test SHakeel');
-           
-           var payLoad = ''
-
-           $.ajax({
-               type: "GET",
-               url: urlAPIEmpDetails,
-               data: jobEmpSearchURLParam,
-               contentType: "application/json; charset=utf-8",   //contentType is for request
-               //dataType: "json",   //datatype is for response, this has problem with base64 string; could be json, html, text, etc
-               dataType: "text",
-               success: OnSuccessEmpDetails,
-               error: OnErrorEmpDetails
-
-           });
-
-       }
-
-
-       function OnSuccessEmpDetails(response, status) {
-           
-           //alert("success here")
-           alert(response);
-           //var str = data.replace(/(?:\r\n|\r|\n)/g, '');
-           //obj = JSON.parse(response);
-           
-           //if(response)
-           //{
-               
-           //    var len = response.length;               
-               
-           //    var txt = "";
-           //    if (len > 0) {
-           //        for (var i = 0; i < len; i++) {
-           //            if (response[i].displayName && response[i].type) {
-           //                txt += "<tr><td>" + response[i].displayName + "</td><td>" + response[i].type + "</td></tr>";
-           //            }
-           //        }
-                  
-           //    }
-           //}
-           // $("#result").append('<p class="textCounter">Number of results: ' + counter)
-           //$("#result").append('<p></p>');
-           //alert(counter);
-          // for (j = 0 ; j < counter ; j++) {
-            //   roleId = obj.results[j].id
-              // alert("roleID=" + roleId);
-           //}
-
-           //return roleId;
-       }
-
-       function OnErrorEmpDetails(request, status, error) {
-           alert("error here");
-           alert(JSON.stringify(request));
-           alert(JSON.stringify(error));
-           $("#lblData").html(request.statusText);
-       }
-
+       
+      
       gadgets.util.registerOnLoadHandler(init);
 
     </script>
@@ -234,7 +141,7 @@
                     <tr>
                         <td align="center"  style="font-weight:bold;">
                                                     
-                            Please Enter Your Initiative/ Progarm Code 44444
+                            Please Enter Your Initiative/ Progarm Code PPPPP
 							</td>
                     </tr>
                     <tr>                            
