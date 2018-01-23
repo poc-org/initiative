@@ -43,7 +43,7 @@
             //console.log(profileData);
       }
 	  gadgets.util.registerOnLoadHandler(init);
-	var sabaCertificate = "4E41335431534E42303038312D33313336333136313332333436333330333936323338354532333545353735333546343134343444343934453545323335453445343133333534333135333445343233303330333833313545323335453635364535463535353335453233354535333631363236313545323335453244333135453233354532343431343234303330324330323134374332333344364231333142313030323742323531333341383344453333433037423543353938333032313431324245414345443243463630423241373133343943433638364436394630443533323242384544";
+	   var sabaCertificate = "4E41335431534E42303038312D33313336333136313332333436333330333936323338354532333545353735333546343134343444343934453545323335453445343133333534333135333445343233303330333833313545323335453635364535463535353335453233354535333631363236313545323335453244333135453233354532343431343234303330324330323134374332333344364231333142313030323742323531333341383344453333433037423543353938333032313431324245414345443243463630423241373133343943433638364436394630443533323242384544";
        var employeeID = "emplo000000000104546";
        var userName = "22014213";
        var urlAPIRole = "https://dxc-itg-api.sabacloud.com/v1/role";
@@ -52,8 +52,12 @@
        $(function () {       
 			 $("#btnRoleSubmit").click(function () {                           
                submitGetRole();
-               //alert(test);
-                //submitEmpProfileListQuery();			
+			    divRoleForm = document.getElementById('divRoleForm');
+                divRoleForm.style.display = "none";
+
+                divConfirmPreview = document.getElementById('divConfirmPreview');
+                divConfirmPreview.style.display = "block";
+               
            });
 
            $("#btnRoleCancel").click(function () {
@@ -61,8 +65,11 @@
            });
 
            $("#btnRoleBack").click(function () {
-               divConfirmPreviou = document.getElementById('divConfirmPreviou');
-               divConfirmPreviou.style.display = "none";
+               divConfirmPreview = document.getElementById('divConfirmPreview');
+               divConfirmPreview.style.display = "none";
+               divDeclinePreview = document.getElementById('divDeclinePreview');
+               divDeclinePreview.style.display = "block";
+               document.getElementById("lbRoleID").value = varRoleID;
 
            });
 
@@ -103,11 +110,11 @@
 			}
            		 		
 			varRoleID = roleId;
-			alert("roleID=" + varRoleID);
+			//alert("roleID=" + varRoleID);
 			submitGetRoleDetails(varRoleID);
         } 
 		/* Call Role API to get the RoleID.   END  */
-	/* Call Role API to get the Role Details.   Satrt 
+		/* Call Role API to get the Role Details.   Satrt 
 				Input: RoleID
 				OutPot: Skill; learningevent;associations
 		   */
@@ -120,8 +127,8 @@
             //var url = urlAPIRole + "?q=(name==" + inputParam.name  + ")&SabaCertificate=" + sabaCertificate;
 			//var urlAPIRoleDetails = urlAPIRole + '/' + roleID;
 			var jobEmpSearchURLParam = urlAPIRole + "/" + roleID+"?includeassociation=true&SabaCertificate=" + sabaCertificate;
-			alert(jobEmpSearchURLParam);
-	    gadgets.io.makeRequest(jobEmpSearchURLParam, roleDetail2Response, params);
+			//alert(jobEmpSearchURLParam);
+			gadgets.io.makeRequest(jobEmpSearchURLParam, roleDetail2Response, params);
         } 
 
         function roleDetail2Response(obj) {
@@ -133,7 +140,26 @@
 			console.log(obj.errors);
 			console.log(obj.text);
 			alert(" Role Details  --- "+obj.data)
-			
+			if(obj.data)
+			{
+				var jsonObj = jQuery.parseJSON(obj);
+				data = '<table border="2"><tr><td><b>Object Name</b></td><td><b>Type</b></td></tr>';
+			   var i = 0;
+			   for (i = 0; i < jsonObj["associations"].learningevent.length; i++) {
+
+				   obj = jsonObj["associations"].learningevent[i];
+
+				   data = data + '<tr><td>' + obj.displayName + '</td><td>' + obj.type + '</td></tr>';
+			   }
+			   for (i = 0; i < jsonObj["associations"].skill.length; i++) {
+
+				   obj = jsonObj["associations"].skill[i];
+
+				   data = data + '<tr><td>' + obj.displayName + '</td><td>' + obj.minimumRequired + '</td></tr>';
+			   }
+           data += '</table>';
+           document.getElementById("divCourseDetails").innerHTML = data;
+			}
 			
         } 
 		/* Call Role API to get the Role Details.   END */ 		
@@ -153,7 +179,7 @@
                     <tr>
                         <td align="center"  style="font-weight:bold;">
                                                     
-                            Please Enter Your Initiative/ Progarm Code 1111122222
+                            Please Enter Your Initiative/ Progarm Code 23232323
 			</td>
                     </tr>
                     <tr>                            
@@ -181,7 +207,7 @@
         </div>
 
     </div>
-    <!-- Search Box Start-->
+    <!-- Search Box END-->
 
     <!-- Employee Confirms Previous Box Start-->
     <div id="divConfirmPreviou" style="display:none">
@@ -214,6 +240,41 @@
         </div>
 
     </div>
+	<!-- Employee Confirms Previous Box END-->
+	<!-- User Declined Participation Box Start-->
+    <div id="divDeclinePreview" style="display:none">
+        <div>
+            <center>
+                <table border="10" cellpadding="10" cellspacing="10">
+                    <tr>
+                        <td align="center" style="font-weight:bold;"><p>
+                                 Sorry You Could Not Participate At This Time.  If Later You Wish To Become A Technology Leader Of DXC’s Future Business You Can Do So By Selecting  “Me” and “Initiatives/Programs”.  Remember You Will Need Code
+                                  <label id="lbRoleID"></label>
+                                </p>
+                        </td>
+                    </tr>
+
+                    <tr>
+                        <td>
+                            <table align="center">
+                                <tr>
+                                    <td align="center">
+                                        <input type="button" id="btnCloseDecline" value="Close">
+                                        
+                                    </td>
+                                </tr>
+                            </table>
+                        </td>
+
+                    </tr>
+                </table>
+            </center>
+
+        </div>
+
+    </div>
+    <!-- User Declined Participation Box END-->
+    
     </script>
 
   ]]>
