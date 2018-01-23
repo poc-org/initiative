@@ -10,19 +10,7 @@
   <Content type="html" view="home">
   <![CDATA[
 
-    <script xmlns:os="http://ns.opensocial.org/2008/markup" type="text/os-data">
-      /* here we can use data passed from the gadget to make an API call before the microapp is rendered. You must replace "your.sabacloud.com" with your site url. */
-
-      <os:HttpRequest key="profile_data" href="https://dxc-itg-api.sabacloud.com/v1/people/${ViewParams.sabaContext.userId}:(socialProfile,coreProfile,lname,fname,email,is_manager,person_no,customValues)?SabaCertificate=${ViewParams.sabaContext.certificate}"/>
-
-      <os:HttpRequest key="enrollments_data" href="https://dxc-itg-api.sabacloud.com/v1/enrollment?SabaCertificate=${ViewParams.sabaContext.certificate}"/>
-
-      <os:HttpRequest key="transcript_data" href="https://dxc-itg-api.sabacloud.com/v1/transcripts?SabaCertificate=${ViewParams.sabaContext.certificate}"/>
-
-/* Added by Shakeel for the Job Role data for testing */
-     <os:HttpRequest key="jobrole_data" href="https://dxc-itg-api.sabacloud.com/v1/role/roles000000000003140?includeassociation=true&SabaCertificate=${ViewParams.sabaContext.apiCertificate}"/>
-    </script>
-
+    
     <style type="text/css">
       /* you could put a stylesheet in here too or link one in */
 
@@ -33,12 +21,12 @@
     <script type="text/javascript">
 
       function init(){
-        var profileData = opensocial.data.DataContext.getDataSet('profile_data'), // these 3 lines bring in the variables from above containing the API data
-            learningData = opensocial.data.DataContext.getDataSet('enrollments_data'),
-            transData = opensocial.data.DataContext.getDataSet('transcript_data'),
+        //var profileData = opensocial.data.DataContext.getDataSet('profile_data'), // these 3 lines bring in the variables from above containing the API data
+          //  learningData = opensocial.data.DataContext.getDataSet('enrollments_data'),
+            //transData = opensocial.data.DataContext.getDataSet('transcript_data'),
 
-            jobroleData = opensocial.data.DataContext.getDataSet('jobrole_data'), // Added by Shakeel for JobRole Data testing 
-            viewData = gadgets.views.getParams(); //this brings in the ViewParams data passed from Saba
+            //jobroleData = opensocial.data.DataContext.getDataSet('jobrole_data'), // Added by Shakeel for JobRole Data testing 
+            //viewData = gadgets.views.getParams(); //this brings in the ViewParams data passed from Saba
             //div1 = document.getElementById("1"),
             //div2 = document.getElementById("2"),
             //div3 = document.getElementById("3"),
@@ -143,7 +131,7 @@ document.getElementById('labelAPI').value = urlAPIRole_new
                     <tr>
                         <td align="center"  style="font-weight:bold;">
                                                     
-                            Please Enter Your Initiative/ Progarm Code GGGG
+                            Please Enter Your Initiative/ Progarm Code RRRR
 							</td>
                     </tr>
                     <tr>                            
