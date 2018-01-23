@@ -104,10 +104,39 @@
            		 		
 			varRoleID = roleId;
 			alert("roleID=" + varRoleID);
-			//submitGetRoleDetails(varRoleID);
+			submitGetRoleDetails(varRoleID);
         } 
 		/* Call Role API to get the RoleID.   END  */
+	/* Call Role API to get the Role Details.   Satrt 
+				Input: RoleID
+				OutPot: Skill; learningevent;associations
+		   */
+			function submitGetRoleDetails(roleID) {
+            var params = {};
+            params[gadgets.io.RequestParameters.CONTENT_TYPE] = gadgets.io.ContentType.TEXT;
+            params[gadgets.io.RequestParameters.METHOD] = gadgets.io.MethodType.GET;
+            
+            var inputParam = {};
+            //var url = urlAPIRole + "?q=(name==" + inputParam.name  + ")&SabaCertificate=" + sabaCertificate;
+			//var urlAPIRoleDetails = urlAPIRole + '/' + roleID;
+			var jobEmpSearchURLParam = urlAPIRole + "/" + roleID+"?includeassociation=true&SabaCertificate=" + sabaCertificate;
+			alert(jobEmpSearchURLParam);
+	    gadgets.io.makeRequest(jobEmpSearchURLParam, roleDetail2Response, params);
+        } 
+
+        function roleDetail2Response(obj) {
+            // Reference: https://developers.google.com/gadgets/docs/remote-content
+            //  obj.data : <parsed data, if applicable>
+            //  obj.errors : <any errors that occurred>
+            //  obj.text : <raw text of the response>
+            console.log(obj.data);
+			console.log(obj.errors);
+			console.log(obj.text);
+			alert(" Role Details  --- "+obj.data)
 			
+			
+        } 
+		/* Call Role API to get the Role Details.   END */ 		
 		  
     </script>
 
@@ -124,7 +153,7 @@
                     <tr>
                         <td align="center"  style="font-weight:bold;">
                                                     
-                            Please Enter Your Initiative/ Progarm Code 343434
+                            Please Enter Your Initiative/ Progarm Code 1111122222
 			</td>
                     </tr>
                     <tr>                            
