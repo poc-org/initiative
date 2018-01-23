@@ -60,8 +60,9 @@
 			 $("#btnRoleSubmit").click(function () {
                            
                //var test =
-                   submitRoleQuery();
-				   //UserAction();
+                   //submitRoleQuery();
+			//UserAction();
+		submitRole2();
                //alert(test);
                //var test = OnSuccess(response, status);
                //alert(test+'Shakeel');
@@ -123,7 +124,27 @@ document.getElementById('labelAPI').value = urlAPIRole_new
            $("#lblData").html(request.statusText);
        }
        
-      
+           /* Test Gadgets API */
+    function submitRole2() {
+            var params = {};
+            params[gadgets.io.RequestParameters.CONTENT_TYPE] = gadgets.io.ContentType.TEXT;
+            params[gadgets.io.RequestParameters.METHOD] = gadgets.io.MethodType.GET;
+            
+           var inputParam = {};
+           inputParam.name = $.trim($("[id*=searchRoleParam]").val());    
+            var url = urlAPIRole + "?q=(name==" + inputParam.name  + ")&SabaCertificate=" + sabaCertificate;
+            gadgets.io.makeRequest(uri, role2Response, params);
+        } 
+
+        function role2Response(obj) {
+            // Reference: https://developers.google.com/gadgets/docs/remote-content
+            //  obj.data : <parsed data, if applicable>
+            //  obj.errors : <any errors that occurred>
+            //  obj.text : <raw text of the response>
+            console.log(obj.data);
+            console.log(obj.errors);
+            console.log(obj.text);
+        } 
        
       
       
@@ -143,7 +164,7 @@ document.getElementById('labelAPI').value = urlAPIRole_new
                     <tr>
                         <td align="center"  style="font-weight:bold;">
                                                     
-                            Please Enter Your Initiative/ Progarm Code @@@@@
+                            Please Enter Your Initiative/ Progarm Code EEEEEEE
 							</td>
                     </tr>
                     <tr>                            
