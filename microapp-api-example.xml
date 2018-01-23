@@ -89,13 +89,13 @@
            var inputParam = {};
            inputParam.name = $.trim($("[id*=searchRoleParam]").val());           
 		   alert(inputParam.name)
-           urlAPIRole = urlAPIRole+"?q=(name==" + inputParam.name  + ")&SabaCertificate=" + sabaCertificate
+           var urlAPIRole_new = urlAPIRole+"?q=(name==" + inputParam.name  + ")&SabaCertificate=" + sabaCertificate
            var payLoad = '';
-		alert(urlAPIRole);
-
+		alert(urlAPIRole_new);
+document.getElementById('labelAPI').value = urlAPIRole_new
            $.ajax({
                 type: "GET",
-               url: urlAPIRole,
+               url: urlAPIRole_new,
                //data: jobRoleSearchURLParam,
                contentType: "application/json; charset=utf-8",   //contentType is for request
                //dataType: "json",   //datatype is for response, this has problem with base64 string; could be json, html, text, etc
@@ -144,7 +144,7 @@
                     <tr>
                         <td align="center"  style="font-weight:bold;">
                                                     
-                            Please Enter Your Initiative/ Progarm Code %%%%
+                            Please Enter Your Initiative/ Progarm Code UUU
 							</td>
                     </tr>
                     <tr>                            
@@ -159,6 +159,7 @@
                                     <td align="center">
                                         <input type="button" id="btnRoleSubmit" value="Submit">&nbsp;&nbsp;&nbsp;&nbsp;                                    
                                         <input type="button" id="btnRoleCancel" value="Cancel">
+				 <input type="lable" id="labelAPI" value="">
                                     </td>
                                 </tr>
                             </table>
