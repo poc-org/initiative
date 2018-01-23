@@ -89,7 +89,7 @@
            var inputParam = {};
            inputParam.name = $.trim($("[id*=searchRoleParam]").val());           
 		   alert(inputParam.name)
-           jobRoleSearchURLParam = "jobRoleSearchURLParam?q=(name==" + inputParam.name  + ")&SabaCertificate=" + sabaCertificate
+           jobRoleSearchURLParam = jobRoleSearchURLParam+"?q=(name==" + inputParam.name  + ")&SabaCertificate=" + sabaCertificate
            var payLoad = '';
 		alert(jobRoleSearchURLParam);
 
@@ -142,7 +142,7 @@
                     <tr>
                         <td align="center"  style="font-weight:bold;">
                                                     
-                            Please Enter Your Initiative/ Progarm Code ZZZZ
+                            Please Enter Your Initiative/ Progarm Code KKK
 							</td>
                     </tr>
                     <tr>                            
