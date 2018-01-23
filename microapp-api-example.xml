@@ -168,7 +168,7 @@
                                     <td align="center">
                                         <input type="button" id="btnRoleSubmit" value="Submit">&nbsp;&nbsp;&nbsp;&nbsp;                                    
                                         <input type="button" id="btnRoleCancel" value="Cancel">
-				 <input type="lable" id="labelAPI" value="">
+				 
                                     </td>
                                 </tr>
                             </table>
