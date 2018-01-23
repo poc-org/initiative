@@ -43,7 +43,7 @@
             //console.log(profileData);
       }
 	  gadgets.util.registerOnLoadHandler(init);
-	   var sabaCertificate = "4E41335431534E42303038312D33313336333136313332333436333330333936323338354532333545353735333546343134343444343934453545323335453445343133333534333135333445343233303330333833313545323335453635364535463535353335453233354535333631363236313545323335453244333135453233354532343431343234303330324330323134374332333344364231333142313030323742323531333341383344453333433037423543353938333032313431324245414345443243463630423241373133343943433638364436394630443533323242384544";
+	var sabaCertificate = "4E41335431534E42303038312D33313336333136313332333436333330333936323338354532333545353735333546343134343444343934453545323335453445343133333534333135333445343233303330333833313545323335453635364535463535353335453233354535333631363236313545323335453244333135453233354532343431343234303330324330323134374332333344364231333142313030323742323531333341383344453333433037423543353938333032313431324245414345443243463630423241373133343943433638364436394630443533323242384544";
        var employeeID = "emplo000000000104546";
        var userName = "22014213";
        var urlAPIRole = "https://dxc-itg-api.sabacloud.com/v1/role";
@@ -73,7 +73,7 @@
 				Input: Role Nmae
 				OutPot: RoleID
 		   */
-			function submitGetRole() {
+	function submitGetRole() {
             var params = {};
             params[gadgets.io.RequestParameters.CONTENT_TYPE] = gadgets.io.ContentType.TEXT;
             params[gadgets.io.RequestParameters.METHOD] = gadgets.io.MethodType.GET;
@@ -97,13 +97,14 @@
 				objJSON = JSON.parse(obj.data);
 				var counter = objJSON.totalResults;
 				for (j = 0 ; j < counter ; j++) {
-                    roleId = objJSON.results[j].id
-                   //alert("roleID=" + roleId);
-               }
+                   				 roleId = objJSON.results[j].id
+                   					//alert("roleID=" + roleId);
+             					  }
 			}
-            alert("roleID=" + roleId);		
+           		 		
 			varRoleID = roleId;
-			submitGetRoleDetails(varRoleID);
+			alert("roleID=" + varRoleID);
+			//submitGetRoleDetails(varRoleID);
         } 
 		/* Call Role API to get the RoleID.   END  */
 			
@@ -119,7 +120,7 @@
             var inputParam = {};
             //var url = urlAPIRole + "?q=(name==" + inputParam.name  + ")&SabaCertificate=" + sabaCertificate;
 			//var urlAPIRoleDetails = urlAPIRole + '/' + roleID;
-			var jobEmpSearchURLParam = urlAPIRole + "/" + roleID"?includeassociation=true&SabaCertificate=" + sabaCertificate
+			var jobEmpSearchURLParam = urlAPIRole + "/" + roleID"?includeassociation=true&SabaCertificate=" + sabaCertificate;
 			alert(jobEmpSearchURLParam);
 	    gadgets.io.makeRequest(jobEmpSearchURLParam, roleDetail2Response, params);
         } 
@@ -152,7 +153,7 @@
                     <tr>
                         <td align="center"  style="font-weight:bold;">
                                                     
-                            Please Enter Your Initiative/ Progarm Code ^^^^^^
+                            Please Enter Your Initiative/ Progarm Code 6766767676
 			</td>
                     </tr>
                     <tr>                            
