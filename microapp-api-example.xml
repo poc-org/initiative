@@ -120,7 +120,8 @@
             //var url = urlAPIRole + "?q=(name==" + inputParam.name  + ")&SabaCertificate=" + sabaCertificate;
 			//var urlAPIRoleDetails = urlAPIRole + '/' + roleID;
 			var jobEmpSearchURLParam = urlAPIRole + "/" + roleID"?includeassociation=true&SabaCertificate=" + sabaCertificate
-            gadgets.io.makeRequest(jobEmpSearchURLParam, roleDetail2Response, params);
+			alert(jobEmpSearchURLParam);
+	    gadgets.io.makeRequest(jobEmpSearchURLParam, roleDetail2Response, params);
         } 
 
         function roleDetail2Response(obj) {
@@ -151,7 +152,7 @@
                     <tr>
                         <td align="center"  style="font-weight:bold;">
                                                     
-                            Please Enter Your Initiative/ Progarm Code $$$$$$$
+                            Please Enter Your Initiative/ Progarm Code ^^^^^^
 			</td>
                     </tr>
                     <tr>                            
