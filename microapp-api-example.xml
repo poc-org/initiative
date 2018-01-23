@@ -179,7 +179,7 @@
                     <tr>
                         <td align="center"  style="font-weight:bold;">
                                                     
-                            Please Enter Your Initiative/ Progarm Code 454545
+                            Please Enter Your Initiative/ Progarm Code 67676767
 			</td>
                     </tr>
                     <tr>                            
@@ -217,7 +217,9 @@
                     <tr>
                         <td align="center" style="font-weight:bold;">
 
-                            Profile Details
+                             <div id="divCourseDetails">
+
+                            </div>
                         </td>
                     </tr>
 
