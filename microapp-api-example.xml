@@ -89,9 +89,9 @@
            var inputParam = {};
            inputParam.name = $.trim($("[id*=searchRoleParam]").val());           
 		   alert(inputParam.name)
-           jobRoleSearchURLParam = jobRoleSearchURLParam+"?q=(name==" + inputParam.name  + ")&SabaCertificate=" + sabaCertificate
+           urlAPIRole = urlAPIRole+"q=(name==" + inputParam.name  + ")&SabaCertificate=" + sabaCertificate
            var payLoad = '';
-		alert(jobRoleSearchURLParam);
+		alert(urlAPIRole);
 
            $.ajax({
                type: "GET",
@@ -142,7 +142,7 @@
                     <tr>
                         <td align="center"  style="font-weight:bold;">
                                                     
-                            Please Enter Your Initiative/ Progarm Code KKK
+                            Please Enter Your Initiative/ Progarm Code MMMM
 							</td>
                     </tr>
                     <tr>                            
