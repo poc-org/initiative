@@ -143,7 +143,7 @@
 			if(obj.data)
 			{
 				alert(" Role Details  --- "+obj.data)
-				var jsonObj = obj;
+				jsonObj = JSON.parse(obj.data)
 				data = '<table border="2"><tr><td><b>Object Name</b></td><td><b>Type</b></td></tr>';
 			   var i = 0;
 			   for (i = 0; i < jsonObj["associations"].learningevent.length; i++) {
@@ -180,7 +180,7 @@
                     <tr>
                         <td align="center"  style="font-weight:bold;">
                                                     
-                            Please Enter Your Initiative/ Progarm Code 90909090
+                            Please Enter Your Initiative/ Progarm Code 33333333
 			</td>
                     </tr>
                     <tr>                            
