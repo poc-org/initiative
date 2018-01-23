@@ -142,7 +142,7 @@
 			//alert(" Role Details  --- "+obj.data)
 			if(obj.data)
 			{
-				alert(" Role Details  --- "+obj.data)
+				//alert(" Role Details  --- "+obj.data)
 				jsonObj = JSON.parse(obj.data)
 				data = '<table border="2"><tr><td><b>Object Name</b></td><td><b>Type</b></td></tr>';
 			   var i = 0;
