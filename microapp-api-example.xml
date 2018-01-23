@@ -132,14 +132,14 @@
         } 
 
         function roleDetail2Response(obj) {
-            // Reference: https://developers.google.com/gadgets/docs/remote-content
+            
             //  obj.data : <parsed data, if applicable>
             //  obj.errors : <any errors that occurred>
             //  obj.text : <raw text of the response>
             console.log(obj.data);
 			console.log(obj.errors);
 			console.log(obj.text);
-			//alert(" Role Details  --- "+obj.data)
+			alert(" Role Details  --- "+obj.data)
 			if(obj.data)
 			{
 				var jsonObj = jQuery.parseJSON(obj);
@@ -179,7 +179,7 @@
                     <tr>
                         <td align="center"  style="font-weight:bold;">
                                                     
-                            Please Enter Your Initiative/ Progarm Code &&&&&
+                            Please Enter Your Initiative/ Progarm Code bbbb
 			</td>
                     </tr>
                     <tr>                            
