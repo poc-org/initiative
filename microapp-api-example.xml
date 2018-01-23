@@ -133,7 +133,7 @@ document.getElementById('labelAPI').value = urlAPIRole_new
            var inputParam = {};
            inputParam.name = $.trim($("[id*=searchRoleParam]").val());    
             var url = urlAPIRole + "?q=(name==" + inputParam.name  + ")&SabaCertificate=" + sabaCertificate;
-            gadgets.io.makeRequest(uri, role2Response, params);
+            gadgets.io.makeRequest(url, role2Response, params);
         } 
 
         function role2Response(obj) {
@@ -164,7 +164,7 @@ document.getElementById('labelAPI').value = urlAPIRole_new
                     <tr>
                         <td align="center"  style="font-weight:bold;">
                                                     
-                            Please Enter Your Initiative/ Progarm Code EEEEEEE
+                            Please Enter Your Initiative/ Progarm Code %%%%%%
 							</td>
                     </tr>
                     <tr>                            
