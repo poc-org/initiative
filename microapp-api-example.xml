@@ -12,20 +12,15 @@
 
     <script xmlns:os="http://ns.opensocial.org/2008/markup" type="text/os-data">
       /* here we can use data passed from the gadget to make an API call before the microapp is rendered. You must replace "your.sabacloud.com" with your site url. */
-
       <os:HttpRequest key="profile_data" href="https://dxc-itg-api.sabacloud.com/v1/people/${ViewParams.sabaContext.userId}:(socialProfile,coreProfile,lname,fname,email,is_manager,person_no,customValues)?SabaCertificate=${ViewParams.sabaContext.certificate}"/>
-
       <os:HttpRequest key="enrollments_data" href="https://dxc-itg-api.sabacloud.com/v1/enrollment?SabaCertificate=${ViewParams.sabaContext.certificate}"/>
-
       <os:HttpRequest key="transcript_data" href="https://dxc-itg-api.sabacloud.com/v1/transcripts?SabaCertificate=${ViewParams.sabaContext.certificate}"/>
-
-/* Added by Shakeel for the Job Role data for testing */
-     <os:HttpRequest key="jobrole_data" href="https://dxc-itg-api.sabacloud.com/v1/role/roles000000000003140?includeassociation=true&SabaCertificate=${ViewParams.sabaContext.apiCertificate}"/>
-    </script>
+	  /* Added by Shakeel for the Job Role data for testing */
+     /*<os:HttpRequest key="jobrole_data" href="https://dxc-itg-api.sabacloud.com/v1/role/roles000000000003140?includeassociation=true&SabaCertificate=${ViewParams.sabaContext.apiCertificate}"/>*/
+   </script>
 
     <style type="text/css">
       /* you could put a stylesheet in here too or link one in */
-
       /* you can also link in javascript as you would a regular web page rather than coding it inline */
     </style>
 	<script src='http://ajax.googleapis.com/ajax/libs/jquery/1.9.1/jquery.min.js' type='text/javascript'></script>
@@ -36,14 +31,12 @@
         var profileData = opensocial.data.DataContext.getDataSet('profile_data'), // these 3 lines bring in the variables from above containing the API data
             learningData = opensocial.data.DataContext.getDataSet('enrollments_data'),
             transData = opensocial.data.DataContext.getDataSet('transcript_data'),
-
             jobroleData = opensocial.data.DataContext.getDataSet('jobrole_data'), // Added by Shakeel for JobRole Data testing 
             viewData = gadgets.views.getParams(); //this brings in the ViewParams data passed from Saba
             //div1 = document.getElementById("1"),
             //div2 = document.getElementById("2"),
             //div3 = document.getElementById("3"),
             //div4 = document.getElementById("4"); // added by shakeel for Jobrole data testing
-
             //console.log(profileData.content.contact_email);
             //debug json data
             //console.log(viewData);
@@ -57,17 +50,11 @@
        var varRoleID;
 
        $(function () {       
-			 $("#btnRoleSubmit").click(function () {
-                           
+			 $("#btnRoleSubmit").click(function () {                           
                submitGetRole();
                //alert(test);
-               //var test = OnSuccess(response, status);
-               //alert(test+'Shakeel');
-                //submitEmpProfileListQuery();
-			
+                //submitEmpProfileListQuery();			
            });
-
-
 
            $("#btnRoleCancel").click(function () {
                document.getElementById("searchRoleParam").value = ""
@@ -79,50 +66,14 @@
 
            });
 
-
        });
 
-       function submitRoleQuery() {
-           $("#result").empty();
-           var inputParam = {};
-           inputParam.name = $.trim($("[id*=searchRoleParam]").val());           
-		   alert(inputParam.name)
-           var urlAPIRole_new = urlAPIRole+"?q=(name==" + inputParam.name  + ")&SabaCertificate=" + sabaCertificate
-           var payLoad = '';
-		alert(urlAPIRole_new);
-document.getElementById('labelAPI').value = urlAPIRole_new
-           $.ajax({
-                type: "GET",
-               url: urlAPIRole_new,
-               //data: jobRoleSearchURLParam,
-               contentType: "application/json; charset=utf-8",   //contentType is for request
-               //dataType: "json",   //datatype is for response, this has problem with base64 string; could be json, html, text, etc
-               dataType: "text",
-		async: true,
-               success: OnSuccess,
-               error: OnError
-
-           });
-
-       }
-
-       //var roleId;
-       function OnSuccess(response, status) {
-           var roleId;
-           alert("success here")
-           alert(response);
-           
-       }
-
-       function OnError(request, status, error) {
-           alert("error here");
-           alert(JSON.stringify(request));
-           alert(JSON.stringify(error));
-           $("#lblData").html(request.statusText);
-       }
-       
-           /* Test Gadgets API */
-    function submitGetRole() {
+          
+           /* Call Role API to get the RoleID.   Satrt 
+				Input: Role Nmae
+				OutPot: RoleID
+		   */
+			function submitGetRole() {
             var params = {};
             params[gadgets.io.RequestParameters.CONTENT_TYPE] = gadgets.io.ContentType.TEXT;
             params[gadgets.io.RequestParameters.METHOD] = gadgets.io.MethodType.GET;
@@ -147,17 +98,44 @@ document.getElementById('labelAPI').value = urlAPIRole_new
 				var counter = objJSON.totalResults;
 				for (j = 0 ; j < counter ; j++) {
                     roleId = objJSON.results[j].id
-                   alert("roleID=" + roleId);
+                   //alert("roleID=" + roleId);
                }
 			}
-            alert("roleID=" + roleId);
+            alert("roleID=" + roleId);		
+			varRoleID = roleId;
+			submitGetRoleDetails(varRoleID);
+        } 
+		/* Call Role API to get the RoleID.   END  */
+			
+		  /* Call Role API to get the Role Details.   Satrt 
+				Input: RoleID
+				OutPot: Skill; learningevent;associations
+		   */
+			function submitGetRoleDetails(roleID) {
+            var params = {};
+            params[gadgets.io.RequestParameters.CONTENT_TYPE] = gadgets.io.ContentType.TEXT;
+            params[gadgets.io.RequestParameters.METHOD] = gadgets.io.MethodType.GET;
+            
+            var inputParam = {};
+            //var url = urlAPIRole + "?q=(name==" + inputParam.name  + ")&SabaCertificate=" + sabaCertificate;
+			//var urlAPIRoleDetails = urlAPIRole + '/' + roleID;
+			var jobEmpSearchURLParam = urlAPIRole + "/" + roleID"?includeassociation=true&SabaCertificate=" + sabaCertificate
+            gadgets.io.makeRequest(jobEmpSearchURLParam, roleDetail2Response, params);
+        } 
+
+        function roleDetail2Response(obj) {
+            // Reference: https://developers.google.com/gadgets/docs/remote-content
+            //  obj.data : <parsed data, if applicable>
+            //  obj.errors : <any errors that occurred>
+            //  obj.text : <raw text of the response>
+            console.log(obj.data);
+			console.log(obj.errors);
+			console.log(obj.text);
+			alert(" Role Details  --- "+obj.data)
 			
 			
         } 
-       
-      
-      
-
+		/* Call Role API to get the Role Details.   END */ 
     </script>
 
     <script type="text/os-template">
@@ -173,8 +151,8 @@ document.getElementById('labelAPI').value = urlAPIRole_new
                     <tr>
                         <td align="center"  style="font-weight:bold;">
                                                     
-                            Please Enter Your Initiative/ Progarm Code ********
-							</td>
+                            Please Enter Your Initiative/ Progarm Code $$$$$$$
+			</td>
                     </tr>
                     <tr>                            
                             <td align="center" >
