@@ -100,7 +100,7 @@ document.getElementById('labelAPI').value = urlAPIRole_new
                contentType: "application/json; charset=utf-8",   //contentType is for request
                //dataType: "json",   //datatype is for response, this has problem with base64 string; could be json, html, text, etc
                dataType: "text",
-		Referer: urlAPIRole,
+		async: true,
                success: OnSuccess,
                error: OnError
 
@@ -143,7 +143,7 @@ document.getElementById('labelAPI').value = urlAPIRole_new
                     <tr>
                         <td align="center"  style="font-weight:bold;">
                                                     
-                            Please Enter Your Initiative/ Progarm Code #####
+                            Please Enter Your Initiative/ Progarm Code @@@@@
 							</td>
                     </tr>
                     <tr>                            
