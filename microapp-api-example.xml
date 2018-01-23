@@ -139,7 +139,7 @@
             console.log(obj.data);
 			console.log(obj.errors);
 			console.log(obj.text);
-			alert(" Role Details  --- "+obj.data)
+			//alert(" Role Details  --- "+obj.data)
 			if(obj.data)
 			{
 				var jsonObj = jQuery.parseJSON(obj);
@@ -179,7 +179,7 @@
                     <tr>
                         <td align="center"  style="font-weight:bold;">
                                                     
-                            Please Enter Your Initiative/ Progarm Code 23232323
+                            Please Enter Your Initiative/ Progarm Code 454545
 			</td>
                     </tr>
                     <tr>                            
@@ -210,7 +210,7 @@
     <!-- Search Box END-->
 
     <!-- Employee Confirms Previous Box Start-->
-    <div id="divConfirmPreviou" style="display:none">
+    <div id="divConfirmPreview" style="display:none">
         <div>
             <center>
                 <table border="10" cellpadding="10" cellspacing="10">
