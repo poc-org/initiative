@@ -94,12 +94,14 @@
 		alert(urlAPIRole);
 
            $.ajax({
-               type: "GET",
+                type: "GET",
                url: urlAPIRole,
                //data: jobRoleSearchURLParam,
-               contentType: "application/json",   //contentType is for request
+               contentType: "application/json; charset=utf-8",   //contentType is for request
                //dataType: "json",   //datatype is for response, this has problem with base64 string; could be json, html, text, etc
                dataType: "text",
+		cache: false,
+		processData: false,
                success: OnSuccess,
                error: OnError
 
@@ -142,7 +144,7 @@
                     <tr>
                         <td align="center"  style="font-weight:bold;">
                                                     
-                            Please Enter Your Initiative/ Progarm Code #####
+                            Please Enter Your Initiative/ Progarm Code %%%%
 							</td>
                     </tr>
                     <tr>                            
