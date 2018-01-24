@@ -89,6 +89,7 @@
             inputParam.name = $.trim($("[id*=searchRoleParam]").val());    
             var url = urlAPIRole + "?q=(name==" + inputParam.name  + ")&SabaCertificate=" + sabaCertificate;
             gadgets.io.makeRequest(url, role2Response, params);
+			document.getElementById("lbRoleID").innerHTML = inputParam.name;
         } 
 
         function role2Response(obj) {
@@ -132,7 +133,8 @@
         } 
 
         function roleDetail2Response(obj) {
-            
+            // Reference: https://developers.google.com/gadgets/docs/remote-content
+
             //  obj.data : <parsed data, if applicable>
             //  obj.errors : <any errors that occurred>
             //  obj.text : <raw text of the response>
@@ -142,7 +144,7 @@
 			//alert(" Role Details  --- "+obj.data)
 			if(obj.data)
 			{
-				//alert(" Role Details  --- "+obj.data)
+
 				jsonObj = JSON.parse(obj.data)
 				data = '<table border="2"><tr><td><b>Object Name</b></td><td><b>Type</b></td></tr>';
 			   var i = 0;
@@ -180,7 +182,7 @@
                     <tr>
                         <td align="center"  style="font-weight:bold;">
                                                     
-                            Please Enter Your Initiative/ Progarm Code 33333333
+                            Please Enter Your Initiative/ Progarm Code ******
 			</td>
                     </tr>
                     <tr>                            
@@ -251,8 +253,8 @@
                 <table border="10" cellpadding="10" cellspacing="10">
                     <tr>
                         <td align="center" style="font-weight:bold;"><p>
-                                 Sorry You Could Not Participate At This Time.  If Later You Wish To Become A Technology Leader Of DXC’s Future Business You Can Do So By Selecting  “Me” and “Initiatives/Programs”.  Remember You Will Need Code
-                                  <label id="lbRoleID"></label>
+                                 Sorry You Could Not Participate At This Time.  If Later You Wish To Become A Technology Leader Of DXC’s Future Business You Can Do So By Selecting  “Me” and “Initiatives/Programs”.  Remember You Will Need Code "<label id="lbRoleID"></label>".                                  
+
                                 </p>
                         </td>
                     </tr>
