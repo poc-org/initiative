@@ -179,10 +179,11 @@
             var params = {};
 				//postdata = gadgets.io.encodeValues(postData12);
 				var postdata = gadgets.json.stringify(postData12);
+				console.log(postdata);
 				//alert(postdata);
 				//params[gadgets.io.RequestParameters.CONTENT_TYPE] = gadgets.io.ContentType.TEXT;
 				params[gadgets.io.RequestParameters.METHOD] = gadgets.io.MethodType.POST;
-				params[gadgets.io.RequestParameters.POST_DATA] = gadgets.io.MethodType.postdata;	
+				params[gadgets.io.RequestParameters.POST_DATA] = postdata;	
 
 			var setRoleAPIURL = urlAPIRole + "people/" + employeeID + "/requiredjobrole?SabaCertificate=" + sabaCertificate;
 			console.log(setRoleAPIURL);
@@ -227,7 +228,7 @@
                     <tr>
                         <td align="center"  style="font-weight:bold;">
                                                     
-                            Please Enter Your Initiative/ Progarm Code 676676767
+                            Please Enter Your Initiative/ Progarm Code 34344334
 			</td>
                     </tr>
                     <tr>                            
