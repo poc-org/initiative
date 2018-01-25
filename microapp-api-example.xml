@@ -186,6 +186,7 @@
 				       
 
 			var setRoleAPIURL = urlAPIRole + "people/" + employeeID + "/requiredjobrole?SabaCertificate=" + sabaCertificate;
+				console.log(setRoleAPIURL);
 				alert(setRoleAPIURL);
 				gadgets.io.makeRequest(setRoleAPIURL, setRoleDetail2Response, params);
 		} 
@@ -227,7 +228,7 @@
                     <tr>
                         <td align="center"  style="font-weight:bold;">
                                                     
-                            Please Enter Your Initiative/ Progarm Code 909090900909
+                            Please Enter Your Initiative/ Progarm Code 8080808
 			</td>
                     </tr>
                     <tr>                            
