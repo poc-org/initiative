@@ -69,8 +69,8 @@
            });
 		     $("#btnRoleConfrim").click(function () {
 			 
-			 var postData12={"requiredJobRoles": [{"id": "roles000000000003140"}]};
-                submitSetRoleInUserProfile(postData12);              
+			 
+                submitSetRoleInUserProfile();              
 
            });
 		    $("#divDeclinePreview").click(function () {
@@ -174,15 +174,14 @@
 			OutPut: EMPID and URL
 		*/
 		 
-		function submitSetRoleInUserProfile(inputParam) {
-			
+		function submitSetRoleInUserProfile() {
+			var postData12={"requiredJobRoles": [{"id": "roles000000000003140"}]};
             var params = {};
-				postdata = gadgets.io.encodeValues(inputParam);
-				alert(inputParam);
+				postdata = gadgets.io.encodeValues(postData12);
+				alert(postdata);
 				//params[gadgets.io.RequestParameters.CONTENT_TYPE] = gadgets.io.ContentType.TEXT;
-				params[gadgets.io.RequestParameters.METHOD] = gadgets.io.MethodType.GET;
-				params[gadgets.io.RequestParameters.POST_DATA] = gadgets.io.MethodType.inputParam;       
-				
+				params[gadgets.io.RequestParameters.METHOD] = gadgets.io.MethodType.POST;
+				params[gadgets.io.RequestParameters.POST_DATA] = gadgets.io.MethodType.postdata;	
 				
 				       
 
@@ -229,7 +228,7 @@
                     <tr>
                         <td align="center"  style="font-weight:bold;">
                                                     
-                            Please Enter Your Initiative/ Progarm Code 55555
+                            Please Enter Your Initiative/ Progarm Code 88888888888888
 			</td>
                     </tr>
                     <tr>                            
