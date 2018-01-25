@@ -176,7 +176,7 @@
 				postRoleData.requiredJobRoles = [];           
 				postRoleData.requiredJobRoles.unshift({});
 				postRoleData.requiredJobRoles[0]['id'] = varRoleID;
-           alert(varRoleID + '---' + employeeID);
+           alert(postRoleData);
             var params = {};
 				postdata = gadgets.io.encodeValues(postRoleData);
 				params[gadgets.io.RequestParameters.CONTENT_TYPE] = gadgets.io.ContentType.JSON;
@@ -226,7 +226,7 @@
                     <tr>
                         <td align="center"  style="font-weight:bold;">
                                                     
-                            Please Enter Your Initiative/ Progarm Code OKOK
+                            Please Enter Your Initiative/ Progarm Code NONO
 			</td>
                     </tr>
                     <tr>                            
