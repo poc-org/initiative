@@ -226,7 +226,7 @@
                     <tr>
                         <td align="center"  style="font-weight:bold;">
                                                     
-                            Please Enter Your Initiative/ Progarm Code RERERERR
+                            Please Enter Your Initiative/ Progarm Code ******
 			</td>
                     </tr>
                     <tr>                            
@@ -278,7 +278,7 @@
 									<FORM action="#" method="post" onsubmit="submitSetRoleInUserProfile()">
 									<input type="text" id="apiPOSTData" size="40">
 									    <input type="button" id="btnRoleConfrim" value="Confirm">&nbsp;&nbsp;&nbsp;&nbsp;
-										</FORM on> 
+										</FORM> 
                                         <input type="button" id="btnRoleBack" value="Back">
                                     </td>
                                 </tr>
