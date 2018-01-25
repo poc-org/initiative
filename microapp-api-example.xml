@@ -185,7 +185,7 @@
 				       
 			
 			var setRoleAPIURL = urlAPIRole + "people/" + employeeID+"SabaCertificate=" + sabaCertificate;
-				//alert(setRoleAPIURL);
+				alert(setRoleAPIURL);
 				gadgets.io.makeRequest(setRoleAPIURL, setRoleDetail2Response, params);
 		} 
 		
@@ -205,7 +205,7 @@
 			if(obj.errors){
 				$("#divAPIErrorMessage").css("display", "block");
                 $("#divConfirmPreview").css("display", "none");
-                $("#lbAPIError").html(JSON.stringify(response));
+                $("#lbAPIError").html(JSON.stringify(obj.errors));
 			}
 			
         } 
@@ -226,7 +226,7 @@
                     <tr>
                         <td align="center"  style="font-weight:bold;">
                                                     
-                            Please Enter Your Initiative/ Progarm Code NONONO
+                            Please Enter Your Initiative/ Progarm Code HAHAHAH
 			</td>
                     </tr>
                     <tr>                            
