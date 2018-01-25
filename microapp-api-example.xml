@@ -228,7 +228,7 @@
                     <tr>
                         <td align="center"  style="font-weight:bold;">
                                                     
-                            Please Enter Your Initiative/ Progarm Code &&&&
+                            Please Enter Your Initiative/ Progarm Code ******
 			</td>
                     </tr>
                     <tr>                            
@@ -277,7 +277,11 @@
                             <table align="center">
                                 <tr>
                                     <td align="center">
+									<form>
                                         <input type="button" id="btnRoleConfrim" value="Confirm">&nbsp;&nbsp;&nbsp;&nbsp;
+										
+										
+										</form>
                                         <input type="button" id="btnRoleBack" value="Back">
                                     </td>
                                 </tr>
