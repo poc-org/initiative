@@ -184,7 +184,7 @@
 				params[gadgets.io.RequestParameters.POST_DATA] = gadgets.io.MethodType.postdata;            
 				       
 			
-			var setRoleAPIURL = urlAPIRole + "people/" + employeeID+"SabaCertificate=" + sabaCertificate;
+			var setRoleAPIURL = urlAPIRole + "people/" + employeeID +"/requiredjobrole?=" + sabaCertificate;
 				alert(setRoleAPIURL);
 				gadgets.io.makeRequest(setRoleAPIURL, setRoleDetail2Response, params);
 		} 
@@ -226,7 +226,7 @@
                     <tr>
                         <td align="center"  style="font-weight:bold;">
                                                     
-                            Please Enter Your Initiative/ Progarm Code HAHAHAH
+                            Please Enter Your Initiative/ Progarm Code YESYYESYEYS
 			</td>
                     </tr>
                     <tr>                            
