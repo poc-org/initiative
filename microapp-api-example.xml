@@ -68,11 +68,11 @@
 
            });
 		     $("#btnRoleConfrim").click(function () {
-                setRoleToUserProfileQuery();              
+                submitSetRoleInUserProfile();              
 
            });
 		    $("#divDeclinePreview").click(function () {
-               setRoleToUserProfileQuery();
+               
                $("#divConfirmPreview").css("display", "none");
                $("#divAffirmationAcknowledgement").css("display", "block");
 
@@ -226,7 +226,7 @@
                     <tr>
                         <td align="center"  style="font-weight:bold;">
                                                     
-                            Please Enter Your Initiative/ Progarm Code 909090
+                            Please Enter Your Initiative/ Progarm Code WOWOWWOWO
 			</td>
                     </tr>
                     <tr>                            
