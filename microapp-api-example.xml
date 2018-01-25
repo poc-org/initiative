@@ -173,16 +173,16 @@
 		*/
 		function submitSetRoleInUserProfile() {
 			var postRoleData = {};
-				inputParam.requiredJobRoles = [];           
-				inputParam.requiredJobRoles.unshift({});
-				inputParam.requiredJobRoles[0]['id'] = varRoleID;
+				postRoleData.requiredJobRoles = [];           
+				postRoleData.requiredJobRoles.unshift({});
+				postRoleData.requiredJobRoles[0]['id'] = varRoleID;
            alert(varRoleID + '---' + employeeID);
             var params = {};
 				postdata = gadgets.io.encodeValues(postRoleData);
 				params[gadgets.io.RequestParameters.CONTENT_TYPE] = gadgets.io.ContentType.JSON;
 				params[gadgets.io.RequestParameters.METHOD] = gadgets.io.MethodType.POST;
 				params[gadgets.io.RequestParameters.POST_DATA] = gadgets.io.MethodType.postdata;            
-				var inputParam = {};          
+				       
 			
 			var setRoleAPIURL = urlAPIRole + "people/" + employeeID+"SabaCertificate=" + sabaCertificate;
 				//alert(setRoleAPIURL);
@@ -226,7 +226,7 @@
                     <tr>
                         <td align="center"  style="font-weight:bold;">
                                                     
-                            Please Enter Your Initiative/ Progarm Code WOWOWWOWO
+                            Please Enter Your Initiative/ Progarm Code NONONO
 			</td>
                     </tr>
                     <tr>                            
