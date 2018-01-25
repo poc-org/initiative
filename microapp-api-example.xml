@@ -68,7 +68,9 @@
 
            });
 		     $("#btnRoleConfrim").click(function () {
-                submitSetRoleInUserProfile();              
+			 
+			 var postData12{"requiredJobRoles": [{"id": "roles000000000003140"}]}
+                submitSetRoleInUserProfile(postData12);              
 
            });
 		    $("#divDeclinePreview").click(function () {
@@ -172,21 +174,17 @@
 			OutPut: EMPID and URL
 		*/
 		 
-		function submitSetRoleInUserProfile() {
-			var inputParam = {};
-			   inputParam.requiredJobRoles = [];
-			   //inputParam.requiredJobRoles.push({});
-			   inputParam.requiredJobRoles.unshift({});
-			   inputParam.requiredJobRoles[0]['id'] = varRoleID;
+		function submitSetRoleInUserProfile(inputParam) {
+			
             var params = {};
 				postdata = gadgets.io.encodeValues(inputParam);
-				//params[gadgets.io.RequestParameters.CONTENT_TYPE] = gadgets.io.ContentType.TEXT;
+				//params[gadgets.io.RequestParameters.CONTENT_TYPE] = gadgets.io.ContentType.JSON;
 				params[gadgets.io.RequestParameters.METHOD] = gadgets.io.MethodType.POST;
 				params[gadgets.io.RequestParameters.POST_DATA] = gadgets.io.MethodType.postdata;            
 				       
 
 			var setRoleAPIURL = urlAPIRole + "people/" + employeeID + "/requiredjobrole?SabaCertificate=" + sabaCertificate;
-				console.log(setRoleAPIURL);
+			console.log(setRoleAPIURL);
 				alert(setRoleAPIURL);
 				gadgets.io.makeRequest(setRoleAPIURL, setRoleDetail2Response, params);
 		} 
@@ -228,7 +226,7 @@
                     <tr>
                         <td align="center"  style="font-weight:bold;">
                                                     
-                            Please Enter Your Initiative/ Progarm Code %%%%%
+                            Please Enter Your Initiative/ Progarm Code 4444444
 			</td>
                     </tr>
                     <tr>                            
