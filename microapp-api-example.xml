@@ -171,13 +171,13 @@
 			Method : Post; Input requiredJobRoles and Role ID with Employee ID.
 			OutPut: EMPID and URL
 		*/
-		 var inputParam = {};
-           inputParam.requiredJobRoles = [];
-           //inputParam.requiredJobRoles.push({});
-           inputParam.requiredJobRoles.unshift({});
-           inputParam.requiredJobRoles[0]['id'] = varRoleID;
-		function submitSetRoleInUserProfile(inputParam) {
-			
+		 
+		function submitSetRoleInUserProfile() {
+			var inputParam = {};
+			   inputParam.requiredJobRoles = [];
+			   //inputParam.requiredJobRoles.push({});
+			   inputParam.requiredJobRoles.unshift({});
+			   inputParam.requiredJobRoles[0]['id'] = varRoleID;
             var params = {};
 				postdata = gadgets.io.encodeValues(inputParam);
 				params[gadgets.io.RequestParameters.CONTENT_TYPE] = gadgets.io.ContentType.TEXT;
@@ -227,7 +227,7 @@
                     <tr>
                         <td align="center"  style="font-weight:bold;">
                                                     
-                            Please Enter Your Initiative/ Progarm Code YOOOOOOOO
+                            Please Enter Your Initiative/ Progarm Code 909090900909
 			</td>
                     </tr>
                     <tr>                            
