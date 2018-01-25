@@ -69,7 +69,7 @@
            });
 		     $("#btnRoleConfrim").click(function () {
 			 
-			 var postData12{"requiredJobRoles": [{"id": "roles000000000003140"}]}
+			 var postData12={"requiredJobRoles": [{"id": "roles000000000003140"}]};
                 submitSetRoleInUserProfile(postData12);              
 
            });
@@ -226,7 +226,7 @@
                     <tr>
                         <td align="center"  style="font-weight:bold;">
                                                     
-                            Please Enter Your Initiative/ Progarm Code 4444444
+                            Please Enter Your Initiative/ Progarm Code 12121212
 			</td>
                     </tr>
                     <tr>                            
