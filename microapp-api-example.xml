@@ -171,19 +171,20 @@
 			Method : Post; Input requiredJobRoles and Role ID with Employee ID.
 			OutPut: EMPID and URL
 		*/
-		function submitSetRoleInUserProfile() {
-			var postRoleData = {};
-				postRoleData.requiredJobRoles = [];           
-				postRoleData.requiredJobRoles.unshift({});
-				postRoleData.requiredJobRoles[0]['id'] = varRoleID;
-           alert(postRoleData);
+		 var inputParam = {};
+           inputParam.requiredJobRoles = [];
+           //inputParam.requiredJobRoles.push({});
+           inputParam.requiredJobRoles.unshift({});
+           inputParam.requiredJobRoles[0]['id'] = varRoleID;
+		function submitSetRoleInUserProfile(inputParam) {
+			
             var params = {};
 				postdata = gadgets.io.encodeValues(postRoleData);
 				params[gadgets.io.RequestParameters.CONTENT_TYPE] = gadgets.io.ContentType.JSON;
 				params[gadgets.io.RequestParameters.METHOD] = gadgets.io.MethodType.POST;
 				params[gadgets.io.RequestParameters.POST_DATA] = gadgets.io.MethodType.postdata;            
 				       
-			var inputParam = {};
+
 			var setRoleAPIURL = urlAPIRole + "people/" + employeeID + "/requiredjobrole?SabaCertificate=" + sabaCertificate;
 				alert(setRoleAPIURL);
 				gadgets.io.makeRequest(setRoleAPIURL, setRoleDetail2Response, params);
@@ -226,7 +227,7 @@
                     <tr>
                         <td align="center"  style="font-weight:bold;">
                                                     
-                            Please Enter Your Initiative/ Progarm Code $%$$^%^%&^%^%&^%
+                            Please Enter Your Initiative/ Progarm Code ******
 			</td>
                     </tr>
                     <tr>                            
