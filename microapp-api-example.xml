@@ -37,7 +37,7 @@
 	   
 	   viewData = gadgets.views.getParams();
 	   
-	    sabaCertificate =  $.trim(viewData.sabaContext.certificate);
+	    sabaCertificate =  viewData.sabaContext.apiCertificate;
 	    userName = $.trim(viewData.sabaContext.userName);
 	    employeeID = $.trim(viewData.sabaContext.userId) ;
 		
@@ -306,7 +306,7 @@
                     <tr>
                         <td align="center"  style="font-weight:bold;">
                                                     
-                            Please Enter Your Initiative/ Progarm Code 123456
+                            Please Enter Your Initiative/ Progarm Code ******
 			</td>
                     </tr>
                     <tr>                            
