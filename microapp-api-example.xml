@@ -50,6 +50,7 @@
             //console.log(profileData);
 			
 		if (viewData){
+alert("View Data");
           var viewDataString = gadgets.json.stringify(viewData),
           userName = viewData.sabaContext.userName,
           employeeID = viewData.sabaContext.userId;
@@ -294,7 +295,7 @@ alert("name: "+userName +"    employeeID: "+ employeeID +"   sabaCertificate:"+ 
                     <tr>
                         <td align="center"  style="font-weight:bold;">
                                                     
-                            Please Enter Your Initiative/ Progarm Code 666666
+                            Please Enter Your Initiative/ Progarm Code 89898989
 			</td>
                     </tr>
                     <tr>                            
