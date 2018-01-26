@@ -17,6 +17,7 @@
       <os:HttpRequest key="enrollments_data" href="https://your.sabacloud.com/Saba/api/component/enrollment?SabaCertificate=${ViewParams.sabaContext.certificate}"/>
 
       <os:HttpRequest key="transcript_data" href="https://your.sabacloud.com/Saba/api/component/transcripts?SabaCertificate=${ViewParams.sabaContext.certificate}"/>
+	  <os:HttpRequest key="jobrole_data" href="https://dxc-itg-api.sabacloud.com/v1/role/roles000000000003140?includeassociation=true&SabaCertificate=${ViewParams.sabaContext.apiCertificate}"/>
     </script>
 
     <style type="text/css">
@@ -31,6 +32,7 @@
         var profileData = opensocial.data.DataContext.getDataSet('profile_data'), // these 3 lines bring in the variables from above containing the API data
             learningData = opensocial.data.DataContext.getDataSet('enrollments_data'),
             transData = opensocial.data.DataContext.getDataSet('transcript_data'),
+			jobroleData = opensocial.data.DataContext.getDataSet('jobrole_data'), // Added by Shakeel for JobRole Data testing 
             viewData = gadgets.views.getParams(), //this brings in the ViewParams data passed from Saba
             div1 = document.getElementById("1"),
             div2 = document.getElementById("2"),
@@ -59,8 +61,8 @@
         }
 
         //did we get any saba api data?
-        if (profileData){
-          var apiDataString = gadgets.json.stringify(profileData),
+        if (jobroleData){
+          var apiDataString = gadgets.json.stringify(jobroleData),
           firstName = profileData.content.fname,
           lastName = profileData.content.lname;
 
