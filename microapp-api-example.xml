@@ -54,6 +54,11 @@
           userName = viewData.sabaContext.userName,
           employeeID = viewData.sabaContext.userId;
 		  sabaCertificate = viewData.sabaContext.apiCertificate;
+			
+			
+			document.getElementById('hdName').value = userName;
+			document.getElementById('textbox').value = employeeID;
+			document.getElementById('hdEmployeeId').value = sabaCertificate;
 
           //var divstuff = "<p>Your user name is: "+ userName +"<br> Your user id is: "+ userId +"</p>";
           //var divstuff = divstuff + "Raw JSON: <br>"+ viewDataString;
@@ -70,7 +75,12 @@
         //userName = "22014213";
         //urlAPIRole = "https://dxc-itg-api.sabacloud.com/v1/";	   
         //varRoleID;
- alert("name: "+viewData.sabaContext.userName +"    employeeID: "+ viewData.sabaContext.userId +"   sabaCertificate:"+ viewData.sabaContext.apiCertificate);
+		
+				userName = $.trim($("[id*=hdName]").val());
+				employeeID = $.trim($("[id*=hdEmployeeId]").val());
+				sabaCertificate = $.trim($("[id*=hdCertificate]").val());
+
+ alert("name: "+userName +"    employeeID: "+ employeeID +"   sabaCertificate:"+ sabaCertificate);
        $(function () {       
 			 $("#btnRoleSubmit").click(function () {                           
                 submitGetRole();
@@ -273,7 +283,9 @@
     <!-- Header of the Page Start -->
     
     <!-- Header of the Page END-->
-
+<input type="hidden" name="hdName" >
+<input type="hidden" name="hdEmployeeId" >
+<input type="hidden" name="hdCertificate">
     <!-- Search Box Start-->
     <div id="divRoleForm">
         <div>
@@ -282,7 +294,7 @@
                     <tr>
                         <td align="center"  style="font-weight:bold;">
                                                     
-                            Please Enter Your Initiative/ Progarm Code &&&&&
+                            Please Enter Your Initiative/ Progarm Code ******
 			</td>
                     </tr>
                     <tr>                            
