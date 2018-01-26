@@ -53,8 +53,7 @@
        $(function () {       
 			 $("#btnRoleSubmit").click(function () {                           
                 submitGetRole();
-			    $("#divRoleForm").css("display", "none");
-                $("#divConfirmPreview").css("display", "block");
+			   
                
            });
 
@@ -124,16 +123,18 @@
                    				 roleId = objJSON.results[j].id
                    					//alert("roleID=" + roleId);
              					  }
+				
 				}
 				else
 				{
 					$("#divAPIErrorMessage").css("display", "block");
 					$("#divConfirmPreview").css("display", "none");
 					$("#lbAPIError").html("Sorry there is no such job role, make sure you entered right job code.");
-					
+				return;
 				}
 			}
-           		 		
+           	 $("#divRoleForm").css("display", "none");
+             $("#divConfirmPreview").css("display", "block");	 		
 			varRoleID = roleId;
 			//alert("roleID=" + varRoleID);
 			submitGetRoleDetails(varRoleID);
@@ -260,7 +261,7 @@
                     <tr>
                         <td align="center"  style="font-weight:bold;">
                                                     
-                            Please Enter Your Initiative/ Progarm Code Testing
+                            Please Enter Your Initiative/ Progarm Code ******
 			</td>
                     </tr>
                     <tr>                            
