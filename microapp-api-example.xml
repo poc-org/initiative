@@ -67,12 +67,11 @@
                $("#divDeclinePreview").css("display", "block");
 
            });
-		     $("#btnRoleConfrim").click(function () {
+		     $("#btnRoleConfrim").click(function () {		 
 			 
-			 
-                submitSetRoleInUserProfile();              
-
+                submitSetRoleInUserProfile();        
            });
+		   
 		    $("#divDeclinePreview").click(function () {
                
                $("#divConfirmPreview").css("display", "none");
@@ -120,6 +119,12 @@
 			varRoleID = roleId;
 			//alert("roleID=" + varRoleID);
 			submitGetRoleDetails(varRoleID);
+			if(obj.errors)
+			{
+				$("#divAPIErrorMessage").css("display", "block");
+                $("#divConfirmPreview").css("display", "none");
+                $("#lbAPIError").html(JSON.stringify(obj.errors));
+			}
         } 
 		/* Call Role API to get the RoleID.   END  */
 		/* Call Role API to get the Role Details.   Satrt 
@@ -175,13 +180,19 @@
 		*/
 		 
 		function submitSetRoleInUserProfile() {
-			var postData12={"requiredJobRoles": [{"id": "roles000000000003140"}]};
+			//var postData12={"requiredJobRoles": [{"id": "roles000000000003140"}]};
+			
+			 var postDataRoleSet = {};
+           postDataRoleSet.requiredJobRoles = [];
+           postDataRoleSet.requiredJobRoles.unshift({});
+           postDataRoleSet.requiredJobRoles[0]['id'] = varRoleID;
+		   
 			var headers = {};
 			headers["Content-Type"] = "application/json";
 			
             var params = {};
-				//postdata = gadgets.io.encodeValues(postData12);
-				var postdata = gadgets.json.stringify(postData12);
+				//postdata = gadgets.io.encodeValues(postDataRoleSet);
+				var postdata = gadgets.json.stringify(postDataRoleSet);
 				console.log(postdata);
 				//alert(postdata);
 				params[gadgets.io.RequestParameters.CONTENT_TYPE] = gadgets.io.ContentType.JSON;
@@ -232,7 +243,7 @@
                     <tr>
                         <td align="center"  style="font-weight:bold;">
                                                     
-                            Please Enter Your Initiative/ Progarm Code %%%%%
+                            Please Enter Your Initiative/ Progarm Code 786
 			</td>
                     </tr>
                     <tr>                            
