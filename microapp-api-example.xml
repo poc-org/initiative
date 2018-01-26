@@ -112,7 +112,7 @@
             //console.log(obj.data);
 			//console.log(obj.errors);
 			//console.log(obj.text);
-			alert(obj.data +"**** Shakeel ***"+obj.errors+"**** Shakeel ***"+obj.text)
+			//alert(obj.data +"**** Shakeel ***"+obj.errors+"**** Shakeel ***"+obj.text)
 			if (obj.data)
 			{
 				objJSON = JSON.parse(obj.data);
@@ -128,7 +128,7 @@
 				else
 				{
 					$("#divAPIErrorMessage").css("display", "block");
-					$("#divConfirmPreview").css("display", "none");
+					$("#divRoleForm").css("display", "none");
 					$("#lbAPIError").html("Sorry there is no such job role, make sure you entered right job code.");
 				return;
 				}
@@ -231,7 +231,7 @@
             console.log(obj.data);
 			console.log(obj.errors);
 			console.log(obj.text);
-			alert(obj.data +"**** Shakeel ***"+obj.errors+"**** Shakeel ***"+obj.text)
+			//alert(obj.data +"**** Shakeel ***"+obj.errors+"**** Shakeel ***"+obj.text)
 			if (obj.data){
 				$("#divConfirmPreview").css("display", "none");
 				$("#divAffirmationAcknowledgement").css("display", "block");
@@ -261,7 +261,7 @@
                     <tr>
                         <td align="center"  style="font-weight:bold;">
                                                     
-                            Please Enter Your Initiative/ Progarm Code ******
+                            Please Enter Your Initiative/ Progarm Code Testing
 			</td>
                     </tr>
                     <tr>                            
