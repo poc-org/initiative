@@ -43,6 +43,7 @@
 		var viewDataString = gadgets.json.stringify(viewData);
 		console.log(sabaCertificate);
 		console.log(viewDataString);
+		console.log(ViewParams.sabaContext.certificate);
 	   alert("name: "+userName +"    employeeID: "+ employeeID +"   sabaCertificate:"+ sabaCertificate);
 	   
 	  gadgets.util.registerOnLoadHandler(init);
@@ -307,7 +308,7 @@
                     <tr>
                         <td align="center"  style="font-weight:bold;">
                                                     
-                            Please Enter Your Initiative/ Progarm Code 6666666666666
+                            Please Enter Your Initiative/ Progarm Code ******
 			</td>
                     </tr>
                     <tr>                            
