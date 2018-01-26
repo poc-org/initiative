@@ -184,9 +184,9 @@
 			//var postData12={"requiredJobRoles": [{"id": "roles000000000003140"}]};
 			
 			 var postDataRoleSet = {};
-           postDataRoleSet.requiredJobRoles = [];
-           postDataRoleSet.requiredJobRoles.unshift({});
-           postDataRoleSet.requiredJobRoles[0]['id'] = varRoleID;
+			   postDataRoleSet.requiredJobRoles = [];
+			   postDataRoleSet.requiredJobRoles.unshift({});
+			   postDataRoleSet.requiredJobRoles[0]['id'] = varRoleID;
 		   
 			var headers = {};
 			headers["Content-Type"] = "application/json";
@@ -201,9 +201,9 @@
 				params[gadgets.io.RequestParameters.POST_DATA] = postdata;	
 				params[gadgets.io.RequestParameters.HEADERS] = headers;	
 
-			var setRoleAPIURL = urlAPIRole + "people/" + employeeID + "/requiredjobrole?SabaCertificate=" + sabaCertificate;
-			console.log(setRoleAPIURL);
-				alert(setRoleAPIURL);
+			 var setRoleAPIURL = urlAPIRole + "people/" + employeeID + "/requiredjobrole?SabaCertificate=" + sabaCertificate;
+				//console.log(setRoleAPIURL);
+				//alert(setRoleAPIURL);
 				gadgets.io.makeRequest(setRoleAPIURL, setRoleDetail2Response, params);
 		} 
 		
@@ -223,7 +223,7 @@
 			if(obj.errors){
 				$("#divAPIErrorMessage").css("display", "block");
                 $("#divConfirmPreview").css("display", "none");
-                $("#lbAPIError").html(JSON.stringify(obj.errors));
+                $("#lbAPIError").html(JSON.stringify(obj.text));
 			}
 			
         } 
@@ -244,7 +244,7 @@
                     <tr>
                         <td align="center"  style="font-weight:bold;">
                                                     
-                            Please Enter Your Initiative/ Progarm Code 3434343
+                            Please Enter Your Initiative/ Progarm Code ******
 			</td>
                     </tr>
                     <tr>                            
