@@ -33,7 +33,7 @@
 		   var urlAPIRole = "https://dxc-itg-api.sabacloud.com/v1/";	   
 		   var varRoleID;	   
 	   /* Global Varaibles END */ 
-	   
+	gadgets.util.registerOnLoadHandler(init);   
       function init(){
         var profileData = opensocial.data.DataContext.getDataSet('profile_data'), // these 3 lines bring in the variables from above containing the API data
             learningData = opensocial.data.DataContext.getDataSet('enrollments_data'),
@@ -56,7 +56,7 @@
 
           var divstuff = "<p>Your user name is: "+ userName +"<br> Your user id is: "+ userId +"</p>";
           var divstuff = divstuff + "Raw JSON: <br>"+ viewDataString;
-          alert(divstuff);
+          //alert(divstuff);
 
           gadgets.window.adjustHeight()
 
@@ -293,7 +293,7 @@
                     <tr>
                         <td align="center"  style="font-weight:bold;">
                                                     
-                            Please Enter Your Initiative/ Progarm Code &&&&
+                            Please Enter Your Initiative/ Progarm Code 88888
 			</td>
                     </tr>
                     <tr>                            
