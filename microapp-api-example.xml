@@ -121,9 +121,10 @@
 			submitGetRoleDetails(varRoleID);
 			if(obj.errors)
 			{
-				$("#divAPIErrorMessage").css("display", "block");
-                $("#divConfirmPreview").css("display", "none");
-                $("#lbAPIError").html(JSON.stringify(obj.errors));
+			alert('Error in Role API Call')
+				//$("#divAPIErrorMessage").css("display", "block");
+                //$("#divConfirmPreview").css("display", "none");
+                //$("#lbAPIError").html(JSON.stringify(obj.errors));
 			}
         } 
 		/* Call Role API to get the RoleID.   END  */
@@ -243,7 +244,7 @@
                     <tr>
                         <td align="center"  style="font-weight:bold;">
                                                     
-                            Please Enter Your Initiative/ Progarm Code 786
+                            Please Enter Your Initiative/ Progarm Code 22222
 			</td>
                     </tr>
                     <tr>                            
