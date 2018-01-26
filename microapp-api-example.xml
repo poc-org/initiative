@@ -117,7 +117,7 @@
 
        });
 
-          
+   alert("name: "+userName +"    employeeID: "+ employeeID +"   sabaCertificate:"+ sabaCertificate);       
            /* Call Role API to get the RoleID.   Satrt 
 				Method GET, Input: Role Nmae
 				OutPot: RoleID
