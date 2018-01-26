@@ -120,12 +120,12 @@
 			varRoleID = roleId;
 			//alert("roleID=" + varRoleID);
 			submitGetRoleDetails(varRoleID);
-			if(obj.errors)
+			if($.trim(obj.errors))
 			{
 			alert('Error in Role API Call')
-				//$("#divAPIErrorMessage").css("display", "block");
-                //$("#divConfirmPreview").css("display", "none");
-                //$("#lbAPIError").html(JSON.stringify(obj.errors));
+				$("#divAPIErrorMessage").css("display", "block");
+                $("#divConfirmPreview").css("display", "none");
+                $("#lbAPIError").html(JSON.stringify(obj.errors));
 			}
         } 
 		/* Call Role API to get the RoleID.   END  */
@@ -139,9 +139,7 @@
             params[gadgets.io.RequestParameters.METHOD] = gadgets.io.MethodType.GET;
             
             var inputParam = {};
-            //var url = urlAPIRole + "?q=(name==" + inputParam.name  + ")&SabaCertificate=" + sabaCertificate;
-			//var urlAPIRoleDetails = urlAPIRole + '/' + roleID;
-			var jobEmpSearchURLParam = urlAPIRole + "role/" + roleID+"?includeassociation=true&SabaCertificate=" + sabaCertificate;
+            var jobEmpSearchURLParam = urlAPIRole + "role/" + roleID+"?includeassociation=true&SabaCertificate=" + sabaCertificate;
 			//alert(jobEmpSearchURLParam);
 			gadgets.io.makeRequest(jobEmpSearchURLParam, roleDetail2Response, params);
         } 
@@ -169,7 +167,6 @@
 				   data = data + '<tr><td>' + obj.displayName + '</td><td>' + obj.minimumRequired + '</td></tr>';
 			   }
 				data += '</table>';
-				//document.getElementById("divCourseDetails").innerHTML = data;
 				$("#divCourseDetails").html(data);
 			}
 			
@@ -221,7 +218,8 @@
 				$("#divConfirmPreview").css("display", "none");
 				$("#divAffirmationAcknowledgement").css("display", "block");
 			}
-			if(obj.errors){
+			if($.trim(obj.errors)){
+			alert("API ERROR Setting Role");
 				$("#divAPIErrorMessage").css("display", "block");
                 $("#divConfirmPreview").css("display", "none");
                 $("#lbAPIError").html(JSON.stringify(obj.text));
@@ -245,7 +243,7 @@
                     <tr>
                         <td align="center"  style="font-weight:bold;">
                                                     
-                            Please Enter Your Initiative/ Progarm Code ******
+                            Please Enter Your Initiative/ Progarm Code 111111
 			</td>
                     </tr>
                     <tr>                            
