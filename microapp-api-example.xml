@@ -58,9 +58,9 @@
         //urlAPIRole = "https://dxc-itg-api.sabacloud.com/v1/";	   
         //varRoleID;
 		
-				userName = $.trim($("[id*=hdName]").val());
-				employeeID = $.trim($("[id*=hdEmployeeId]").val());
-				sabaCertificate = $.trim($("[id*=hdCertificate]").val());
+				//userName = $.trim($("[id*=hdName]").val());
+				//employeeID = $.trim($("[id*=hdEmployeeId]").val());
+				//sabaCertificate = $.trim($("[id*=hdCertificate]").val());
 
  //alert("name: "+userName +"    employeeID: "+ employeeID +"   sabaCertificate:"+ sabaCertificate);
        $(function () {       
@@ -276,7 +276,7 @@
                     <tr>
                         <td align="center"  style="font-weight:bold;">
                                                     
-                            Please Enter Your Initiative/ Progarm Code ******
+                            Please Enter Your Initiative/ Progarm Code Testing
 			</td>
                     </tr>
                     <tr>                            
