@@ -31,12 +31,13 @@
 		   var employeeID ;
 		   var userName ;
 		   var urlAPIRole = "https://dxc-itg-api.sabacloud.com/v1/";	   
-		   var varRoleID;	   
+		   var varRoleID;	
+			errorAPIRoleAssigmnet = "";
 	   /* Global Varaibles END */ 
 	   
 	   viewData = gadgets.views.getParams();
 	   
-	    sabaCertificate =  $.trim(viewData.sabaContext.apiCertificate);
+	    sabaCertificate =  $.trim(viewData.sabaContext.Certificate);
 	    userName = $.trim(viewData.sabaContext.userName);
 	    employeeID = $.trim(viewData.sabaContext.userId) ;
 		
@@ -182,7 +183,7 @@
 			{
 			//alert('Error in Role API Call')
 				$("#divAPIErrorMessage").css("display", "block");
-                $("#divConfirmPreview").css("display", "none");
+                $("#divRoleForm").css("display", "none");
                 $("#lbAPIError").html(JSON.stringify(obj.text));
 			}
            	
@@ -305,7 +306,7 @@
                     <tr>
                         <td align="center"  style="font-weight:bold;">
                                                     
-                            Please Enter Your Initiative/ Progarm Code ******
+                            Please Enter Your Initiative/ Progarm Code Test123
 			</td>
                     </tr>
                     <tr>                            
