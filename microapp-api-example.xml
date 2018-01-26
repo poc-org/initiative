@@ -72,7 +72,7 @@
                 submitSetRoleInUserProfile();        
            });
 		   
-		    $("#divDeclinePreview").click(function () {
+		    $("#btnCloseDecline").click(function () {
                
                $("#divConfirmPreview").css("display", "none");
                $("#divAffirmationAcknowledgement").css("display", "block");
@@ -215,7 +215,7 @@
             console.log(obj.data);
 			console.log(obj.errors);
 			console.log(obj.text);
-			alert(obj.data +"---"+obj.errors+"---"+obj.text)
+			alert(obj.data +"**** Shakeel ***"+obj.errors+"**** Shakeel ***"+obj.text)
 			if (obj.data){
 				$("#divConfirmPreview").css("display", "none");
 				$("#divAffirmationAcknowledgement").css("display", "block");
@@ -244,7 +244,7 @@
                     <tr>
                         <td align="center"  style="font-weight:bold;">
                                                     
-                            Please Enter Your Initiative/ Progarm Code 22222
+                            Please Enter Your Initiative/ Progarm Code 3434343
 			</td>
                     </tr>
                     <tr>                            
