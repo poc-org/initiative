@@ -39,6 +39,7 @@
 	    userName = viewData.sabaContext.userName;
 	    employeeID = viewData.sabaContext.userId ;
 		userName = viewData.sabaContext.userId ;
+		console.log(sabaCertificate)
 	   alert("name: "+userName +"    employeeID: "+ employeeID +"   sabaCertificate:"+ sabaCertificate);
 	   
 	  gadgets.util.registerOnLoadHandler(init);
@@ -162,6 +163,11 @@
                    					//alert("roleID=" + roleId);
              					  }
 				
+				 $("#divRoleForm").css("display", "none");
+				 $("#divConfirmPreview").css("display", "block");	 		
+				 varRoleID = roleId;
+				 //alert("roleID=" + varRoleID);
+				 submitGetRoleDetails(varRoleID);
 				}
 				else
 				{
@@ -171,11 +177,6 @@
 				return;
 				}
 			}
-           	 $("#divRoleForm").css("display", "none");
-             $("#divConfirmPreview").css("display", "block");	 		
-			varRoleID = roleId;
-			//alert("roleID=" + varRoleID);
-			submitGetRoleDetails(varRoleID);
 			if($.trim(obj.errors))
 			{
 			//alert('Error in Role API Call')
@@ -183,6 +184,8 @@
                 $("#divConfirmPreview").css("display", "none");
                 $("#lbAPIError").html(JSON.stringify(obj.errors));
 			}
+           	
+			
         } 
 		/* Call Role API to get the RoleID.   END  */
 		/* Call Role API to get the Role Details.   Satrt 
@@ -205,9 +208,9 @@
             //  obj.data : <parsed data, if applicable>
             //  obj.errors : <any errors that occurred>
             //  obj.text : <raw text of the response>
-            console.log(obj.data);
-			console.log(obj.errors);
-			console.log(obj.text);
+            //console.log(obj.data);
+			//console.log(obj.errors);
+			//console.log(obj.text);
 			//alert(" Role Details  --- "+obj.data)
 			if(obj.data)
 			{
@@ -248,7 +251,7 @@
             var params = {};
 				//postdata = gadgets.io.encodeValues(postDataRoleSet);
 				var postdata = gadgets.json.stringify(postDataRoleSet);
-				console.log(postdata);
+				//console.log(postdata);
 				//alert(postdata);
 				params[gadgets.io.RequestParameters.CONTENT_TYPE] = gadgets.io.ContentType.JSON;
 				params[gadgets.io.RequestParameters.METHOD] = gadgets.io.MethodType.POST;
@@ -266,9 +269,9 @@
             //  obj.data : <parsed data, if applicable>
             //  obj.errors : <any errors that occurred>
             //  obj.text : <raw text of the response>
-            console.log(obj.data);
-			console.log(obj.errors);
-			console.log(obj.text);
+            //console.log(obj.data);
+			//console.log(obj.errors);
+			//console.log(obj.text);
 			//alert(obj.data +"**** Shakeel ***"+obj.errors+"**** Shakeel ***"+obj.text)
 			if (obj.data){
 				$("#divConfirmPreview").css("display", "none");
@@ -301,7 +304,7 @@
                     <tr>
                         <td align="center"  style="font-weight:bold;">
                                                     
-                            Please Enter Your Initiative/ Progarm Code 909090
+                            Please Enter Your Initiative/ Progarm Code 3453453453
 			</td>
                     </tr>
                     <tr>                            
