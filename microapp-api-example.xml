@@ -78,6 +78,13 @@
                $("#divAffirmationAcknowledgement").css("display", "block");
 
            });
+		   
+		    $("#btnCloseAPIError").click(function () {
+               
+               $("#divAPIErrorMessage").css("display", "none");
+               $("#divRoleForm").css("display", "block");
+
+           });
 
        });
 
@@ -111,10 +118,20 @@
 			{
 				objJSON = JSON.parse(obj.data);
 				var counter = objJSON.totalResults;
+				if (counter>0)
+				{
 				for (j = 0 ; j < counter ; j++) {
                    				 roleId = objJSON.results[j].id
                    					//alert("roleID=" + roleId);
              					  }
+				}
+				else
+				{
+					$("#divAPIErrorMessage").css("display", "block");
+					$("#divConfirmPreview").css("display", "none");
+					$("#lbAPIError").html("Sorry there is no such job role, make sure you entered right job code.");
+					
+				}
 			}
            		 		
 			varRoleID = roleId;
@@ -243,7 +260,7 @@
                     <tr>
                         <td align="center"  style="font-weight:bold;">
                                                     
-                            Please Enter Your Initiative/ Progarm Code 111111
+                            Please Enter Your Initiative/ Progarm Code Testing
 			</td>
                     </tr>
                     <tr>                            
