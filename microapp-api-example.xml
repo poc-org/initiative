@@ -103,9 +103,10 @@
             //  obj.data : <parsed data, if applicable>
             //  obj.errors : <any errors that occurred>
             //  obj.text : <raw text of the response>
-            console.log(obj.data);
-			console.log(obj.errors);
-			console.log(obj.text);
+            //console.log(obj.data);
+			//console.log(obj.errors);
+			//console.log(obj.text);
+			alert(obj.data +"**** Shakeel ***"+obj.errors+"**** Shakeel ***"+obj.text)
 			if (obj.data)
 			{
 				objJSON = JSON.parse(obj.data);
@@ -244,7 +245,7 @@
                     <tr>
                         <td align="center"  style="font-weight:bold;">
                                                     
-                            Please Enter Your Initiative/ Progarm Code 2222
+                            Please Enter Your Initiative/ Progarm Code ******
 			</td>
                     </tr>
                     <tr>                            
