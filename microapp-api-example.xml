@@ -237,7 +237,7 @@
 				$("#divAffirmationAcknowledgement").css("display", "block");
 			}
 			if($.trim(obj.errors)){
-			alert("API ERROR Setting Role");
+			//alert("API ERROR Setting Role");
 				$("#divAPIErrorMessage").css("display", "block");
                 $("#divConfirmPreview").css("display", "none");
                 $("#lbAPIError").html(JSON.stringify(obj.text));
@@ -261,7 +261,7 @@
                     <tr>
                         <td align="center"  style="font-weight:bold;">
                                                     
-                            Please Enter Your Initiative/ Progarm Code Testing
+                            Please Enter Your Initiative/ Progarm Code 
 			</td>
                     </tr>
                     <tr>                            
