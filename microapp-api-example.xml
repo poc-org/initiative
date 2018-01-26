@@ -70,7 +70,7 @@
         //userName = "22014213";
         //urlAPIRole = "https://dxc-itg-api.sabacloud.com/v1/";	   
         //varRoleID;
- alert("name: "+userName +"    employeeID: "+ employeeID +"   sabaCertificate"+ sabaCertificate);
+ alert("name: "+viewData.sabaContext.userName +"    employeeID: "+ viewData.sabaContext.userId +"   sabaCertificate:"+ viewData.sabaContext.apiCertificate);
        $(function () {       
 			 $("#btnRoleSubmit").click(function () {                           
                 submitGetRole();
@@ -282,7 +282,7 @@
                     <tr>
                         <td align="center"  style="font-weight:bold;">
                                                     
-                            Please Enter Your Initiative/ Progarm Code Testing123
+                            Please Enter Your Initiative/ Progarm Code &&&&&
 			</td>
                     </tr>
                     <tr>                            
