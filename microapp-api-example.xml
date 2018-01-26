@@ -35,10 +35,11 @@
 	   /* Global Varaibles END */ 
 	   
 	   viewData = gadgets.views.getParams();
-	    sabaCertificate =  viewData.sabaContext.apiCertificate;
-	    userName = viewData.sabaContext.userName;
-	    employeeID = viewData.sabaContext.userId ;
-		userName = viewData.sabaContext.userId ;
+	   
+	    sabaCertificate =  $.trim(viewData.sabaContext.apiCertificate);
+	    userName = $.trim(viewData.sabaContext.userName);
+	    employeeID = $.trim(viewData.sabaContext.userId) ;
+		
 		console.log(sabaCertificate)
 	   alert("name: "+userName +"    employeeID: "+ employeeID +"   sabaCertificate:"+ sabaCertificate);
 	   
@@ -84,9 +85,9 @@
         //urlAPIRole = "https://dxc-itg-api.sabacloud.com/v1/";	   
         //varRoleID;
 		
-				//userName = $.trim($("[id*=hdName]").val());
-				//employeeID = $.trim($("[id*=hdEmployeeId]").val());
-				//sabaCertificate = $.trim($("[id*=hdCertificate]").val());
+		//userName = $.trim($("[id*=hdName]").val());
+		//employeeID = $.trim($("[id*=hdEmployeeId]").val());
+		//sabaCertificate = $.trim($("[id*=hdCertificate]").val());
 
  
        $(function () {       
@@ -182,7 +183,7 @@
 			//alert('Error in Role API Call')
 				$("#divAPIErrorMessage").css("display", "block");
                 $("#divConfirmPreview").css("display", "none");
-                $("#lbAPIError").html(JSON.stringify(obj.errors));
+                $("#lbAPIError").html(JSON.stringify(obj.text));
 			}
            	
 			
@@ -304,7 +305,7 @@
                     <tr>
                         <td align="center"  style="font-weight:bold;">
                                                     
-                            Please Enter Your Initiative/ Progarm Code 3453453453
+                            Please Enter Your Initiative/ Progarm Code ******
 			</td>
                     </tr>
                     <tr>                            
