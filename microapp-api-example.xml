@@ -40,7 +40,7 @@
 	    sabaCertificate =  viewData.sabaContext.apiCertificate;
 	    userName = $.trim(viewData.sabaContext.userName);
 	    employeeID = $.trim(viewData.sabaContext.userId) ;
-		var viewDataString = gadgets.json.stringify(viewData),
+		var viewDataString = gadgets.json.stringify(viewData);
 		console.log(sabaCertificate);
 		console.log(viewDataString);
 	   alert("name: "+userName +"    employeeID: "+ employeeID +"   sabaCertificate:"+ sabaCertificate);
@@ -307,7 +307,7 @@
                     <tr>
                         <td align="center"  style="font-weight:bold;">
                                                     
-                            Please Enter Your Initiative/ Progarm Code 222222
+                            Please Enter Your Initiative/ Progarm Code 45454545
 			</td>
                     </tr>
                     <tr>                            
