@@ -36,8 +36,8 @@
 	   
 	   viewData = gadgets.views.getParams();
 	    sabaCertificate =  viewData.sabaContext.apiCertificate;
-	    employeeID = viewData.sabaContext.userName;
-	    userName = viewData.sabaContext.userId ;
+	    userName = viewData.sabaContext.userName;
+	    employeeID = viewData.sabaContext.userId ;
 		userName = viewData.sabaContext.userId ;
 	   alert("name: "+userName +"    employeeID: "+ employeeID +"   sabaCertificate:"+ sabaCertificate);
 	   
@@ -64,7 +64,7 @@
 
           var divstuff = "<p>Your user name is: "+ userName +"<br> Your user id is: "+ userId +"</p>";
           var divstuff = divstuff + "Raw JSON: <br>"+ viewDataString;
-          alert(divstuff);
+          //alert(divstuff);
 
           gadgets.window.adjustHeight()
 
@@ -83,9 +83,9 @@
         //urlAPIRole = "https://dxc-itg-api.sabacloud.com/v1/";	   
         //varRoleID;
 		
-				userName = $.trim($("[id*=hdName]").val());
-				employeeID = $.trim($("[id*=hdEmployeeId]").val());
-				sabaCertificate = $.trim($("[id*=hdCertificate]").val());
+				//userName = $.trim($("[id*=hdName]").val());
+				//employeeID = $.trim($("[id*=hdEmployeeId]").val());
+				//sabaCertificate = $.trim($("[id*=hdCertificate]").val());
 
  
        $(function () {       
@@ -150,7 +150,7 @@
             //console.log(obj.data);
 			//console.log(obj.errors);
 			//console.log(obj.text);
-			//alert(obj.data +"**** Shakeel ***"+obj.errors+"**** Shakeel ***"+obj.text)
+			alert(obj.data +"**** Shakeel ***"+obj.errors+"**** Shakeel ***"+obj.text);
 			if (obj.data)
 			{
 				objJSON = JSON.parse(obj.data);
@@ -301,7 +301,7 @@
                     <tr>
                         <td align="center"  style="font-weight:bold;">
                                                     
-                            Please Enter Your Initiative/ Progarm Code ******
+                            Please Enter Your Initiative/ Progarm Code 909090
 			</td>
                     </tr>
                     <tr>                            
