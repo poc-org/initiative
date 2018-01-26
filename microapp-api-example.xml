@@ -59,7 +59,7 @@
 			document.getElementById('hdName').value = userName;
 			document.getElementById('textbox').value = employeeID;
 			document.getElementById('hdEmployeeId').value = sabaCertificate;
-
+alert("name: "+userName +"    employeeID: "+ employeeID +"   sabaCertificate:"+ sabaCertificate);
           //var divstuff = "<p>Your user name is: "+ userName +"<br> Your user id is: "+ userId +"</p>";
           //var divstuff = divstuff + "Raw JSON: <br>"+ viewDataString;
          // alert("name: "+userName +"employeeID: "+ employeeID +"sabaCertificate"+ sabaCertificate);
@@ -294,7 +294,7 @@
                     <tr>
                         <td align="center"  style="font-weight:bold;">
                                                     
-                            Please Enter Your Initiative/ Progarm Code ******
+                            Please Enter Your Initiative/ Progarm Code 565656
 			</td>
                     </tr>
                     <tr>                            
