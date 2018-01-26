@@ -49,26 +49,24 @@
             //console.log(viewData);
             //console.log(profileData);
 			
-		if (viewData){
-alert("View Data");
+	  if (viewData){
           var viewDataString = gadgets.json.stringify(viewData),
           userName = viewData.sabaContext.userName,
-          employeeID = viewData.sabaContext.userId;
-		  sabaCertificate = viewData.sabaContext.apiCertificate;
-			
-			
-			document.getElementById('hdName').value = userName;
-			document.getElementById('textbox').value = employeeID;
-			document.getElementById('hdEmployeeId').value = sabaCertificate;
-alert("name: "+userName +"    employeeID: "+ employeeID +"   sabaCertificate:"+ sabaCertificate);
-          //var divstuff = "<p>Your user name is: "+ userName +"<br> Your user id is: "+ userId +"</p>";
-          //var divstuff = divstuff + "Raw JSON: <br>"+ viewDataString;
-         // alert("name: "+userName +"employeeID: "+ employeeID +"sabaCertificate"+ sabaCertificate);
-        } else {            
-		  	$("#divAPIErrorMessage").css("display", "block");
-            $("#divRoleForm").css("display", "none");
-            $("#lbAPIError").html("Error loading gadget view data");
+          userId = viewData.sabaContext.userId;
+
+          var divstuff = "<p>Your user name is: "+ userName +"<br> Your user id is: "+ userId +"</p>";
+          var divstuff = divstuff + "Raw JSON: <br>"+ viewDataString;
+          alert(divstuff);
+
+          
+
+        } else {
+          //console.log("error loading gadget view data");
+          $("#divAPIErrorMessage").css("display", "block");
+          $("#divRoleForm").css("display", "none");
+          $("#lbAPIError").html("Error loading gadget view data");
         }
+		
       }
 	  gadgets.util.registerOnLoadHandler(init);
 	    //sabaCertificate = "4E41335431534E42303038312D333133363331363133333636333833363339333136363545323335453537353335463431343434443439344535453233354534453431333335343331353334453432333033303338333135453233354536353645354635353533354532333545353336313632363135453233354532443331354532333545323434313432343033303244303231343038383844314631324133433545323437424333363742353243313642423534353131463631333730323135303038304638444630353341383644414636334138423735343742444146424541394235463838464131";
@@ -295,7 +293,7 @@ alert("name: "+userName +"    employeeID: "+ employeeID +"   sabaCertificate:"+ 
                     <tr>
                         <td align="center"  style="font-weight:bold;">
                                                     
-                            Please Enter Your Initiative/ Progarm Code 89898989
+                            Please Enter Your Initiative/ Progarm Code ******
 			</td>
                     </tr>
                     <tr>                            
