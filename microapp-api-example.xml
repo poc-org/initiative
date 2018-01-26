@@ -57,7 +57,7 @@
 
           //var divstuff = "<p>Your user name is: "+ userName +"<br> Your user id is: "+ userId +"</p>";
           //var divstuff = divstuff + "Raw JSON: <br>"+ viewDataString;
-          alert("name: "+userName +"employeeID: "+ employeeID +"sabaCertificate"+ sabaCertificate);
+         // alert("name: "+userName +"employeeID: "+ employeeID +"sabaCertificate"+ sabaCertificate);
         } else {            
 		  	$("#divAPIErrorMessage").css("display", "block");
             $("#divRoleForm").css("display", "none");
@@ -70,7 +70,7 @@
         //userName = "22014213";
         //urlAPIRole = "https://dxc-itg-api.sabacloud.com/v1/";	   
         //varRoleID;
-
+ alert("name: "+userName +"    employeeID: "+ employeeID +"   sabaCertificate"+ sabaCertificate);
        $(function () {       
 			 $("#btnRoleSubmit").click(function () {                           
                 submitGetRole();
@@ -282,7 +282,7 @@
                     <tr>
                         <td align="center"  style="font-weight:bold;">
                                                     
-                            Please Enter Your Initiative/ Progarm Code ******
+                            Please Enter Your Initiative/ Progarm Code Testing123
 			</td>
                     </tr>
                     <tr>                            
