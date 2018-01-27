@@ -105,13 +105,9 @@
 
     </script>
 	<img src="https://www.lua.org/images/logo.gif" class="imgBox" /></a>
-<embed id="pdfRoleFile" src="http://www.saba.com/docs/policies/us/saba-customer-privacy-policy.pdf" width="400px" height="200px" type="application/pdf" />
 
-<div id="tab1" >
-<iframe src="http://www.saba.com/docs/policies/us/saba-customer-privacy-policy.pdf" width="100%" height="100%" frameborder=0>
-  <p>Your browser does not support iframes.</p>
-  </iframe>
-</div> 
+<embed src="http://www.saba.com/docs/policies/us/saba-customer-privacy-policy.pdf" type="application/pdf" />
+ 
     <script type="text/os-template">
       <!-- *** style this UI, add an inline or referenced stylesheet earlier in this config file *** -->
       <!-- this is what is presented as the microapp UI -->
