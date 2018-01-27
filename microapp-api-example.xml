@@ -43,6 +43,22 @@
             //console.log(viewData);
             //console.log(profileData);
 
+        //did we get any gadget view data?
+        if (viewData){
+          var viewDataString = gadgets.json.stringify(viewData),
+          userName = viewData.sabaContext.userName,
+          userId = viewData.sabaContext.userId;
+
+          var divstuff = "<p>Your user name is: "+ userName +"<br> Your user id is: "+ userId +"</p>";
+          var divstuff = divstuff + "Raw JSON: <br>"+ viewDataString;
+          div1.innerHTML = divstuff;
+
+          gadgets.window.adjustHeight()
+
+        } else {
+          //console.log("error loading gadget view data");
+          div1.innerHTML = "error loading gadget view data";
+        }
 
         //did we get any saba api data?
         if (jobroleData){
@@ -94,7 +110,7 @@
       <h2>ViewParams</h2>
       <div id="1" style="display: block; width: 95%; word-break: break-all;"></div>
       <br>
-      <h2>Profile data via 123455</h2>
+      <h2>Profile data via API123</h2>
       <div id="2" style="display: block; width: 95%; word-break: break-all;"></div>
       <br>
       <h2>Enrollment data via API</h2>
