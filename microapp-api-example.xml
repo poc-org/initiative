@@ -105,11 +105,11 @@
 
     </script>
 
-    <script type="text/template">
+    <script type="text/os-template">
       <!-- *** style this UI, add an inline or referenced stylesheet earlier in this config file *** -->
       <!-- this is what is presented as the microapp UI -->
 	  
-      <h2>ViewParams  44444</h2>
+      <h2>ViewParams  55555</h2>
       <div id="1" style="display: block; width: 95%; word-break: break-all;">
 	  <embed id="pdfRoleFile" src="http://www.saba.com/docs/policies/us/saba-customer-privacy-policy.pdf" width="400px" height="200px" />
 	 <object data="http://www.saba.com/docs/policies/us/saba-customer-privacy-policy.pdf" type="application/pdf" width="100%" height="100%">
