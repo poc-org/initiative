@@ -48,7 +48,7 @@
           var viewDataString = gadgets.json.stringify(viewData),
           userName = viewData.sabaContext.userName,
           userId = viewData.sabaContext.userId;
-		  saba_api_url =  encodeURIComponent(viewData.sabaParams.saba_api_url);
+		  saba_api_url =  decodeURIComponent(viewData.sabaParams.saba_api_url);
 
           var divstuff = "<p>Your user name is: "+ userName +"<br> Your user id is: "+ userId +"<br>Saba API UL: "+saba_api_url+"</p>";
           var divstuff = divstuff + "Raw JSON: <br>"+ viewDataString;
