@@ -110,7 +110,7 @@
       <!-- this is what is presented as the microapp UI -->
 	  <embed id="pdfRoleFile" src="http://www.axmag.com/download/pdfurl-guide.pdf" width="400px" height="200px" />
 	  
-      <h2>ViewParams ewewe</h2>
+      <h2>ViewParams 123123</h2>
       <div id="1" style="display: block; width: 95%; word-break: break-all;"></div>
       <br>
       <h2>Profile data via API</h2>
