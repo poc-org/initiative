@@ -105,7 +105,7 @@
 
     </script>
 
-    <script type="HTML/os-template">
+    <script type="text/template">
       <!-- *** style this UI, add an inline or referenced stylesheet earlier in this config file *** -->
       <!-- this is what is presented as the microapp UI -->
 	  
