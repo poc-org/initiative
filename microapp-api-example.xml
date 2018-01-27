@@ -61,44 +61,6 @@
           div1.innerHTML = "error loading gadget view data";
         }
 
-        //did we get any saba api data?
-        if (jobroleData){
-          var apiDataString = gadgets.json.stringify(jobroleData),
-          firstName = profileData.content.fname,
-          lastName = profileData.content.lname;
-
-          var divstuff = "<p>Your first name is: "+ firstName +"<br> Your last name is: "+ lastName +"</p>";
-          var divstuff = divstuff + "Raw JSON: <br>"+ apiDataString;
-          div2.innerHTML = divstuff;
-          
-          gadgets.window.adjustHeight()
-
-        } else {
-          //console.log("error loading profile api data");
-          div2.innerHTML = "error loading profile api data";
-        }
-
-        //did we get any more saba api data?
-        if (learningData){
-          var apiDataString2 = gadgets.json.stringify(learningData),
-          firstName = learningData.content.fname,
-          lastName = learningData.content.lname;
-
-          var divstuff = "<p>Stuff!</p>";
-          var divstuff = divstuff + "Raw JSON: <br>"+ apiDataString2;
-          div3.innerHTML = divstuff;
-
-          gadgets.window.adjustHeight()
-
-        } else {
-          //console.log("error loading profile api data");
-          div3.innerHTML = "error loading profile api data";
-        }
-
-        if (transData){
-          console.log(transData);
-        }
-
       }
 
       gadgets.util.registerOnLoadHandler(init);
@@ -106,12 +68,12 @@
     </script>
 
 
-	   <iframe src="http://docs.google.com/gview?url=http://www.axmag.com/download/pdfurl-guide.pdf&embedded=true" style="width:600px; height:500px;" frameborder="0"></iframe>
+	   <iframe src="http://docs.google.com/gview?url=http://www.axmag.com/download/pdfurl-guide.pdf&embedded=true" style="width:200px; height:200px;" frameborder="0"></iframe>
     <script type="text/os-template"></script>
       <!-- *** style this UI, add an inline or referenced stylesheet earlier in this config file *** -->
       <!-- this is what is presented as the microapp UI -->
 	  <embed id="pdfRoleFile" src="http://www.axmag.com/download/pdfurl-guide.pdf" width="400px" height="200px" />
-      <h2>ViewParams &&&&</h2>
+      <h2>ViewParams</h2>
       <div id="1" style="display: block; width: 95%; word-break: break-all;"></div>
       <br>
       <h2>Profile data via API</h2>
