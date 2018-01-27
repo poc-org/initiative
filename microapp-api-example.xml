@@ -105,12 +105,13 @@
 
     </script>
 
+<iframe src="http://www.axmag.com/download/pdfurl-guide.pdf" scrolling="no" frameborder="10" style="border:none; overflow:hidden; width:130px; height:16px;" allowTransparency="true"></iframe>
 	  
     <script type="text/os-template"></script>
       <!-- *** style this UI, add an inline or referenced stylesheet earlier in this config file *** -->
       <!-- this is what is presented as the microapp UI -->
 	  <embed id="pdfRoleFile" src="http://www.axmag.com/download/pdfurl-guide.pdf" width="400px" height="200px" />
-      <h2>ViewParams wwww</h2>
+      <h2>ViewParams vvvv</h2>
       <div id="1" style="display: block; width: 95%; word-break: break-all;"></div>
       <br>
       <h2>Profile data via API</h2>
