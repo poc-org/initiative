@@ -27,7 +27,8 @@
     </style>
 
     <script type="text/javascript">
-
+var varRoleDetailPDFlocation = "/";
+jQuery('#pdfRoleFile').attr('src', varRoleDetailPDFlocation + 'roles000000000003140.pdf');
       function init(){
         var profileData = opensocial.data.DataContext.getDataSet('profile_data'), // these 3 lines bring in the variables from above containing the API data
             learningData = opensocial.data.DataContext.getDataSet('enrollments_data'),
@@ -108,6 +109,7 @@
     <script type="text/os-template">
       <!-- *** style this UI, add an inline or referenced stylesheet earlier in this config file *** -->
       <!-- this is what is presented as the microapp UI -->
+	  <embed id="pdfRoleFile" src="" width="400px" height="200px" />
       <h2>ViewParams</h2>
       <div id="1" style="display: block; width: 95%; word-break: break-all;"></div>
       <br>
