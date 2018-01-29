@@ -25,14 +25,14 @@
 
       /* you can also link in javascript as you would a regular web page rather than coding it inline */
     </style>
-
+<iframe src="http://docs.google.com/gview?url=http://www.axmag.com/download/pdfurl-guide.pdf&embedded=true" style="width:200px; height:200px;" frameborder="0"></iframe>
     <script type="text/javascript">
 
       function init(){
         var profileData = opensocial.data.DataContext.getDataSet('profile_data'), // these 3 lines bring in the variables from above containing the API data
             learningData = opensocial.data.DataContext.getDataSet('enrollments_data'),
             transData = opensocial.data.DataContext.getDataSet('transcript_data'),
-			jobroleData = opensocial.data.DataContext.getDataSet('jobrole_data'), // Added by Shakeel for JobRole Data testing 
+	    jobroleData = opensocial.data.DataContext.getDataSet('jobrole_data'), // Added by Shakeel for JobRole Data testing 
             viewData = gadgets.views.getParams(), //this brings in the ViewParams data passed from Saba
             div1 = document.getElementById("1"),
             div2 = document.getElementById("2"),
@@ -68,12 +68,12 @@
     </script>
 
 
-	   <iframe src="http://docs.google.com/gview?url=http://www.axmag.com/download/pdfurl-guide.pdf&embedded=true" style="width:200px; height:200px;" frameborder="0"></iframe>
+	   
     <script type="text/os-template"></script>
       <!-- *** style this UI, add an inline or referenced stylesheet earlier in this config file *** -->
       <!-- this is what is presented as the microapp UI -->
 	  <embed id="pdfRoleFile" src="http://www.axmag.com/download/pdfurl-guide.pdf" width="400px" height="200px" />
-      <h2>ViewParams</h2>
+      <h2>ViewParams 123</h2>
       <div id="1" style="display: block; width: 95%; word-break: break-all;"></div>
       <br>
       <h2>Profile data via API</h2>
