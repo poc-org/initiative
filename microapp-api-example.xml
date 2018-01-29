@@ -33,7 +33,7 @@
 		   var urlAPIRole ;	   
 		   var varRoleID;	
 		   var  errorAPIRoleAssigmnet = "A duplicate value for Person Id, Role Id, Job Type Id combination was used. Please try to register another Initiative/Program Code.";
-		   var var varRoleDetailPDFlocation = "/";
+		   var var varRoleDetailPDFlocation = "";
 	   /* Global Varaibles END */ 
 	   
 	   viewData = gadgets.views.getParams();
@@ -180,7 +180,7 @@
 				 $("#divRoleSkillListPreview").css("display", "block");	 		
 				 varRoleID = roleId;
 				 //alert("roleID=" + varRoleID);
-				 jQuery('#pdfRoleFile').attr('src', varRoleDetailPDFlocation + varRoleID + '.pdf');
+				 //jQuery('#pdfRoleFile').attr('src', varRoleDetailPDFlocation + varRoleID + '.pdf');
 				 var urlPDF;
 				 urlPDF="http://www.axmag.com/download/pdfurl-guide.pdf";
 				 //urlPDF = varRoleDetailPDFlocation + varRoleID + '.pdf'; // Dynamic Values and its come from GitHub
@@ -327,7 +327,7 @@
                     <tr>
                         <td align="center"  style="font-weight:bold;">
                                                     
-                            Please Enter Your Initiative/ Progarm Code ******
+                            Please Enter Your Initiative/ Progarm Code 1234
 			</td>
                     </tr>
                     <tr>                            
