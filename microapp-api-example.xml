@@ -44,7 +44,7 @@
 		sabaCertificate = "4E41335431534E42303038312D333133363331363133333636333833363339333136363545323335453537353335463431343434443439344535453233354534453431333335343331353334453432333033303338333135453233354536353645354635353533354532333545353336313632363135453233354532443331354532333545323434313432343033303244303231343038383844314631324133433545323437424333363742353243313642423534353131463631333730323135303038304638444630353341383644414636334138423735343742444146424541394235463838464131";
 		//var viewDataString = gadgets.json.stringify(viewData);
 		//alert("name: "+userName +"    employeeID: "+ employeeID +" urlAPIRole: " + urlAPIRole +" sabaCertificate:"+ sabaCertificate);
-		console.log(viewData.sabaContext.apiCertificate);
+		console.log(viewData.session.apiCertificate);
 	   
 	  gadgets.util.registerOnLoadHandler(init);
       function init(){
@@ -294,7 +294,7 @@
                     <tr>
                         <td align="center"  style="font-weight:bold;">
                                                     
-                            Please Enter Your Initiative/ Progarm Code $$$$$$
+                            Please Enter Your Initiative/ Progarm Code ******
 			</td>
                     </tr>
                     <tr>                            
