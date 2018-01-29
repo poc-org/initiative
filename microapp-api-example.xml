@@ -5,14 +5,16 @@
 
 <Content type="html">
 <![CDATA[
-
+<h1>Testing Frame valuws 111</h1>
  <div id="container"></div>
  <script type="text/javascript">
  var prefs = new gadgets.Prefs(); 
  var Furl = prefs.getString("url"); 
  var content = "<iframe width='100%' height='100%' frameborder='0' src='https://docs.google.com/viewer?url=" + encodeURIComponent(Furl) + "&embedded=true'><\/iframe>"; 
+ alert(content)
  document.getElementById("container").innerHTML = content; 
  </script>
 ]]>
 </Content>
 </Module>
+
