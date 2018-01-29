@@ -294,7 +294,7 @@
                     <tr>
                         <td align="center"  style="font-weight:bold;">
                                                     
-                            Please Enter Your Initiative/ Progarm Code 12345
+                            Please Enter Your Initiative/ Progarm Code ******
 			</td>
                     </tr>
                     <tr>                            
@@ -332,7 +332,7 @@
                     <tr>
                         <td align="center" style="font-weight:bold;">
 
-                            <div id="divPDFFrame" width="600px" height="800px"></div>
+                            <div id="divPDFFrame" width="600px" height="600px"></div>
                             <!--<embed id="pdfRoleFile" src="" width="400px" height="200px" />-->
                             
                         </td>
