@@ -294,7 +294,7 @@
                     <tr>
                         <td align="center"  style="font-weight:bold;">
                                                     
-                            Please Enter Your Initiative/ Progarm Code ******
+                            Please Enter Your Initiative/ Progarm Code 12345
 			</td>
                     </tr>
                     <tr>                            
@@ -328,7 +328,7 @@
     <div id="divPDFConfirmPreview" style="display:none">
         <div>
             <center>
-                <table border="10" cellpadding="10" cellspacing="10">
+                <table border="10" cellpadding="10" cellspacing="10" width="600px" height="800px">
                     <tr>
                         <td align="center" style="font-weight:bold;">
 
