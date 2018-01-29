@@ -175,9 +175,7 @@
                    				 roleId = objJSON.results[j].id
                    					//alert("roleID=" + roleId);
              					  }
-				
-				 $("#divRoleForm").css("display", "none");
-				 $("#divRoleSkillListPreview").css("display", "block");	 		
+								 
 				 varRoleID = roleId;
 				 //alert("roleID=" + varRoleID);
 				 //jQuery('#pdfRoleFile').attr('src', varRoleDetailPDFlocation + varRoleID + '.pdf');
@@ -327,7 +325,7 @@
                     <tr>
                         <td align="center"  style="font-weight:bold;">
                                                     
-                            Please Enter Your Initiative/ Progarm Code 12345
+                            Please Enter Your Initiative/ Progarm Code ******
 			</td>
                     </tr>
                     <tr>                            
