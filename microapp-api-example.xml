@@ -14,8 +14,7 @@
       /* here we can use data passed from the gadget to make an API call before the microapp is rendered. You must replace "your.sabacloud.com" with your site url. */
       <os:HttpRequest key="profile_data" href="https://dxc-itg-api.sabacloud.com/v1/people/${ViewParams.sabaContext.userId}:(socialProfile,coreProfile,lname,fname,email,is_manager,person_no,customValues)?SabaCertificate=${ViewParams.sabaContext.certificate}"/>
       <os:HttpRequest key="enrollments_data" href="https://dxc-itg-api.sabacloud.com/v1/enrollment?SabaCertificate=${ViewParams.sabaContext.certificate}"/>
-      <os:HttpRequest key="transcript_data" href="https://dxc-itg-api.sabacloud.com/v1/transcripts?SabaCertificate=${ViewParams.sabaContext.certificate}"/>
-	  /* Added by Shakeel for the Job Role data for testing */
+     /* Added by Shakeel for the Job Role data for testing */
      /*<os:HttpRequest key="jobrole_data" href="https://dxc-itg-api.sabacloud.com/v1/role/roles000000000003140?includeassociation=true&SabaCertificate=${ViewParams.sabaContext.apiCertificate}"/>*/
    </script>
 
@@ -44,7 +43,8 @@
 		urlAPIRole =  $.trim(decodeURIComponent(viewData.sabaParams.saba_api_url))+'/v1/' ;
 		sabaCertificate = "4E41335431534E42303038312D333133363331363133333636333833363339333136363545323335453537353335463431343434443439344535453233354534453431333335343331353334453432333033303338333135453233354536353645354635353533354532333545353336313632363135453233354532443331354532333545323434313432343033303244303231343038383844314631324133433545323437424333363742353243313642423534353131463631333730323135303038304638444630353341383644414636334138423735343742444146424541394235463838464131";
 		//var viewDataString = gadgets.json.stringify(viewData);
-		 alert("name: "+userName +"    employeeID: "+ employeeID +" urlAPIRole: " + urlAPIRole +" sabaCertificate:"+ sabaCertificate);
+		//alert("name: "+userName +"    employeeID: "+ employeeID +" urlAPIRole: " + urlAPIRole +" sabaCertificate:"+ sabaCertificate);
+		console.log(viewData.sabaContext.apiCertificate);
 	   
 	  gadgets.util.registerOnLoadHandler(init);
       function init(){
@@ -53,11 +53,7 @@
             transData = opensocial.data.DataContext.getDataSet('transcript_data'),
             jobroleData = opensocial.data.DataContext.getDataSet('jobrole_data'), // Added by Shakeel for JobRole Data testing 
             viewData = gadgets.views.getParams(); //this brings in the ViewParams data passed from Saba
-            //div1 = document.getElementById("1"),
-            //div2 = document.getElementById("2"),
-            //div3 = document.getElementById("3"),
-            //div4 = document.getElementById("4"); // added by shakeel for Jobrole data testing
-            //console.log(profileData.content.contact_email);
+            //div1 = document.getElementById("1"),            
             //debug json data
             //console.log(viewData);
             //console.log(profileData);
@@ -87,8 +83,7 @@
  
        $(function () {       
 			 $("#btnRoleSubmit").click(function () {                           
-                submitGetRole();
-			   
+                submitGetRole();	   
                
            });
 
@@ -157,14 +152,7 @@
         } 
 
         function role2Response(obj) {
-            // Reference: https://developers.google.com/gadgets/docs/remote-content
-            //  obj.data : <parsed data, if applicable>
-            //  obj.errors : <any errors that occurred>
-            //  obj.text : <raw text of the response>
-            //console.log(obj.data);
-			//console.log(obj.errors);
-			//console.log(obj.text);
-			//alert(obj.data +"**** Shakeel ***"+obj.errors+"**** Shakeel ***"+obj.text);
+            //alert(obj.data +"**** Shakeel ***"+obj.errors+"**** Shakeel ***"+obj.text);
 			if (obj.data)
 			{
 				objJSON = JSON.parse(obj.data);
@@ -222,20 +210,11 @@
             
             var inputParam = {};
             var jobEmpSearchURLParam = urlAPIRole + "role/" + roleID+"?includeassociation=true&SabaCertificate=" + sabaCertificate;
-			//alert(jobEmpSearchURLParam);
 			gadgets.io.makeRequest(jobEmpSearchURLParam, roleDetail2Response, params);
         } 
 
         function roleDetail2Response(obj) {
-            // Reference: https://developers.google.com/gadgets/docs/remote-content
-            //  obj.data : <parsed data, if applicable>
-            //  obj.errors : <any errors that occurred>
-            //  obj.text : <raw text of the response>
-            //console.log(obj.data);
-			//console.log(obj.errors);
-			//console.log(obj.text);
-			//alert(" Role Details  --- "+obj.data)
-			if(obj.data)
+            if(obj.data)
 			{
 				jsonObj = JSON.parse(obj.data)
 				data = '<table border="2"><tr><td><b>Object Name</b></td><td><b>Type</b></td></tr>';
@@ -261,9 +240,8 @@
 		*/
 		 
 		function submitSetRoleInUserProfile() {
-			//var postData12={"requiredJobRoles": [{"id": "roles000000000003140"}]};
-			
-			 var postDataRoleSet = {};
+			//var postData12={"requiredJobRoles": [{"id": "roles000000000003140"}]};			
+			  var postDataRoleSet = {};
 			   postDataRoleSet.requiredJobRoles = [];
 			   postDataRoleSet.requiredJobRoles.unshift({});
 			   postDataRoleSet.requiredJobRoles[0]['id'] = varRoleID;
@@ -274,37 +252,28 @@
             var params = {};
 				//postdata = gadgets.io.encodeValues(postDataRoleSet);
 				var postdata = gadgets.json.stringify(postDataRoleSet);
-				//console.log(postdata);
-				//alert(postdata);
 				params[gadgets.io.RequestParameters.CONTENT_TYPE] = gadgets.io.ContentType.JSON;
 				params[gadgets.io.RequestParameters.METHOD] = gadgets.io.MethodType.POST;
 				params[gadgets.io.RequestParameters.POST_DATA] = postdata;	
 				params[gadgets.io.RequestParameters.HEADERS] = headers;	
 
 			 var setRoleAPIURL = urlAPIRole + "people/" + employeeID + "/requiredjobrole?SabaCertificate=" + sabaCertificate;
-				//console.log(setRoleAPIURL);
-				//alert(setRoleAPIURL);
+				gadgets.io.makeRequest(setRoleAPIURL, setRoleDetail2Response, params);
 				gadgets.io.makeRequest(setRoleAPIURL, setRoleDetail2Response, params);
 		} 
 		
 		 function setRoleDetail2Response(obj) {
-            // Reference: https://developers.google.com/gadgets/docs/remote-content
-            //  obj.data : <parsed data, if applicable>
-            //  obj.errors : <any errors that occurred>
-            //  obj.text : <raw text of the response>
-            //console.log(obj.data);
-			//console.log(obj.errors);
-			//console.log(obj.text);
+           
 			//alert(obj.data +"**** Shakeel ***"+obj.errors+"**** Shakeel ***"+obj.text)
 			if (obj.data){
 				$("#divRoleSkillListPreview").css("display", "none");
 				$("#divAffirmationAcknowledgement").css("display", "block");
 			}
 			if($.trim(obj.errors)){
-			//alert("API ERROR Setting Role");
-				$("#divAPIErrorMessage").css("display", "block");
+			    $("#divAPIErrorMessage").css("display", "block");
                 $("#divRoleSkillListPreview").css("display", "none");
-                $("#lbAPIError").html(JSON.stringify(obj.text));
+                //$("#lbAPIError").html(JSON.stringify(obj.text));
+				$("#lbAPIError").html(errorAPIRoleAssigmnet);
 			}
 			
         } 
@@ -325,7 +294,7 @@
                     <tr>
                         <td align="center"  style="font-weight:bold;">
                                                     
-                            Please Enter Your Initiative/ Progarm Code ******
+                            Please Enter Your Initiative/ Progarm Code 1234567890
 			</td>
                     </tr>
                     <tr>                            
