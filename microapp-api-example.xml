@@ -1,4 +1,3 @@
-<?xml version="1.0" encoding="UTF-8" ?>
 <Module>
 <ModulePrefs title="Iframe Wrapper" title_url="http://sites.google.com/site/mori79/html-gadgets/how-tos/iframe-wrapper" description="A gadget to embed/include another document/page in your web page. More info: http://sites.google.com/site/mori79/html-gadgets/how-tos/iframe-wrapper" screenshot="http://lh3.ggpht.com/_qkZzGyIkXmo/TCZXCIwIyzI/AAAAAAAADTE/IL5ApnuQYAM/s800/iframe-wrapper-screenshot.png" thumbnail="http://lh4.ggpht.com/_qkZzGyIkXmo/TCZGmwIed1I/AAAAAAAADS8/u0eHUVf5q14/s800/iframe-wrapper-thumbnail.png" width="800" height="600" author="Mori" author_email="mori79+gadgets@gmail.com" author_location="Esfahan, Iran" author_affiliation="Google" author_photo="http://lh6.ggpht.com/_qkZzGyIkXmo/TCIyTtdtZJI/AAAAAAAADSQ/slTTimrNT1U/s800/author_photo.png" author_aboutme="An English teacher, a Google Sites Guru" author_link="http://sites.google.com/site/mori79/" author_quote="Follow your heart wherever it takes you."></ModulePrefs>
 <UserPref name="url" display_name="Document / page URL" required="true"/>
@@ -16,8 +15,7 @@ body {background:transparent;}
  var prefs = new gadgets.Prefs(); 
  var Furl = prefs.getString("url");
  var Fscroll = prefs.getString("scroll"); 
- var content = "<iframe width='100%' height='100%' frameborder='0' allowtransparency='true' src='" + Furl + "' scrolling='" + Fscroll + "'>
- <\/iframe>"; document.getElementById("container").innerHTML = content; 
+ var content = "<iframe width='100%' height='100%' frameborder='0' allowtransparency='true' src='" + Furl + "' scrolling='" + Fscroll + "'> <\/iframe>"; document.getElementById("container").innerHTML = content; 
  
  </script>
 ]]>
