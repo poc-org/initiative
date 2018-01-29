@@ -1,6 +1,7 @@
 <?xml version="1.0" encoding="UTF-8" ?>
 <Module>
 <ModulePrefs title="API Demo" scrolling="true">
+ </ModulePrefs>
 <UserPref name="url" display_name="http://www.axmag.com/download/pdfurl-guide.pdf" required="true"/>
 <Content type="html">
 <![CDATA[
