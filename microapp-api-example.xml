@@ -1,6 +1,6 @@
 <?xml version="1.0" encoding="UTF-8" ?>
 <Module>
-<ModulePrefs title="Google Docs Viewer" title_url="http://sites.google.com/site/mori79/html-gadgets/how-tos/google-docs-viewer" description="A gadget to embed/include the Google Docs Viewer and display PDF documents, PowerPoint presentations, Word documents and many more file types in your page. More info: http://sites.google.com/site/mori79/html-gadgets/how-tos/google-docs-viewer" screenshot="http://lh5.googleusercontent.com/-Sstp5zkE1gU/UD0WoO4fVAI/AAAAAAAAEwk/bzy17lbV4Gw/s800/google-docs-viewer-screenshot.jpg" thumbnail="http://lh6.googleusercontent.com/-jgq7jOsK0I4/Tf9a-L0S_II/AAAAAAAADzw/G6frWF_5BAE/s800/google-docs-viewer-thumbnail.png" width="800" height="600" author="Mori" author_email="mori79+gadgets@gmail.com" author_location="Esfahan, Iran" author_affiliation="Google" author_photo="http://lh6.ggpht.com/_qkZzGyIkXmo/TCIyTtdtZJI/AAAAAAAADSQ/slTTimrNT1U/s800/author_photo.png" author_aboutme="An English teacher, a Google Sites Guru" author_link="http://sites.google.com/site/mori79/" author_quote="Follow your heart wherever it takes you."></ModulePrefs>
+
 <UserPref name="url" display_name="http://www.axmag.com/download/pdfurl-guide.pdf" required="true"/>
 <Content type="html">
 <![CDATA[
