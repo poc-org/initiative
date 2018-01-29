@@ -1,88 +1,25 @@
 <?xml version="1.0" encoding="UTF-8" ?>
 <Module>
-  <ModulePrefs title="API Demo" scrolling="true">
-    <Require feature="opensocial-templates"/>
-    <Require feature="opensocial-data"/>
-    <Require feature="views"/>
-    <Require feature="dynamic-height"/>
-  </ModulePrefs>
-  <Content type="html" view="home">
-  <![CDATA[
-
-    <script xmlns:os="http://ns.opensocial.org/2008/markup" type="text/os-data">
-      /* here we can use data passed from the gadget to make an API call before the microapp is rendered. You must replace "your.sabacloud.com" with your site url. */
-
-      <os:HttpRequest key="profile_data" href="https://your.sabacloud.com/Saba/api/component/people/${ViewParams.sabaContext.userId}:(socialProfile,coreProfile,lname,fname,email,is_manager,person_no,customValues)?SabaCertificate=${ViewParams.sabaContext.certificate}"/>
-
-      <os:HttpRequest key="enrollments_data" href="https://your.sabacloud.com/Saba/api/component/enrollment?SabaCertificate=${ViewParams.sabaContext.certificate}"/>
-
-      <os:HttpRequest key="transcript_data" href="https://your.sabacloud.com/Saba/api/component/transcripts?SabaCertificate=${ViewParams.sabaContext.certificate}"/>
-	  <os:HttpRequest key="jobrole_data" href="https://dxc-itg-api.sabacloud.com/v1/role/roles000000000003140?includeassociation=true&SabaCertificate=${ViewParams.sabaContext.apiCertificate}"/>
-    </script>
-
-    <style type="text/css">
-      /* you could put a stylesheet in here too or link one in */
-
-      /* you can also link in javascript as you would a regular web page rather than coding it inline */
-    </style>
-<iframe src="http://docs.google.com/gview?url=http://www.axmag.com/download/pdfurl-guide.pdf&embedded=true" style="width:200px; height:200px;" frameborder="0"></iframe>
-    <script type="text/javascript">
-
-      function init(){
-        var profileData = opensocial.data.DataContext.getDataSet('profile_data'), // these 3 lines bring in the variables from above containing the API data
-            learningData = opensocial.data.DataContext.getDataSet('enrollments_data'),
-            transData = opensocial.data.DataContext.getDataSet('transcript_data'),
-	    jobroleData = opensocial.data.DataContext.getDataSet('jobrole_data'), // Added by Shakeel for JobRole Data testing 
-            viewData = gadgets.views.getParams(), //this brings in the ViewParams data passed from Saba
-            div1 = document.getElementById("1"),
-            div2 = document.getElementById("2"),
-            div3 = document.getElementById("3");
-
-            //console.log(profileData.content.contact_email);
-            //debug json data
-            //console.log(viewData);
-            //console.log(profileData);
-
-        //did we get any gadget view data?
-        if (viewData){
-          var viewDataString = gadgets.json.stringify(viewData),
-          userName = viewData.sabaContext.userName,
-          userId = viewData.sabaContext.userId;
-		  saba_api_url =  decodeURIComponent(viewData.sabaParams.saba_api_url);
-
-          var divstuff = "<p>Your user name is: "+ userName +"<br> Your user id is: "+ userId +"<br>Saba API UL: "+saba_api_url+"</p>";
-          var divstuff = divstuff + "Raw JSON: <br>"+ viewDataString;
-          div1.innerHTML = divstuff;
-
-          gadgets.window.adjustHeight()
-
-        } else {
-          //console.log("error loading gadget view data");
-          div1.innerHTML = "error loading gadget view data";
-        }
-
-      }
-
-      gadgets.util.registerOnLoadHandler(init);
-
-    </script>
-
-
-	   
-    <script type="text/os-template"></script>
-      <!-- *** style this UI, add an inline or referenced stylesheet earlier in this config file *** -->
-      <!-- this is what is presented as the microapp UI -->
-	  <embed id="pdfRoleFile" src="http://www.axmag.com/download/pdfurl-guide.pdf" width="400px" height="200px" />
-      <h2>ViewParams 123</h2>
-      <div id="1" style="display: block; width: 95%; word-break: break-all;"></div>
-      <br>
-      <h2>Profile data via API</h2>
-      <div id="2" style="display: block; width: 95%; word-break: break-all;"></div>
-      <br>
-      <h2>Enrollment data via API</h2>
-      <div id="3" style="display: block; width: 95%; word-break: break-all;"></div>
-    
-
-  ]]>
-  </Content>
+<ModulePrefs title="Iframe Wrapper" title_url="http://sites.google.com/site/mori79/html-gadgets/how-tos/iframe-wrapper" description="A gadget to embed/include another document/page in your web page. More info: http://sites.google.com/site/mori79/html-gadgets/how-tos/iframe-wrapper" screenshot="http://lh3.ggpht.com/_qkZzGyIkXmo/TCZXCIwIyzI/AAAAAAAADTE/IL5ApnuQYAM/s800/iframe-wrapper-screenshot.png" thumbnail="http://lh4.ggpht.com/_qkZzGyIkXmo/TCZGmwIed1I/AAAAAAAADS8/u0eHUVf5q14/s800/iframe-wrapper-thumbnail.png" width="800" height="600" author="Mori" author_email="mori79+gadgets@gmail.com" author_location="Esfahan, Iran" author_affiliation="Google" author_photo="http://lh6.ggpht.com/_qkZzGyIkXmo/TCIyTtdtZJI/AAAAAAAADSQ/slTTimrNT1U/s800/author_photo.png" author_aboutme="An English teacher, a Google Sites Guru" author_link="http://sites.google.com/site/mori79/" author_quote="Follow your heart wherever it takes you."></ModulePrefs>
+<UserPref name="url" display_name="Document / page URL" required="true"/>
+<UserPref name="scroll" display_name="Display scrollbars" default_value="auto" datatype="enum">
+<EnumValue value="auto" display_value="Automatic"/>
+<EnumValue value="yes" display_value="Yes"/>
+<EnumValue value="no" display_value="No"/>
+</UserPref>
+<Content type="html">
+<![CDATA[
+<style type="text/css"> 
+body {background:transparent;} 
+</style> <div id="container"></div> 
+<script type="text/javascript">
+ var prefs = new gadgets.Prefs(); 
+ var Furl = prefs.getString("url");
+ var Fscroll = prefs.getString("scroll"); 
+ var content = "<iframe width='100%' height='100%' frameborder='0' allowtransparency='true' src='" + Furl + "' scrolling='" + Fscroll + "'>
+ <\/iframe>"; document.getElementById("container").innerHTML = content; 
+ 
+ </script>
+]]>
+</Content>
 </Module>
