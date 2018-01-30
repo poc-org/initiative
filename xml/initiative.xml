@@ -28,7 +28,7 @@
 	    userName = $.trim(viewData.sabaContext.userName);
 	    employeeID = $.trim(viewData.sabaContext.userId) ;
 	   urlAPIRole =  $.trim(decodeURIComponent(viewData.sabaParams.saba_api_url))+'/v1/' ;
-	
+	console.log(sabaCertificate);
 
 			   
 	  gadgets.util.registerOnLoadHandler(init);
