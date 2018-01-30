@@ -30,7 +30,8 @@
 	    employeeID = $.trim(viewData.sabaContext.userId) ;
 	   urlAPIRole =  $.trim(decodeURIComponent(viewData.sabaParams.saba_api_url))+'/v1/' ;
 
-          $("remote_iframe_0").height('600px');
+          
+ $("#remote_iframe_0").css("height", "600px");
 			   
 	  gadgets.util.registerOnLoadHandler(init);
       function init(){
@@ -253,7 +254,7 @@
                     <tr>
                         <td align="center"  style="font-weight:bold;">
                                                     
-                            Please Enter Your Initiative/ Progarm Code 
+                            Please Enter Your Initiative/ Progarm Code  1212
 			</td>
                     </tr>
                     <tr>                            
