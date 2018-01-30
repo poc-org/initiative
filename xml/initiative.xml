@@ -29,7 +29,7 @@
 	    userName = $.trim(viewData.sabaContext.userName);
 	    employeeID = $.trim(viewData.sabaContext.userId) ;
 	   urlAPIRole =  $.trim(decodeURIComponent(viewData.sabaParams.saba_api_url))+'/v1/' ;
-
+$('remote_iframe_0').css('height', height * 4 | 0);
 			   
 	  gadgets.util.registerOnLoadHandler(init);
       function init(){
