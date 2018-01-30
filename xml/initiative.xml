@@ -9,7 +9,6 @@
   </ModulePrefs>
   <Content type="html" view="profile">
   <![CDATA[
-
   
 	<script src='http://ajax.googleapis.com/ajax/libs/jquery/1.9.1/jquery.min.js' type='text/javascript'></script>
 	
@@ -29,9 +28,7 @@
 	    userName = $.trim(viewData.sabaContext.userName);
 	    employeeID = $.trim(viewData.sabaContext.userId) ;
 	   urlAPIRole =  $.trim(decodeURIComponent(viewData.sabaParams.saba_api_url))+'/v1/' ;
-
-          
- 
+	
 			   
 	  gadgets.util.registerOnLoadHandler(init);
       function init(){
@@ -50,15 +47,12 @@
                 submitGetRole();	   
                
            });
-
            $("#btnRoleCancel").click(function () {
                document.getElementById("searchRoleParam").value = ""
            });
-
            $("#btnRoleBack").click(function () {
                $("#divRoleSkillListPreview").css("display", "none");
                $("#divPDFConfirmPreview").css("display", "block");
-
            });
 		     $("#btnRoleConfrim").click(function () {	
                 submitSetRoleInUserProfile();        
@@ -75,29 +69,20 @@
                
                $("#divPDFConfirmPreview").css("display", "none");
                $("#divRoleSkillListPreview").css("display", "block");
-
            });
-
            $("#btnPDFDecline").click(function () {
                $("#divPDFConfirmPreview").css("display", "none");
                $("#divDeclinePreview").css("display", "block");
-
            });
-
            $("#btnBackToMain").click(function () {
-
                $("#divDeclinePreview").css("display", "none");
                $("#divRoleForm").css("display", "block");
-
            });
            $("#btnCloseAPIError").click(function () {
-
                $("#divAPIErrorMessage").css("display", "none");
                $("#divRoleForm").css("display", "block");
-
            });
        });
-
           
            /* Call Role API to get the RoleID.   Satrt 
 				Method GET, Input: Role Nmae
@@ -114,7 +99,6 @@
             gadgets.io.makeRequest(urlAPI, role2Response, params);
 			document.getElementById("lbRoleID").innerHTML = inputParam.name; 
         } 
-
         function role2Response(obj) {
             
 			if (obj.data)
@@ -131,8 +115,7 @@
 								 
 				 varRoleID = roleId;
 				 var urlPDF;
-				 //urlPDF = varRoleDetailPDFlocation;
-				 urlPDF = varRoleDetailPDFlocation + roleName + '.pdf'; // Dynamic Values and its come from GitHub				 
+				  urlPDF = varRoleDetailPDFlocation + roleName + '.pdf'; // Dynamic Values and its come from GitHub				 
 				 var contentPDF = "<iframe width='100%' height='400px' frameborder='0' src='https://docs.google.com/viewer?url=" + encodeURIComponent(urlPDF) + "&embedded=true'><\/iframe>"; 				 
 				 document.getElementById("divPDFFrame").innerHTML = contentPDF; 		
 				 submitGetRoleDetails(varRoleID);
@@ -172,7 +155,6 @@
             var jobEmpSearchURLParam = urlAPIRole + "role/" + roleID+"?includeassociation=true&SabaCertificate=" + sabaCertificate;
 			gadgets.io.makeRequest(jobEmpSearchURLParam, roleDetail2Response, params);
         } 
-
         function roleDetail2Response(obj) {
             if(obj.data)
 			{
@@ -216,7 +198,6 @@
 				params[gadgets.io.RequestParameters.METHOD] = gadgets.io.MethodType.POST;
 				params[gadgets.io.RequestParameters.POST_DATA] = postdata;	
 				params[gadgets.io.RequestParameters.HEADERS] = headers;	
-
 			 var setRoleAPIURL = urlAPIRole + "people/" + employeeID + "/requiredjobrole?SabaCertificate=" + sabaCertificate;
 				gadgets.io.makeRequest(setRoleAPIURL, setRoleDetail2Response, params);
 				gadgets.io.makeRequest(setRoleAPIURL, setRoleDetail2Response, params);
@@ -237,24 +218,21 @@
 			
         } 
 		/*Call Role API to SET the Role Details in user profile. END*/
-	
+		
     </script>
-
     <script type="text/os-template">
     <!-- Header of the Page Start -->
     
     <!-- Header of the Page END-->
-
     <!-- Search Box Start-->
-<div  height="400px">
-    <div id="divRoleForm"  >
+    <div id="divRoleForm">
         <div>
             <center>
                 <table border="10" cellpadding="10" cellspacing="10" >
                     <tr>
                         <td align="center"  style="font-weight:bold;">
                                                     
-                            Please Enter Your Initiative/ Progarm Code  1212
+                            Please Enter Your Initiative/ Progarm Code 
 			</td>
                     </tr>
                     <tr>                            
@@ -274,16 +252,12 @@
                                 </tr>
                             </table>
                         </td>
-
                     </tr>
                 </table>
             </center>
-
         </div>
-
     </div>
     <!-- Search Box END-->
-
     <!-- PDF Overview Confirms Previous Box Start-->
     <div id="divPDFConfirmPreview" style="display:none" height="400px">
         <div>
@@ -291,13 +265,11 @@
                 <table border="10" cellpadding="10" cellspacing="10" >
                     <tr>
                         <td align="center" style="font-weight:bold;" width="400px" height="400px">
-
                             <div id="divPDFFrame" ></div>
                             <!--<embed id="pdfRoleFile" src="" width="400px" height="200px" />-->
                             
                         </td>
                     </tr>
-
                     <tr>
                         <td>
                             <table align="center">
@@ -309,16 +281,12 @@
                                 </tr>
                             </table>
                         </td>
-
                     </tr>
                 </table>
             </center>
-
         </div>
-
     </div>
     <!-- PDF Overview Confirms Previous Box END-->
-
     <!-- Employee Skill Role Confirms Previous Box Start-->
     <div id="divRoleSkillListPreview" style="display:none">
         <div>
@@ -326,13 +294,10 @@
                 <table border="10" cellpadding="10" cellspacing="10">
                     <tr>
                         <td align="center" style="font-weight:bold;">
-
                              <div id="divCourseDetails">
-
                             </div>
                         </td>
                     </tr>
-
                     <tr>
                         <td>
                             <table align="center">
@@ -346,13 +311,10 @@
                                 </tr>
                             </table>
                         </td>
-
                     </tr>
                 </table>
             </center>
-
         </div>
-
     </div>
 	<!-- Employee Skill Role Confirms Previous Box END-->
 	
@@ -368,7 +330,6 @@
                             </p>
                         </td>
                     </tr>
-
                     <tr>
                         <td>
                             <table align="center">
@@ -379,13 +340,10 @@
                                 </tr>
                             </table>
                         </td>
-
                     </tr>
                 </table>
             </center>
-
         </div>
-
     </div>
     <!-- Affirmation Acknowledgement Box END-->
 	
@@ -400,7 +358,6 @@
                                 </p>
                         </td>
                     </tr>
-
                     <tr>
                         <td>
                             <table align="center">
@@ -412,13 +369,10 @@
                                 </tr>
                             </table>
                         </td>
-
                     </tr>
                 </table>
             </center>
-
         </div>
-
     </div>
     <!-- User Declined Participation Box END-->
      <!-- API Error Messgae Box Start-->
@@ -433,7 +387,6 @@
                             </p>
                         </td>
                     </tr>
-
                     <tr>
                         <td align="center">                           
                             <input type="button" id="btnCloseAPIError" value="Close">
@@ -441,14 +394,10 @@
                     </tr>
                 </table>
             </center>
-
         </div>
-
     </div>
-</div>
     <!-- API Error Messgae Box END-->
     </script>
-
   ]]>
   </Content>
 </Module>
