@@ -31,7 +31,7 @@
 	   urlAPIRole =  $.trim(decodeURIComponent(viewData.sabaParams.saba_api_url))+'/v1/' ;
 
           
- $("#remote_iframe_0").css("height", "600px");
+ 
 			   
 	  gadgets.util.registerOnLoadHandler(init);
       function init(){
@@ -237,7 +237,7 @@
 			
         } 
 		/*Call Role API to SET the Role Details in user profile. END*/
-		
+	$("#remote_iframe_0").height("600px");	
     </script>
 
     <script type="text/os-template">
