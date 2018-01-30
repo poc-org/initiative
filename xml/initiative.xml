@@ -29,7 +29,7 @@
 							var $configurationLink = $(this)
 							 var varRoleDetailPDFlocation = $configurationLink.find('pdfrolefile').text();
 							 
-                          
+                          alert(varRoleDetailPDFlocation);
                     });
            
             });
@@ -246,7 +246,7 @@ console.log(contentPDF)
                     <tr>
                         <td align="center"  style="font-weight:bold;">
                                                     
-                            Please Enter Your Initiative/ Progarm Code 8989
+                            Please Enter Your Initiative/ Progarm Code 6666
 			</td>
                     </tr>
                     <tr>                            
