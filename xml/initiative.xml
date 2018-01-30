@@ -244,7 +244,8 @@
     <!-- Header of the Page END-->
 
     <!-- Search Box Start-->
-    <div id="divRoleForm">
+<div  height="400px">
+    <div id="divRoleForm"  >
         <div>
             <center>
                 <table border="10" cellpadding="10" cellspacing="10" >
@@ -442,6 +443,7 @@
         </div>
 
     </div>
+</div>
     <!-- API Error Messgae Box END-->
     </script>
 
