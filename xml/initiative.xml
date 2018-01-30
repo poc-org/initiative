@@ -94,7 +94,6 @@
             var inputParam = {};
             inputParam.name = $.trim($("[id*=searchRoleParam]").val());    
             var urlAPI = urlAPIRole + "role?q=(name==" + inputParam.name  + ")&SabaCertificate=" + sabaCertificate;
-alert(urlAPI);
             gadgets.io.makeRequest(urlAPI, role2Response, params);
 			document.getElementById("lbRoleID").innerHTML = inputParam.name; 
         } 
@@ -103,7 +102,7 @@ alert(urlAPI);
 			if (obj.data)
 			{
 				objJSON = JSON.parse(obj.data);
-alert(objJSON);
+alert(obj.data);
 				var counter = objJSON.totalResults;
 				if (counter>0)
 				{
