@@ -21,7 +21,22 @@
 		   var urlAPIRole ;	   
 		   var varRoleID;	
 		   var  errorAPIRoleAssigmnet = "A duplicate value for Person Id, Role Id, Job Type Id combination was used. Please try to register another Initiative/Program Code.";
-		   var varRoleDetailPDFlocation = "https://raw.githubusercontent.com/poc-org/initiative/itg/doc/";
+		   var varRoleDetailPDFlocation //= "https://raw.githubusercontent.com/poc-org/initiative/itg/doc/";
+
+$(document).ready(function() {
+            var nm;
+            $.ajax({
+                type: "GET" ,
+                url: "../resource/config/config.xml" ,
+                dataType: "xml" ,
+                success: function(xml) {
+                    $(xml).find('configurationLink').each(function() {
+                        varRoleDetailPDFlocation =   $.trim($(this).find('pdfrolefile').text());
+                                        
+                    });
+                },
+            });
+        });
 	   /* Global Varaibles END */ 
 	   
 		viewData = gadgets.views.getParams();	   
@@ -113,7 +128,8 @@
                    					//alert("roleID=" + roleId);
              					  }
 								 
-				 varRoleID = roleId;
+				 
+				 varRoleID = $.trim(roleId);
 				 var urlPDF;
 				  urlPDF = varRoleDetailPDFlocation + roleName + '.pdf'; // Dynamic Values and its come from GitHub				 
 				 var contentPDF = "<iframe width='100%' height='400px' frameborder='0' src='https://docs.google.com/viewer?url=" + encodeURIComponent(urlPDF) + "&embedded=true'><\/iframe>"; 				 
@@ -232,7 +248,7 @@
                     <tr>
                         <td align="center"  style="font-weight:bold;">
                                                     
-                            Please Enter Your Initiative/ Progarm Code &&&&
+                            Please Enter Your Initiative/ Progarm Code 898989
 			</td>
                     </tr>
                     <tr>                            
