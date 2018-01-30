@@ -10,7 +10,8 @@
   <Content type="html" view="profile">
   <![CDATA[
   
-	<script src='http://ajax.googleapis.com/ajax/libs/jquery/1.9.1/jquery.min.js' type='text/javascript'></script>
+	<!--<script src='http://ajax.googleapis.com/ajax/libs/jquery/1.9.1/jquery.min.js' type='text/javascript'></script>-->
+       <script src='resource/js/jquery.min.js' type='text/javascript'></script>
 	
     <script type="text/javascript">
 		/* Global Varaibles Start */ 
@@ -94,7 +95,6 @@
             var inputParam = {};
             inputParam.name = $.trim($("[id*=searchRoleParam]").val());    
             var urlAPI = urlAPIRole + "role?q=(name==" + inputParam.name  + ")&SabaCertificate=" + sabaCertificate;
-alert(urlAPI);
             gadgets.io.makeRequest(urlAPI, role2Response, params);
 	    document.getElementById("lbRoleID").innerHTML = inputParam.name; 
         } 
