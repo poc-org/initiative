@@ -133,6 +133,7 @@ $(document).ready(function() {
 				 var urlPDF;
 				  urlPDF = varRoleDetailPDFlocation + roleName + '.pdf'; // Dynamic Values and its come from GitHub				 
 				 var contentPDF = "<iframe width='100%' height='400px' frameborder='0' src='https://docs.google.com/viewer?url=" + encodeURIComponent(urlPDF) + "&embedded=true'><\/iframe>"; 				 
+console.log(contentPDF)
 				 document.getElementById("divPDFFrame").innerHTML = contentPDF; 		
 				 submitGetRoleDetails(varRoleID);
 				 
@@ -248,7 +249,7 @@ $(document).ready(function() {
                     <tr>
                         <td align="center"  style="font-weight:bold;">
                                                     
-                            Please Enter Your Initiative/ Progarm Code 676767
+                            Please Enter Your Initiative/ Progarm Code 898989
 			</td>
                     </tr>
                     <tr>                            
