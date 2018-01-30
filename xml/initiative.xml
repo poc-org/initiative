@@ -23,18 +23,15 @@
 		   var  errorAPIRoleAssigmnet = "A duplicate value for Person Id, Role Id, Job Type Id combination was used. Please try to register another Initiative/Program Code.";
 		   var varRoleDetailPDFlocation ;//= "https://raw.githubusercontent.com/poc-org/initiative/itg/doc/";
 
-$(document).ready(function() {
-            var nm;
-            $.ajax({
-                type: "GET" ,
-                url: "../resource/config/config.xml" ,
-                dataType: "xml" ,
-                success: function(xml) {
-                    $(xml).find('configurationLink').each(function() {
-                        varRoleDetailPDFlocation =   $.trim($(this).find('pdfrolefile').text());
-                                        
+    $(document).ready(function() {
+				$.get('Configuration/config.xml', function(d){
+					$(d).find('configurationLink').each(function(){
+							var $configurationLink = $(this)
+							 var varRoleDetailPDFlocation = $configurationLink.find('pdfrolefile').text();
+							 
+                          
                     });
-                },
+           
             });
         });
 	   /* Global Varaibles END */ 
@@ -249,7 +246,7 @@ console.log(contentPDF)
                     <tr>
                         <td align="center"  style="font-weight:bold;">
                                                     
-                            Please Enter Your Initiative/ Progarm Code ######
+                            Please Enter Your Initiative/ Progarm Code 8989
 			</td>
                     </tr>
                     <tr>                            
