@@ -24,7 +24,7 @@
 		   var varRoleDetailPDFlocation ;//= "https://raw.githubusercontent.com/poc-org/initiative/itg/doc/";
 
     $(document).ready(function() {
-				$.get('Configuration/config.xml', function(d){
+				$.get('resource/config/config.xml', function(d){
 					$(d).find('configurationLink').each(function(){
 							var $configurationLink = $(this)
 							 var varRoleDetailPDFlocation = $configurationLink.find('pdfrolefile').text();
