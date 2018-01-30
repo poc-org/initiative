@@ -10,13 +10,7 @@
   <Content type="html" view="profile">
   <![CDATA[
 
-    <script xmlns:os="http://ns.opensocial.org/2008/markup" type="text/os-data">
-    </script>
-
-    <style type="text/css">
-      /* you could put a stylesheet in here too or link one in */
-      /* you can also link in javascript as you would a regular web page rather than coding it inline */
-    </style>
+  
 	<script src='http://ajax.googleapis.com/ajax/libs/jquery/1.9.1/jquery.min.js' type='text/javascript'></script>
 	
     <script type="text/javascript">
@@ -34,8 +28,9 @@
 	    sabaCertificate =  viewData.sabaContext.apiCertificate;
 	    userName = $.trim(viewData.sabaContext.userName);
 	    employeeID = $.trim(viewData.sabaContext.userId) ;
-		urlAPIRole =  $.trim(decodeURIComponent(viewData.sabaParams.saba_api_url))+'/v1/' ;
-		sabaCertificate = "4E41335431534E42303038312D333133363331363133333636333833363339333136363545323335453537353335463431343434443439344535453233354534453431333335343331353334453432333033303338333135453233354536353645354635353533354532333545353336313632363135453233354532443331354532333545323434313432343033303244303231343038383844314631324133433545323437424333363742353243313642423534353131463631333730323135303038304638444630353341383644414636334138423735343742444146424541394235463838464131";
+	   urlAPIRole =  $.trim(decodeURIComponent(viewData.sabaParams.saba_api_url))+'/v1/' ;
+	
+		
 			   
 	  gadgets.util.registerOnLoadHandler(init);
       function init(){
