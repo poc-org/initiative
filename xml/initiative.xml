@@ -27,7 +27,7 @@
 		   var urlAPIRole ;	   
 		   var varRoleID;	
 		   var  errorAPIRoleAssigmnet = "A duplicate value for Person Id, Role Id, Job Type Id combination was used. Please try to register another Initiative/Program Code.";
-		   var varRoleDetailPDFlocation = "https://raw.githubusercontent.com/poc-org/initiative/itg/doc";
+		   var varRoleDetailPDFlocation = "https://raw.githubusercontent.com/poc-org/initiative/itg/doc/";
 	   /* Global Varaibles END */ 
 	   
 		viewData = gadgets.views.getParams();	   
@@ -257,7 +257,7 @@
                     <tr>
                         <td align="center"  style="font-weight:bold;">
                                                     
-                            Please Enter Your Initiative/ Progarm Code ******
+                            Please Enter Your Initiative/ Progarm Code 
 			</td>
                     </tr>
                     <tr>                            
@@ -288,7 +288,7 @@
     <!-- Search Box END-->
 
     <!-- PDF Overview Confirms Previous Box Start-->
-    <div id="divPDFConfirmPreview" style="display:none">
+    <div id="divPDFConfirmPreview" style="display:none" height="400px">
         <div>
             <center>
                 <table border="10" cellpadding="10" cellspacing="10" >
