@@ -6,7 +6,7 @@
     <Require feature="views"/>
     <Require feature="dynamic-height"/>
   </ModulePrefs>
-  <Content type="html" view="home">
+  <Content type="html" view="profile">
   <![CDATA[
 
     <script xmlns:os="http://ns.opensocial.org/2008/markup" type="text/os-data">
