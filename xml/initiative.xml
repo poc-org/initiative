@@ -28,7 +28,7 @@
 	    userName = $.trim(viewData.sabaContext.userName);
 	    employeeID = $.trim(viewData.sabaContext.userId) ;
 	   urlAPIRole =  $.trim(decodeURIComponent(viewData.sabaParams.saba_api_url))+'/v1/' ;
-	console.log(sabaCertificate);
+	   //console.log(sabaCertificate);
 
 			   
 	  gadgets.util.registerOnLoadHandler(init);
@@ -99,7 +99,7 @@ alert(urlAPI);
 	    document.getElementById("lbRoleID").innerHTML = inputParam.name; 
         } 
         function role2Response(obj) {
-            alert(obj.data);
+           
 			if (obj.data)
 			{
 				objJSON = JSON.parse(obj.data);
@@ -232,7 +232,7 @@ alert(urlAPI);
                     <tr>
                         <td align="center"  style="font-weight:bold;">
                                                     
-                            Please Enter Your Initiative/ Progarm Code 2222
+                            Please Enter Your Initiative/ Progarm Code 4444
 			</td>
                     </tr>
                     <tr>                            
