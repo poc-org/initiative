@@ -27,7 +27,7 @@ $(document).ready(function() {
             var nm;
             $.ajax({
                 type: "GET" ,
-                url: "../resource/config/config.xml" ,
+                url: "/resource/config/config.xml" ,
                 dataType: "xml" ,
                 success: function(xml) {
                     $(xml).find('configurationLink').each(function() {
@@ -249,7 +249,7 @@ console.log(contentPDF)
                     <tr>
                         <td align="center"  style="font-weight:bold;">
                                                     
-                            Please Enter Your Initiative/ Progarm Code &&&&
+                            Please Enter Your Initiative/ Progarm Code %%%%%
 			</td>
                     </tr>
                     <tr>                            
