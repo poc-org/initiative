@@ -29,14 +29,11 @@
 	    employeeID = $.trim(viewData.sabaContext.userId) ;
 	   urlAPIRole =  $.trim(decodeURIComponent(viewData.sabaParams.saba_api_url))+'/v1/' ;
 	
-console.log(sabaCertificate);
+
 			   
 	  gadgets.util.registerOnLoadHandler(init);
       function init(){
-        var profileData = opensocial.data.DataContext.getDataSet('profile_data'), // these 3 lines bring in the variables from above containing the API data
-            learningData = opensocial.data.DataContext.getDataSet('enrollments_data'),
-            transData = opensocial.data.DataContext.getDataSet('transcript_data'),
-            jobroleData = opensocial.data.DataContext.getDataSet('jobrole_data'), // Added by Shakeel for JobRole Data testing 
+                   
             viewData = gadgets.views.getParams(); //this brings in the ViewParams data passed from Saba
       }
 	  
@@ -97,6 +94,7 @@ console.log(sabaCertificate);
             var inputParam = {};
             inputParam.name = $.trim($("[id*=searchRoleParam]").val());    
             var urlAPI = urlAPIRole + "role?q=(name==" + inputParam.name  + ")&SabaCertificate=" + sabaCertificate;
+alert(urlAPI);
             gadgets.io.makeRequest(urlAPI, role2Response, params);
 			document.getElementById("lbRoleID").innerHTML = inputParam.name; 
         } 
