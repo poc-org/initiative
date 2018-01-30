@@ -105,6 +105,7 @@ console.log(sabaCertificate);
 			if (obj.data)
 			{
 				objJSON = JSON.parse(obj.data);
+alert(objJSON);
 				var counter = objJSON.totalResults;
 				if (counter>0)
 				{
