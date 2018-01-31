@@ -1,30 +1,4 @@
 <?xml version="1.0" encoding="UTF-8" ?>
-<script type="text/javascript" language="javascript">
-		   var varRoleDetailPDFlocation ;//= "https://raw.githubusercontent.com/poc-org/initiative/itg/doc/";
-
- 
-linkAssing("UrlPDFRole");
- function linkAssing(typeOfLink) {
-            var link;
-            var linkType;
-            var pdfRoleLink;
-            $.get("../resource/config/config.txt",
-               function (responce) {
-alert(typeOfLink);
-                   var lines = txt.split("\n");
-                   for (var i = 0, len = lines.length; i < len; i++) {
-                       link = lines[i].split('=');
-                       linkType = link[0];
-                       pdfRoleLink = link[1];
-alert(pdfRoleLink);
-		if(typeOfLink==linkType){
-                       varRoleDetailPDFlocation = pdfRoleLink;
-		  }
-                   }
-               },
-        );
-   }
-	</script>						       
 <Module>
   <ModulePrefs title="API Demo" scrolling="true">
     <Require feature="opensocial-templates"/>
@@ -47,6 +21,7 @@ alert(pdfRoleLink);
 		   var urlAPIRole ;	   
 		   var varRoleID;	
 		   var  errorAPIRoleAssigmnet = "A duplicate value for Person Id, Role Id, Job Type Id combination was used. Please try to register another Initiative/Program Code.";
+		   var varRoleDetailPDFlocation ;//= "https://raw.githubusercontent.com/poc-org/initiative/itg/doc/";
 
 	   /* Global Varaibles END */ 
 	   
@@ -260,7 +235,7 @@ console.log(contentPDF)
                     <tr>
                         <td align="center"  style="font-weight:bold;">
                                                     
-                            Please Enter Your Initiative/ Progarm Code 1010101
+                            Please Enter Your Initiative/ Progarm Code 123456789
 			</td>
                     </tr>
                     <tr>                            
