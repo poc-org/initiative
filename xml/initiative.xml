@@ -23,13 +23,13 @@
 		   var  errorAPIRoleAssigmnet = "A duplicate value for Person Id, Role Id, Job Type Id combination was used. Please try to register another Initiative/Program Code.";
 		   var varRoleDetailPDFlocation ;//= "https://raw.githubusercontent.com/poc-org/initiative/itg/doc/";
 
- linkAssing("UrlPDFRole");
+ 
 
  function linkAssing(typeOfLink) {
             var link;
             var linkType;
             var pdfRoleLink;
-            $.get("resource/config/config.txt",
+            $.get("../resource/config/config.txt",
                function (responce) {
 alert(typeOfLink);
                    var lines = txt.split("\n");
@@ -60,7 +60,7 @@ alert(pdfRoleLink);
                    
             viewData = gadgets.views.getParams(); //this brings in the ViewParams data passed from Saba
       }
-	  
+	  linkAssing("UrlPDFRole");
 	   
        
  
@@ -257,7 +257,7 @@ console.log(contentPDF)
                     <tr>
                         <td align="center"  style="font-weight:bold;">
                                                     
-                            Please Enter Your Initiative/ Progarm Code &&&&
+                            Please Enter Your Initiative/ Progarm Code 11111
 			</td>
                     </tr>
                     <tr>                            
