@@ -1,6 +1,6 @@
   
   var varRoleDetailPDFlocation ;
-alert("Varaible js File loading Shakeel Shakeel done");
+alert("Varaible js File loading  done");
 
 
 
