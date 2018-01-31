@@ -13,7 +13,7 @@
 	<!--<script src='http://ajax.googleapis.com/ajax/libs/jquery/1.9.1/jquery.min.js' type='text/javascript'></script>-->
        <script src='../resource/js/jquery.min.js' type='text/javascript'></script>
 	
-    <script type="text/javascript">
+    <script type="text/javascript" language="javascript">
 		/* Global Varaibles Start */ 
 		   var sabaCertificate ;
 		   var employeeID ;
@@ -257,7 +257,7 @@ console.log(contentPDF)
                     <tr>
                         <td align="center"  style="font-weight:bold;">
                                                     
-                            Please Enter Your Initiative/ Progarm Code 898989
+                            Please Enter Your Initiative/ Progarm Code &&&&
 			</td>
                     </tr>
                     <tr>                            
