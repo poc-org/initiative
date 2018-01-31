@@ -24,7 +24,7 @@
 		   var varRoleDetailPDFlocation ;//= "https://raw.githubusercontent.com/poc-org/initiative/itg/doc/";
 
     $(document).ready(function() {
-				$.get("../resource/config/config.xml", function(d){
+				$.get("resource/config/config.xml", function(d){
 					$(d).find('configurationLink').each(function(){
 							var $configurationLink = $(this)
 							 var varRoleDetailPDFlocation = $configurationLink.find('pdfrolefile').text();
@@ -246,7 +246,7 @@ console.log(contentPDF)
                     <tr>
                         <td align="center"  style="font-weight:bold;">
                                                     
-                            Please Enter Your Initiative/ Progarm Code 555555
+                            Please Enter Your Initiative/ Progarm Code 787878
 			</td>
                     </tr>
                     <tr>                            
