@@ -1,6 +1,6 @@
   
   var varRoleDetailPDFlocation ;
-alert("Varaible js File loading Shakeel");
+alert("Varaible js File loading Shakeel 123");
   $(document).ready(function() {
 				$.get('https://raw.githubusercontent.com/poc-org/initiative/itg/resource/config/config.xml', function(d){
 					$(d).find('configurationLink').each(function(){
