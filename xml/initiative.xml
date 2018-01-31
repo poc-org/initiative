@@ -1,11 +1,7 @@
 <?xml version="1.0" encoding="UTF-8" ?>
 <Module>
   <ModulePrefs title="API Demo" scrolling="true">
-    <Require feature="opensocial-templates"/>
-    <Require feature="opensocial-data"/>
-    <Require feature="views"/>
-    <Require feature="dynamic-height"/>
-	  <Require feature="osapi"/>
+    
   </ModulePrefs>
   <Content type="html" view="profile">
   <![CDATA[
@@ -257,7 +253,7 @@ console.log(contentPDF)
                     <tr>
                         <td align="center"  style="font-weight:bold;">
                                                     
-                            Please Enter Your Initiative/ Progarm Code 11111
+                            Please Enter Your Initiative/ Progarm Code 00000
 			</td>
                     </tr>
                     <tr>                            
