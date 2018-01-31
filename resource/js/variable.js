@@ -1,6 +1,6 @@
   
   var varRoleDetailPDFlocation ;
-alert("Varaible js File loading");
+alert("Varaible js File loading 123");
   $(document).ready(function() {
 				$.get('config/config.xml', function(d){
 					$(d).find('configurationLink').each(function(){
