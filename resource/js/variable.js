@@ -1,7 +1,7 @@
   
   var varRoleDetailPDFlocation ;
-var urlPDF = 'config/config.xml';
-alert("Tesring");
+var urlPDF = require('config/config.xml');
+alert("Tesring 123");
   $(document).ready(function() {
                 $.ajax({
                 type: "GET" ,
