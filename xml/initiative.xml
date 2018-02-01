@@ -34,7 +34,7 @@
 	    strGitHubURL =  $.trim(viewData.sabaContext.url) ;
 	    var splitURL = strGitHubURL.split('xml');
             var gitHubURL = splitURL[0];	
-alert(strGitHubURL+'--'+gitHubURL);
+alert(viewData +'---'+strGitHubURL+'--'+gitHubURL);
               $(document).ready(function() {
                 $.ajax({
                 type: "GET" ,
@@ -259,7 +259,7 @@ alert(strGitHubURL+'--'+gitHubURL);
                     <tr>
                         <td align="center"  style="font-weight:bold;">
                                                     
-                            Please Enter Your Initiative/ Progarm Code 66666
+                            Please Enter Your Initiative/ Progarm Code &&&&&&
 			</td>
                     </tr>
                     <tr>                            
