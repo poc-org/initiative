@@ -1,4 +1,4 @@
-  
+  $("#remote_iframe_0").height(600px);
   var varRoleDetailPDFlocation ;
   $(document).ready(function() {
                 $.ajax({
