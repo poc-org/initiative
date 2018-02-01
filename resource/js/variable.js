@@ -1,7 +1,7 @@
   
   var varRoleDetailPDFlocation ;
 
-
+alert("Testing with path");
 
   $(document).ready(function() {
         pathURL= "config/config.xml"
