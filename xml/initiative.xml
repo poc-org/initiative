@@ -31,7 +31,7 @@
 	    userName = $.trim(viewData.sabaContext.userName);
 	    employeeID = $.trim(viewData.sabaContext.userId) ;
 	    urlAPIRole =  $.trim(decodeURIComponent(viewData.sabaParams.saba_api_url))+'/v1/' ;
-	   
+	   alert(employeeID);
 	  gadgets.util.registerOnLoadHandler(init);
       function init(){
                    
@@ -242,7 +242,7 @@
                     <tr>
                         <td align="center"  style="font-weight:bold;">
                                                     
-                            Please Enter Your Initiative/ Progarm Code Test
+                            Please Enter Your Initiative/ Progarm Code 
 			</td>
                     </tr>
                     <tr>                            
