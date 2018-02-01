@@ -205,7 +205,7 @@
 				params[gadgets.io.RequestParameters.CONTENT_TYPE] = gadgets.io.ContentType.JSON;
 				params[gadgets.io.RequestParameters.METHOD] = gadgets.io.MethodType.POST;
 				params[gadgets.io.RequestParameters.POST_DATA] = postdata;	
-				params[gadgets.io.RequestParameters.HEADERS] = decodeURIComponent(headers);	
+				params[gadgets.io.RequestParameters.HEADERS] = headers;	
 			       var setRoleAPIURL = urlAPIRole + "people/" + employeeID + "/requiredjobrole?SabaCertificate=" + sabaCertificate;
                                 alert(setRoleAPIURL);
 				gadgets.io.makeRequest(setRoleAPIURL, setRoleDetail2Response, params);
@@ -213,7 +213,7 @@
 		} 
 		
 		 function setRoleDetail2Response(obj) {
-           alert(obj.data +'-----'+obj.errors);
+           alert(JSON.parse(obj.data) +'-----'+obj.errors);
 			
 			if (obj.data){
 				$("#divRoleSkillListPreview").css("display", "none");
@@ -242,7 +242,7 @@
                     <tr>
                         <td align="center"  style="font-weight:bold;">
                                                     
-                            Please Enter Your Initiative/ Progarm Code 555
+                            Please Enter Your Initiative/ Progarm Code &&&
 			</td>
                     </tr>
                     <tr>                            
