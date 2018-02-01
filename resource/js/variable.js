@@ -1,10 +1,10 @@
   
   var varRoleDetailPDFlocation ;
 
-alert("Testing with path shakeel");
+alert("Testing with path shakeel1234");
 
   $(document).ready(function() {
-        pathURL= "./config/config.xml"
+        pathURL= "./resource/config/config.xml"
             $.ajax({
                 type: "GET" ,
                 //url: "https://raw.githubusercontent.com/poc-org/initiative/itg/resource/config/config.xml" ,
