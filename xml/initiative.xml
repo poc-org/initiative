@@ -212,7 +212,7 @@
 		} 
 		
 		 function setRoleDetail2Response(obj) {
-           alert(obj.data +"---"+obj.errors+"---"+obj.text);
+          // alert(obj.data +"---"+obj.errors+"---"+obj.text);
 			
 			if (obj.data){
 				$("#divRoleSkillListPreview").css("display", "none");
