@@ -1,6 +1,6 @@
   
   var varRoleDetailPDFlocation ;
-alert("123456");
+alert("123456 testing");
   $(document).ready(function() {
                 $.ajax({
                 type: "GET" ,
