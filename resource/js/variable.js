@@ -1,8 +1,7 @@
   
   var varRoleDetailPDFlocation ;
   $(document).ready(function() {
-        
-            $.ajax({
+                $.ajax({
                 type: "GET" ,
                 url: "https://raw.githubusercontent.com/poc-org/initiative/itg/resource/config/config.xml" ,
                //url: pathURL,
