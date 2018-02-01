@@ -1,12 +1,9 @@
   
   var varRoleDetailPDFlocation ;
-var urlPDF = ('config/config.xml');
-alert("Tesring 1234");
   $(document).ready(function() {
                 $.ajax({
                 type: "GET" ,
-                //url: "https://raw.githubusercontent.com/poc-org/initiative/itg/resource/config/config.xml" ,
-                url: urlPDF,
+                url: "https://raw.githubusercontent.com/poc-org/initiative/itg/resource/config/config.xml" ,                
                 dataType: "xml" ,
                 success: function(xml) {
                     $(xml).find('configurationLink').each(function() {
