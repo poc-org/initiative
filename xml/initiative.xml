@@ -31,10 +31,11 @@
 	    userName = $.trim(viewData.sabaContext.userName);
 	    employeeID = $.trim(viewData.sabaContext.userId) ;
 	    urlAPIRole =  $.trim(decodeURIComponent(viewData.sabaParams.saba_api_url))+'/v1/' ;
+
 	    strGitHubURL =  $.trim(viewData.sabaContext.url) ;
 	    var splitURL = strGitHubURL.split('xml');
             var gitHubURL = splitURL[0];	
-alert(viewData +'---'+strGitHubURL+'--'+gitHubURL);
+alert(gadgets.json.stringify(viewData) +'---'+strGitHubURL+'--'+gitHubURL);
               $(document).ready(function() {
                 $.ajax({
                 type: "GET" ,
@@ -259,7 +260,7 @@ alert(viewData +'---'+strGitHubURL+'--'+gitHubURL);
                     <tr>
                         <td align="center"  style="font-weight:bold;">
                                                     
-                            Please Enter Your Initiative/ Progarm Code &&&&&&
+                            Please Enter Your Initiative/ Progarm Code 99999
 			</td>
                     </tr>
                     <tr>                            
