@@ -234,7 +234,7 @@
     
     <!-- Header of the Page END-->
     <!-- Search Box Start-->
-<div height=600>
+<div  style="height:600px">
     <div id="divRoleForm">
         <div>
             <center>
@@ -242,7 +242,7 @@
                     <tr>
                         <td align="center"  style="font-weight:bold;">
                                                     
-                            Please Enter Your Initiative/ Progarm Code 
+                            Please Enter Your Initiative/ Progarm Code Test
 			</td>
                     </tr>
                     <tr>                            
