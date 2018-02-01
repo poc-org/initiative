@@ -12,7 +12,7 @@
   
 	<!--<script src='http://ajax.googleapis.com/ajax/libs/jquery/1.9.1/jquery.min.js' type='text/javascript'></script>-->
        <script src='../resource/js/jquery.min.js' type='text/javascript'></script>
-       <!--<script src='../resource/js/variable.js' type='text/javascript'></script>-->
+       <script src='../resource/js/variable.js' type='text/javascript'></script>
 	
     <script type="text/javascript" language="javascript">
 		/* Global Varaibles Start */ 
@@ -22,7 +22,7 @@
 		   var urlAPIRole ;	   
 		   var varRoleID;	
 		   var  errorAPIRoleAssigmnet = "A duplicate value for Person Id, Role Id, Job Type Id combination was used. Please try to register another Initiative/Program Code.";
-		   var varRoleDetailPDFlocation ;//= "https://raw.githubusercontent.com/poc-org/initiative/itg/doc/";
+		   //var varRoleDetailPDFlocation ;//= "https://raw.githubusercontent.com/poc-org/initiative/itg/doc/";
 
 	   /* Global Varaibles END */ 
 	   
@@ -31,26 +31,7 @@
 	    userName = $.trim(viewData.sabaContext.userName);
 	    employeeID = $.trim(viewData.sabaContext.userId) ;
 	    urlAPIRole =  $.trim(decodeURIComponent(viewData.sabaParams.saba_api_url))+'/v1/' ;
-
-	    strGitHubURL =  $.trim(viewData.sabaContext.url) ;
-	    var splitURL = strGitHubURL.split('xml');
-            var gitHubURL = splitURL[0];	
-alert(gadgets.json.stringify(viewData) +'---'+strGitHubURL+'--'+gitHubURL);
-              $(document).ready(function() {
-                $.ajax({
-                type: "GET" ,
-                 url: "https://raw.githubusercontent.com/poc-org/initiative/itg/resource/config/config.xml" ,                
-                url: gitHubURL+"/resource/config/config.xml" ,                
-                dataType: "xml" ,
-                success: function(xml) {
-                    $(xml).find('configurationLink').each(function() {
-                        varRoleDetailPDFlocation =   $.trim($(this).find('pdfrolefile').text());
-
-                    });
-                },
-             });
-           });
-			   
+	   
 	  gadgets.util.registerOnLoadHandler(init);
       function init(){
                    
@@ -261,7 +242,7 @@ alert(gadgets.json.stringify(viewData) +'---'+strGitHubURL+'--'+gitHubURL);
                     <tr>
                         <td align="center"  style="font-weight:bold;">
                                                     
-                            Please Enter Your Initiative/ Progarm Code 12121212
+                            Please Enter Your Initiative/ Progarm Code 00000
 			</td>
                     </tr>
                     <tr>                            
