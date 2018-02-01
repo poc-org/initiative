@@ -1,11 +1,11 @@
   
   var varRoleDetailPDFlocation ;
-alert("123456 testing");
+alert("123456 testing Shakeel");
   $(document).ready(function() {
                 $.ajax({
                 type: "GET" ,
                 //url: "https://raw.githubusercontent.com/poc-org/initiative/itg/resource/config/config.xml" ,                
-                url: "config.xml" ,                
+                url: "/config.xml" ,                
                 dataType: "xml" ,
                 success: function(xml) {
                     $(xml).find('configurationLink').each(function() {
