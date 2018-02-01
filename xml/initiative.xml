@@ -44,8 +44,15 @@
        
  
        $(function () {       
-			 $("#btnRoleSubmit").click(function () {                           
-                submitGetRole();	   
+			 $("#btnRoleSubmit").click(function () {      
+		  if ($.trim($("[id*=searchRoleParam]").val()) == "")
+		       {
+			   alert("Provide the Initiative/ Progarm Code");
+			   return;
+		       }
+		else{
+                          submitGetRole();	   
+		    }
                
            });
            $("#btnRoleCancel").click(function () {
