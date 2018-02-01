@@ -31,8 +31,8 @@
 	    userName = $.trim(viewData.sabaContext.userName);
 	    employeeID = $.trim(viewData.sabaContext.userId) ;
 	    urlAPIRole =  $.trim(decodeURIComponent(viewData.sabaParams.saba_api_url))+'/v1/' ;
-	   alert(employeeID);
-	  gadgets.util.registerOnLoadHandler(init);
+	   
+    gadgets.util.registerOnLoadHandler(init);
       function init(){
                    
             viewData = gadgets.views.getParams(); //this brings in the ViewParams data passed from Saba
