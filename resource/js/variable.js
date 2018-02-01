@@ -1,7 +1,7 @@
   
   var varRoleDetailPDFlocation ;
 
-alert("Testing with path shakeel1234");
+alert("Testing with path 1234");
 
   $(document).ready(function() {
         pathURL= "./resource/config/config.xml"
