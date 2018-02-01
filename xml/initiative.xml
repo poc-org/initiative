@@ -212,7 +212,7 @@
 		} 
 		
 		 function setRoleDetail2Response(obj) {
-           alert(obj.data +"---"+obj.errors+"---"+obj.text);
+           //alert(obj.data +"---"+obj.errors+"---"+obj.text);
 			
 			if (obj.data){
 				$("#divRoleSkillListPreview").css("display", "none");
@@ -241,7 +241,7 @@
                     <tr>
                         <td align="center"  style="font-weight:bold;">
                                                     
-                            Please Enter Your Initiative/ Progarm Code 2323232
+                            Please Enter Your Initiative/ Progarm Code 
 			</td>
                     </tr>
                     <tr>                            
