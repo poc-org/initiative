@@ -1,6 +1,5 @@
   
   var varRoleDetailPDFlocation ;
-
   $(document).ready(function() {
                 $.ajax({
                 type: "GET" ,
