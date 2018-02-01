@@ -214,7 +214,7 @@ alert(setRoleAPIURL);
 		} 
 		
 		 function setRoleDetail2Response(obj) {
-           
+           alert(obj.data +'-----'+obj.errors);
 			
 			if (obj.data){
 				$("#divRoleSkillListPreview").css("display", "none");
@@ -243,7 +243,7 @@ alert(setRoleAPIURL);
                     <tr>
                         <td align="center"  style="font-weight:bold;">
                                                     
-                            Please Enter Your Initiative/ Progarm Code 111
+                            Please Enter Your Initiative/ Progarm Code 3333
 			</td>
                     </tr>
                     <tr>                            
