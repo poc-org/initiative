@@ -194,11 +194,13 @@
         function rolePDFFile2Response(obj) {
             if(obj.data)
 			{
-				   var varResponce = obj.replace('["list",[', '');
+			console.log(obj.data);
+			console.log(obj.text);
+				   var varResponce = obj.text.replace('["list",[', '');
                    varResponce = varResponce.replace(']]', '');
-                   var jsonObj = jQuery.parseJSON(varResponce);
+                   var jsonObj = JSON.parse(varResponce);
                    varRoleDetailPDFlocation = jsonObj.url
-				   
+				console.log(varRoleDetailPDFlocation);   
 				  if (varRoleDetailPDFlocation != "") {
                        var contentPDF = "<iframe width='100%' height='400px' frameborder='0' src=" + varRoleDetailPDFlocation + "><\/iframe>";
 			        }
@@ -274,7 +276,7 @@
                     <tr>
                         <td align="center"  style="font-weight:bold;">
                                                     
-                            Please Enter Your Initiative/ Progarm Code 777777
+                            Please Enter Your Initiative/ Progarm Code 
 			</td>
                     </tr>
                     <tr>                            
