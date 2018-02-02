@@ -23,7 +23,6 @@
 		   var varRoleID;	
 		   var  errorAPIRoleAssigmnet = "A duplicate value for Person Id, Role Id, Job Type Id combination was used. Please try to register another Initiative/Program Code.";
 		   //var varRoleDetailPDFlocation ;//= "https://raw.githubusercontent.com/poc-org/initiative/itg/doc/";
-
 	   /* Global Varaibles END */ 
 	   
             viewData = gadgets.views.getParams();	   
@@ -110,7 +109,6 @@
 			if (obj.data)
 			{
 				objJSON = JSON.parse(obj.data);
-
 				var counter = objJSON.totalResults;
 				if (counter>0)
 				{
@@ -122,11 +120,7 @@
 								 
 				 
 				 varRoleID = $.trim(roleId);
-				 var urlPDF;
-				  urlPDF = varRoleDetailPDFlocation + roleName + '.pdf'; // Dynamic Values and its come from GitHub				 
-				 var contentPDF = "<iframe width='100%' height='400px' frameborder='0' src='https://docs.google.com/viewer?url=" + encodeURIComponent(urlPDF) + "&embedded=true'><\/iframe>"; 				 
-
-				 document.getElementById("divPDFFrame").innerHTML = contentPDF; 		
+				 submitGetRolePDFFile(varRoleID) 
 				 submitGetRoleDetails(varRoleID);
 				 
 				 $("#divPDFConfirmPreview").css("display", "block");
@@ -183,6 +177,45 @@
 			}
 			
         } 
+				/* Call to Get the Role PDF File   END  */
+		/* Call to Get the Role PDF File.   Satrt 
+				Method : Get, Input: RoleID
+				OutPot: PDF link of the Role 
+		*/
+		function submitGetRolePDFFile(roleID) {
+            var params = {};
+            params[gadgets.io.RequestParameters.CONTENT_TYPE] = gadgets.io.ContentType.TEXT;
+            params[gadgets.io.RequestParameters.METHOD] = gadgets.io.MethodType.GET;
+            
+            var inputParam = {};            
+			var varURLAPIRole = urlAPIRole + "attachments?ownerId=" + roleID +"&SabaCertificate=" + sabaCertificate
+			gadgets.io.makeRequest(varURLAPIRole, rolePDFFile2Response, params);
+        } 
+        function rolePDFFile2Response(obj) {
+            if(obj.data)
+			{
+				   var varResponce = obj.replace('["list",[', '');
+                   varResponce = varResponce.replace(']]', '');
+                   var jsonObj = jQuery.parseJSON(varResponce);
+                   varRoleDetailPDFlocation = jsonObj.url
+				   
+				  if (varRoleDetailPDFlocation != "") {
+                       var contentPDF = "<iframe width='100%' height='400px' frameborder='0' src=" + varRoleDetailPDFlocation + "><\/iframe>";
+			        }
+                  else {
+                       var contentPDF = "<iframe width='100%' height='400px' frameborder='0' src=https://docs.google.com/viewer?url=https://test.com/test&embedded=true><\/iframe>";
+                    }
+                  
+			}
+			if($.trim(obj.errors)){
+				var contentPDF = "<iframe width='100%' height='400px' frameborder='0' src=https://docs.google.com/viewer?url=https://test.com/test&embedded=true><\/iframe>";
+				
+			}
+			document.getElementById("divPDFFrame").innerHTML = contentPDF;
+			
+        } 
+		
+		/* Call to Get the Role PDF File   END  */
 		
 		/* Call Role API to get the Role Details.   END */
 		/* Call Role API to SET the Role Details in user profile. Satrt  
@@ -241,7 +274,7 @@
                     <tr>
                         <td align="center"  style="font-weight:bold;">
                                                     
-                            Please Enter Your Initiative/ Progarm Code 12222
+                            Please Enter Your Initiative/ Progarm Code 777777
 			</td>
                     </tr>
                     <tr>                            
