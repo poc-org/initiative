@@ -313,6 +313,8 @@
 			    $("#divAPIErrorMessage").css("display", "block");
                             $("#divRoleSkillListPreview").css("display", "none");
                             $("#lbAPIError").html(errorAPIRoleAssigmnet);
+				alert(obj.errors);
+				alert(obj.txt);
 			}
 			
         } 
