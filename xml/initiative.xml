@@ -156,7 +156,7 @@
             
             var inputParam = {};
             var urlAPIRoleList = urlAPIRole + 'people/' + employeeID + ':(requiredJobRoles)?SabaCertificate=' + sabaCertificate;
-			gadgets.io.makeRequest(jobEmpSearchURLParam, getRegisteredRole2Response, params);
+			gadgets.io.makeRequest(urlAPIRoleList, getRegisteredRole2Response, params);
         } 
         function getRegisteredRole2Response(obj) {
 			var strRoleFound = false;
@@ -332,7 +332,7 @@
                     <tr>
                         <td align="center"  style="font-weight:bold;">
                                                     
-                            Please Enter Your Initiative/ Progarm Code 1234
+                            Please Enter Your Initiative/ Progarm Code &&&&
 			</td>
                     </tr>
                     <tr>                            
@@ -439,7 +439,9 @@
                             <table align="center">
                                 <tr>
                                     <td align="center">
-					 <input type="button" id="btnRoleConfrim" value="Confirm">&nbsp;&nbsp;&nbsp;&nbsp;										
+									
+									    <input type="button" id="btnRoleConfrim" value="Confirm">&nbsp;&nbsp;&nbsp;&nbsp;
+										
                                         <input type="button" id="btnRoleBack" value="Back">
                                     </td>
                                 </tr>
