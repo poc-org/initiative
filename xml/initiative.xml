@@ -137,8 +137,9 @@
 			{
 			
 				$("#divAPIErrorMessage").css("display", "block");
-                $("#divRoleForm").css("display", "none");
-                $("#lbAPIError").html(errorAPIRoleAssigmnet);
+                		$("#divRoleForm").css("display", "none");
+               			 var jsonObj = JSON.parse(obj.text);	
+			         $("#lbAPIError").html(jsonObj.errorMessage);
 			}           	
 			
         } 
@@ -195,8 +196,9 @@
 			{
 			
 				$("#divAPIErrorMessage").css("display", "block");
-                $("#divRoleForm").css("display", "none");
-                $("#lbAPIError").html(obj.text);
+                	        $("#divRoleForm").css("display", "none");                
+			        var jsonObj = JSON.parse(obj.text);	
+			        $("#lbAPIError").html(jsonObj.errorMessage);
 			}
         } 
 /* Call ROle API to get the  registered Role to user profile.   END
@@ -307,12 +309,11 @@
 				$("#divAffirmationAcknowledgement").css("display", "block");
 			}
 			if($.trim(obj.errors)){
+			     var jsonObj = JSON.parse(obj.text);	
 			    $("#divAPIErrorMessage").css("display", "block");
                 	    $("#divRoleSkillListPreview").css("display", "none");
-                	    //$("#lbAPIError").html(obj.text);
-				alert(obj.text);
-				var jsonObj = JSON.parse(obj.text);
-                              alert(jsonObj.errorMessage);
+                	    $("#lbAPIError").html(jsonObj.errorMessage);
+				
 			}
 			
         } 
@@ -332,7 +333,7 @@
                     <tr>
                         <td align="center"  style="font-weight:bold;">
                                                     
-                            Please Enter Your Initiative/ Progarm Code 
+                            Please Enter Your Initiative/ Progarm Code Testting
 			</td>
                     </tr>
                     <tr>                            
