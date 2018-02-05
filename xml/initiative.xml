@@ -166,12 +166,13 @@
 				jsonObj = JSON.parse(obj.data)
 				data = '<table border="2"><tr><td><b>Object Name</b></td></tr>';
 			   var i = 0;
-			   
+			   alert(strRoleFound);
 			    for (i = 0; i < jsonObj.requiredJobRoles.length; i++) {
                    objRole = jsonObj.requiredJobRoles[i];
                    data = data + '<tr><td>' + objRole.name + '</td></tr>';
                    if ((objRole.name)== ($.trim($("[id*=searchRoleParam]").val())))
                    {
+				   alert(strRoleFound);
                        strRoleFound = true;
                    }
                }
@@ -181,11 +182,11 @@
 				// checking the role exist in user profile or not Start 
 				if (strRoleFound)
 				   {
-alert(strRoleFound);
+				   alert(strRoleFound);
 					   $("#divRoleForm").css("display", "none");
 					   $("#divRegisteredRole").css("display", "block");
 					   strRoleFound = false;
-					   //return;
+					   
 				   }
                else {
                    submitGetRole();   // call the Role Details  funcation
@@ -331,7 +332,7 @@ alert(strRoleFound);
                     <tr>
                         <td align="center"  style="font-weight:bold;">
                                                     
-                            Please Enter Your Initiative/ Progarm Code 232323
+                            Please Enter Your Initiative/ Progarm Code 
 			</td>
                     </tr>
                     <tr>                            
