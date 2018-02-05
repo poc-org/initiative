@@ -158,6 +158,7 @@
             
             var inputParam = {};
             var urlAPIRoleList = urlAPIRole + 'people/' + employeeID + ':(requiredJobRoles)?SabaCertificate=' + sabaCertificate;
+			console.log(urlAPIRoleList)
 			gadgets.io.makeRequest(urlAPIRoleList, getRegisteredRole2Response, params);
         } 
         function getRegisteredRole2Response(obj) {
@@ -334,7 +335,7 @@
                     <tr>
                         <td align="center"  style="font-weight:bold;">
                                                     
-                            Please Enter Your Initiative/ Progarm Code TEst123
+                            Please Enter Your Initiative/ Progarm Code 
 			</td>
                     </tr>
                     <tr>                            
