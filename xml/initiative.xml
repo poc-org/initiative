@@ -26,11 +26,9 @@
 	   /* Global Varaibles END */ 
 	   
         viewData = gadgets.views.getParams();	   
-	    //sabaCertificate =  "4E41335431534E42303038312D33313336333136313332333436333330333936323338354532333545353735333546343134343444343934453545323335453445343133333534333135333445343233303330333833313545323335453635364535463535353335453233354535333631363236313545323335453244333135453233354532343431343234303330324330323134374332333344364231333142313030323742323531333341383344453333433037423543353938333032313431324245414345443243463630423241373133343943433638364436394630443533323242384544"; //testing
-		sabaCertificate =  viewData.sabaContext.apiCertificate;
+	    sabaCertificate =  viewData.sabaContext.apiCertificate;
 	    userName = $.trim(viewData.sabaContext.userName);
-	    employeeID = "emplo000000000104546";
-		//employeeID = $.trim(viewData.sabaContext.userId) ;
+	    employeeID = $.trim(viewData.sabaContext.userId) ;
 	    urlAPIRole =  $.trim(decodeURIComponent(viewData.sabaParams.saba_api_url))+'/v1/' ;
 	   
     gadgets.util.registerOnLoadHandler(init);
@@ -117,8 +115,7 @@
 				for (j = 0 ; j < counter ; j++) {
                    				 roleId = objJSON.results[j].id
 								 roleName = objJSON.results[j].name
-                   					//alert("roleID=" + roleId);
-             					  }
+               					  }
 								 
 				 
 				 varRoleID = $.trim(roleId);
@@ -167,17 +164,13 @@
 			{
 				jsonObj = JSON.parse(obj.data)
 				data = '<table border="2"><tr><td><b>Registered Role</b></td></tr>';
-			   var i = 0;
-			   alert(strRoleFound);
-			   alert(obj.text);
+			    var i = 0;
 			    for (i = 0; i < jsonObj.requiredJobRoles.length; i++) {
                    objRole = jsonObj.requiredJobRoles[i];
-				   alert(objRole.name);
-                   data = data + '<tr><td>' + objRole.name + '</td></tr>';
+				   data = data + '<tr><td>' + objRole.name + '</td></tr>';
                    if ((objRole.name)== ($.trim($("[id*=searchRoleParam]").val())))
                    {
-				       alert(strRoleFound);
-                       strRoleFound = true;
+				      strRoleFound = true;
                    }
                }
 			   
@@ -186,7 +179,7 @@
 				// checking the role exist in user profile or not Start 
 				if (strRoleFound)
 				   {
-				   alert(strRoleFound);
+				
 					   $("#divRoleForm").css("display", "none");
 					   $("#divRegisteredRole").css("display", "block");
 					   strRoleFound = false;
@@ -336,7 +329,7 @@
                     <tr>
                         <td align="center"  style="font-weight:bold;">
                                                     
-                            Please Enter Your Initiative/ Progarm Code 111111
+                            Please Enter Your Initiative/ Progarm Code HAHAHAH
 			</td>
                     </tr>
                     <tr>                            
