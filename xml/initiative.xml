@@ -314,7 +314,7 @@
                             $("#divRoleSkillListPreview").css("display", "none");
                             $("#lbAPIError").html(errorAPIRoleAssigmnet);
 				alert(obj.errors);
-				alert(obj.txt);
+				alert(obj.text);
 			}
 			
         } 
