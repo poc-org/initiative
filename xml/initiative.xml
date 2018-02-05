@@ -181,6 +181,7 @@
 				// checking the role exist in user profile or not Start 
 				if (strRoleFound)
 				   {
+alert(strRoleFound);
 					   $("#divRoleForm").css("display", "none");
 					   $("#divRegisteredRole").css("display", "block");
 					   strRoleFound = false;
@@ -330,7 +331,7 @@
                     <tr>
                         <td align="center"  style="font-weight:bold;">
                                                     
-                            Please Enter Your Initiative/ Progarm Code 33333
+                            Please Enter Your Initiative/ Progarm Code 232323
 			</td>
                     </tr>
                     <tr>                            
