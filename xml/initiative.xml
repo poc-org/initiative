@@ -158,7 +158,7 @@
             
             var inputParam = {};
             var urlAPIRoleList = urlAPIRole + 'people/' + employeeID + ':(requiredJobRoles)?SabaCertificate=' + sabaCertificate;
-			console.log(urlAPIRoleList)
+			console.log(urlAPIRoleList);
 			gadgets.io.makeRequest(urlAPIRoleList, getRegisteredRole2Response, params);
         } 
         function getRegisteredRole2Response(obj) {
@@ -172,6 +172,7 @@
 			   alert(obj.text);
 			    for (i = 0; i < jsonObj.requiredJobRoles.length; i++) {
                    objRole = jsonObj.requiredJobRoles[i];
+				   alert(objRole.name);
                    data = data + '<tr><td>' + objRole.name + '</td></tr>';
                    if ((objRole.name)== ($.trim($("[id*=searchRoleParam]").val())))
                    {
@@ -335,7 +336,7 @@
                     <tr>
                         <td align="center"  style="font-weight:bold;">
                                                     
-                            Please Enter Your Initiative/ Progarm Code 
+                            Please Enter Your Initiative/ Progarm Code HAHAHAH
 			</td>
                     </tr>
                     <tr>                            
