@@ -170,7 +170,7 @@
 			    for (i = 0; i < jsonObj.requiredJobRoles.length; i++) {
                    objRole = jsonObj.requiredJobRoles[i];
                    data = data + '<tr><td>' + objRole.name + '</td></tr>';
-                   if (objRole == ($.trim($("[id*=searchRoleParam]").val())))
+                   if ((objRole.name)== ($.trim($("[id*=searchRoleParam]").val())))
                    {
                        strRoleFound = true;
                    }
@@ -330,7 +330,7 @@
                     <tr>
                         <td align="center"  style="font-weight:bold;">
                                                     
-                            Please Enter Your Initiative/ Progarm Code 1234
+                            Please Enter Your Initiative/ Progarm Code 
 			</td>
                     </tr>
                     <tr>                            
