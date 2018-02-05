@@ -308,8 +308,11 @@
 			}
 			if($.trim(obj.errors)){
 			    $("#divAPIErrorMessage").css("display", "block");
-                $("#divRoleSkillListPreview").css("display", "none");
-                $("#lbAPIError").html(errorAPIRoleAssigmnet);
+                	    $("#divRoleSkillListPreview").css("display", "none");
+                	    //$("#lbAPIError").html(obj.text);
+				alert(obj.text);
+				var jsonObj = JSON.parse(obj.text);
+                              alert(jsonObj.errorMessage);
 			}
 			
         } 
@@ -329,7 +332,7 @@
                     <tr>
                         <td align="center"  style="font-weight:bold;">
                                                     
-                            Please Enter Your Initiative/ Progarm Code HAHAHAH
+                            Please Enter Your Initiative/ Progarm Code 
 			</td>
                     </tr>
                     <tr>                            
