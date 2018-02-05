@@ -184,7 +184,7 @@
 					   $("#divRoleForm").css("display", "none");
 					   $("#divRegisteredRole").css("display", "block");
 					   strRoleFound = false;
-					   return;
+					   //return;
 				   }
                else {
                    submitGetRole();   // call the Role Details  funcation
@@ -330,7 +330,7 @@
                     <tr>
                         <td align="center"  style="font-weight:bold;">
                                                     
-                            Please Enter Your Initiative/ Progarm Code  *****
+                            Please Enter Your Initiative/ Progarm Code 33333
 			</td>
                     </tr>
                     <tr>                            
