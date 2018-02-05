@@ -25,7 +25,7 @@
 		   var varRoleDetailPDFlocation ;//= "https://raw.githubusercontent.com/poc-org/initiative/itg/doc/";
 	   /* Global Varaibles END */ 
 	   
-            viewData = gadgets.views.getParams();	   
+        viewData = gadgets.views.getParams();	   
 	    sabaCertificate =  viewData.sabaContext.apiCertificate;
 	    userName = $.trim(viewData.sabaContext.userName);
 	    employeeID = $.trim(viewData.sabaContext.userId) ;
@@ -41,15 +41,15 @@
        
  
        $(function () {       
-			 $("#btnRoleSubmit").click(function () {      
+	    $("#btnRoleSubmit").click(function () {      
 		  if ($.trim($("[id*=searchRoleParam]").val()) == "")
 		       {
 			   alert("Provide the Initiative/ Progarm Code");
 			   return;
 		       }
-		else{
-                          submitGetRole();	   
-		    }
+		  else{
+                submitGetRegisteredRoleQuery();   
+		      }
                
            });
            $("#btnRoleCancel").click(function () {
@@ -59,19 +59,14 @@
                $("#divRoleSkillListPreview").css("display", "none");
                $("#divPDFConfirmPreview").css("display", "block");
            });
-		     $("#btnRoleConfrim").click(function () {	
+           $("#btnRoleConfrim").click(function () {	
                 submitSetRoleInUserProfile();        
-           });
-		   
-		    $("#btnCloseConfirmation").click(function () {
-               
+           });   
+          $("#btnCloseConfirmation").click(function () {               
                $("#divAffirmationAcknowledgement").css("display", "none");
                $("#divRoleForm").css("display", "block");
-           });
-		   
-		     
-           $("#btnPDFEnroll").click(function () {
-               
+           });     
+           $("#btnPDFEnroll").click(function () {               
                $("#divPDFConfirmPreview").css("display", "none");
                $("#divRoleSkillListPreview").css("display", "block");
            });
@@ -87,9 +82,14 @@
                $("#divAPIErrorMessage").css("display", "none");
                $("#divRoleForm").css("display", "block");
            });
+  	   $("#btnBackToMainRole").click(function () {
+               $("#divRegisteredRole").css("display", "none");
+               $("#divRoleForm").css("display", "block");
+
+           });
        });
           
-           /* Call Role API to get the RoleID.   Satrt 
+           /* Call Role API to get the RoleID.   Start 
 				Method GET, Input: Role Nmae
 				OutPot: RoleID
 		   */
@@ -140,12 +140,71 @@
 				$("#divAPIErrorMessage").css("display", "block");
                 $("#divRoleForm").css("display", "none");
                 $("#lbAPIError").html(errorAPIRoleAssigmnet);
-			}
-           	
+			}           	
 			
         } 
 		/* Call Role API to get the RoleID.   END  */
-		/* Call Role API to get the Role Details.   Satrt 
+		
+		/* Call ROle API to get the  registered Role to user profile.   Start
+				Method : Get, Input: Employee Number
+				OutPot: All registered Role 
+		*/
+		function submitGetRegisteredRoleQuery() {
+            var params = {};
+            params[gadgets.io.RequestParameters.CONTENT_TYPE] = gadgets.io.ContentType.TEXT;
+            params[gadgets.io.RequestParameters.METHOD] = gadgets.io.MethodType.GET;
+            
+            var inputParam = {};
+            var urlAPIRoleList = urlAPIRole + 'people/' + employeeID + ':(requiredJobRoles)?SabaCertificate=' + sabaCertificate;
+			gadgets.io.makeRequest(jobEmpSearchURLParam, getRegisteredRole2Response, params);
+        } 
+        function getRegisteredRole2Response(obj) {
+			var strRoleFound = false;
+            if(obj.data)
+			{
+				jsonObj = JSON.parse(obj.data)
+				data = '<table border="2"><tr><td><b>Object Name</b></td></tr>';
+			   var i = 0;
+			   
+			    for (i = 0; i < jsonObj.requiredJobRoles.length; i++) {
+                   objRole = jsonObj.requiredJobRoles[i];
+                   alert(objRole.name);
+                   data = data + '<tr><td>' + objRole.name + '</td></tr>';
+                   if (objRole == ($.trim($("[id*=searchRoleParam]").val())))
+                   {
+                       strRoleFound = true;
+                   }
+               }
+			   
+				data += '</table>';
+				$("#divRegisteredRoleList").html(data);
+				alert(strRoleFound);
+				// checking the role exist in user profile or not Start 
+				if (strRoleFound)
+				   {
+					   alert(strRoleFound);
+					   $("#divRoleForm").css("display", "none");
+					   $("#divRegisteredRole").css("display", "block");
+					   strRoleFound = false;
+					   return;
+				   }
+               else {
+                   submitGetRole();   // call the Role Details  funcation
+               }
+               // checking the role exist in user profile or not END 
+			}
+			
+			if($.trim(obj.errors))
+			{
+			
+				$("#divAPIErrorMessage").css("display", "block");
+                $("#divRoleForm").css("display", "none");
+                $("#lbAPIError").html(obj.txt);
+			}
+        } 
+/* Call ROle API to get the  registered Role to user profile.   END
+		
+		/* Call Role API to get the Role Details.   Start 
 				Method : Get, Input: RoleID
 				OutPot: Skill; learningevent;associations
 		*/
@@ -178,7 +237,7 @@
 			
         } 
 				/* Call to Get the Role PDF File   END  */
-		/* Call to Get the Role PDF File.   Satrt 
+		/* Call to Get the Role PDF File.   Start 
 				Method : Get, Input: RoleID
 				OutPot: PDF link of the Role 
 		*/
@@ -218,7 +277,7 @@
 		/* Call to Get the Role PDF File   END  */
 		
 		/* Call Role API to get the Role Details.   END */
-		/* Call Role API to SET the Role Details in user profile. Satrt  
+		/* Call Role API to SET the Role Details in user profile. Start  
 			Method : Post; Input requiredJobRoles and Role ID with Employee ID.
 			OutPut: EMPID and URL
 		*/
@@ -230,23 +289,22 @@
 			   postDataRoleSet.requiredJobRoles.unshift({});
 			   postDataRoleSet.requiredJobRoles[0]['id'] = varRoleID;
 		   
-			var headers = {};
-			headers["Content-Type"] = "application/json";			
-                        var params = {};
+				var headers = {};
+				headers["Content-Type"] = "application/json";			
+                var params = {};
 				
 				var postdata = gadgets.json.stringify(postDataRoleSet);
 				params[gadgets.io.RequestParameters.CONTENT_TYPE] = gadgets.io.ContentType.JSON;
 				params[gadgets.io.RequestParameters.METHOD] = gadgets.io.MethodType.POST;
 				params[gadgets.io.RequestParameters.POST_DATA] = postdata;	
 				params[gadgets.io.RequestParameters.HEADERS] = headers;	
-			       var setRoleAPIURL = urlAPIRole + "people/" + employeeID + "/requiredjobrole?SabaCertificate=" + sabaCertificate;
-                                gadgets.io.makeRequest(setRoleAPIURL, setRoleDetail2Response, params);
+			    var setRoleAPIURL = urlAPIRole + "people/" + employeeID + "/requiredjobrole?SabaCertificate=" + sabaCertificate;
+                gadgets.io.makeRequest(setRoleAPIURL, setRoleDetail2Response, params);
 				
 		} 
 		
 		 function setRoleDetail2Response(obj) {
-           //alert(obj.data +"---"+obj.errors+"---"+obj.text);
-			
+           	
 			if (obj.data){
 				$("#divRoleSkillListPreview").css("display", "none");
 				$("#divAffirmationAcknowledgement").css("display", "block");
@@ -274,7 +332,7 @@
                     <tr>
                         <td align="center"  style="font-weight:bold;">
                                                     
-                            Please Enter Your Initiative/ Progarm Code 
+                            Please Enter Your Initiative/ Progarm Code 1234
 			</td>
                     </tr>
                     <tr>                            
@@ -300,6 +358,42 @@
         </div>
     </div>
     <!-- Search Box END-->
+	<!-- IF user alrady registed with the role need to show this block  Start-->
+    <div id="divRegisteredRole" style="display:none">
+        <div>
+            <center>
+                <table border="10" cellpadding="10" cellspacing="10">
+                    <tr>
+                        <td align="center" style="font-weight:bold;">
+                            <p>
+                                Congratulations You Already Registered For This Role.
+                            </p>
+
+                            <div id="divRegisteredRoleList">
+
+                            </div>
+                        </td>
+                    </tr>
+
+                    <tr>
+                        <td>
+                            <table align="center">
+                                <tr>
+                                    <td align="center">
+                                        <input type="button" id="btnBackToMainRole" value="Back">
+                                    </td>
+                                </tr>
+                            </table>
+                        </td>
+
+                    </tr>
+                </table>
+            </center>
+
+        </div>
+
+    </div>
+    <!-- IF user alrady registed with the role need to show this block  end-->
     <!-- PDF Overview Confirms Previous Box Start-->
     <div id="divPDFConfirmPreview" style="display:none" height="400px">
         <div>
@@ -345,9 +439,7 @@
                             <table align="center">
                                 <tr>
                                     <td align="center">
-									
-									    <input type="button" id="btnRoleConfrim" value="Confirm">&nbsp;&nbsp;&nbsp;&nbsp;
-										
+					 <input type="button" id="btnRoleConfrim" value="Confirm">&nbsp;&nbsp;&nbsp;&nbsp;										
                                         <input type="button" id="btnRoleBack" value="Back">
                                     </td>
                                 </tr>
