@@ -198,6 +198,7 @@ alert("Api Call ");
 					   submitGetRole();   // call the Role Details  funcation
 				       }
               			 // checking the role exist in user profile or not END 
+				delete obj.data;
 			}
 			
 			if($.trim(obj.errors))
@@ -341,7 +342,7 @@ alert("Api Call ");
                     <tr>
                         <td align="center"  style="font-weight:bold;">
                                                     
-                            Please Enter Your Initiative/ Progarm Code  Testing 123
+                            Please Enter Your Initiative/ Progarm Code  &&&&& 123
 			</td>
                     </tr>
                     <tr>                            
