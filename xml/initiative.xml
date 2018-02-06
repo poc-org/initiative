@@ -169,6 +169,7 @@
 			    for (i = 0; i < jsonObj.requiredJobRoles.length; i++) {
                    objRole = jsonObj.requiredJobRoles[i];
 				   data = data + '<tr><td>' + objRole.name + '</td></tr>';
+alert(objRole.name);
                    if (($.trim(objRole.name)) == ($.trim($("[id*=searchRoleParam]").val())))
                    {
 				alert(strRoleFound);
@@ -186,7 +187,7 @@
 					   $("#divRegisteredRole").css("display", "block");
 					   strRoleFound = false;
 						alert(strRoleFound);
-					   return;
+					   
 				   }
 				       else {
 						alert(strRoleFound);
@@ -336,7 +337,7 @@
                     <tr>
                         <td align="center"  style="font-weight:bold;">
                                                     
-                            Please Enter Your Initiative/ Progarm Code 
+                            Please Enter Your Initiative/ Progarm Code  #TEsting
 			</td>
                     </tr>
                     <tr>                            
