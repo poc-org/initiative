@@ -31,7 +31,7 @@
 	    employeeID = $.trim(viewData.sabaContext.userId) ;
 	    urlAPIRole =  $.trim(decodeURIComponent(viewData.sabaParams.saba_api_url))+'/v1/' ;
 	   
-    gadgets.util.registerOnLoadHandler(init);
+   // gadgets.util.registerOnLoadHandler(init);
       function init(){
                    
             viewData = gadgets.views.getParams(); //this brings in the ViewParams data passed from Saba
@@ -169,7 +169,7 @@ alert("Api Call ");
 				data = '<table border="2"><tr><td><b>Registered Role</b></td></tr>';
 			    var i = 0;
 			alert(roleJsonObj.requiredJobRoles.length);
-			alert(roleJsonObj);
+			alert(obj.text);
 			    for (i = 0; i < roleJsonObj.requiredJobRoles.length; i++) {
                    	           objRole = roleJsonObj.requiredJobRoles[i];
 				   data = data + '<tr><td>' + objRole.name + '</td></tr>';
@@ -198,7 +198,7 @@ alert("Api Call ");
 					   submitGetRole();   // call the Role Details  funcation
 				       }
               			 // checking the role exist in user profile or not END 
-				delete obj.data;
+				 obj.data={};
 			}
 			
 			if($.trim(obj.errors))
@@ -342,7 +342,7 @@ alert("Api Call ");
                     <tr>
                         <td align="center"  style="font-weight:bold;">
                                                     
-                            Please Enter Your Initiative/ Progarm Code  &&&&& 123
+                            Please Enter Your Initiative/ Progarm Code  00000
 			</td>
                     </tr>
                     <tr>                            
