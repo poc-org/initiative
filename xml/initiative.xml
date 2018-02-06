@@ -163,6 +163,7 @@
 			var strRoleFound = false;
             		if(obj.data)
 			{
+			alert("00000");
 				jsonObj = JSON.parse(obj.data)
 				data = '<table border="2"><tr><td><b>Registered Role</b></td></tr>';
 			    var i = 0;
@@ -186,7 +187,7 @@
 					   $("#divRoleForm").css("display", "none");
 					   $("#divRegisteredRole").css("display", "block");
 					   strRoleFound = false;
-						alert(strRoleFound  +"3333");
+					   alert(strRoleFound  +"3333");
 					   
 				   }
 				       else {
@@ -337,7 +338,7 @@
                     <tr>
                         <td align="center"  style="font-weight:bold;">
                                                     
-                            Please Enter Your Initiative/ Progarm Code  
+                            Please Enter Your Initiative/ Progarm Code  #Testing
 			</td>
                     </tr>
                     <tr>                            
