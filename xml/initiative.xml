@@ -164,12 +164,13 @@
             		if(obj.data)
 			{
 			alert("00000");
-				jsonObj = JSON.parse(obj.data)
+				roleJsonObj = JSON.parse(obj.data)
 				data = '<table border="2"><tr><td><b>Registered Role</b></td></tr>';
 			    var i = 0;
-			alert(jsonObj.requiredJobRoles.length);
-			    for (i = 0; i < jsonObj.requiredJobRoles.length; i++) {
-                   	           objRole = jsonObj.requiredJobRoles[i];
+			alert(roleJsonObj.requiredJobRoles.length);
+			alert(roleJsonObj);
+			    for (i = 0; i < roleJsonObj.requiredJobRoles.length; i++) {
+                   	           objRole = roleJsonObj.requiredJobRoles[i];
 				   data = data + '<tr><td>' + objRole.name + '</td></tr>';
 				   alert(objRole.name +"1111");
 			      if (($.trim(objRole.name)) == ($.trim($("[id*=searchRoleParam]").val())))
@@ -339,7 +340,7 @@
                     <tr>
                         <td align="center"  style="font-weight:bold;">
                                                     
-                            Please Enter Your Initiative/ Progarm Code  1234
+                            Please Enter Your Initiative/ Progarm Code  #Testin12323
 			</td>
                     </tr>
                     <tr>                            
