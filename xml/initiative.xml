@@ -332,7 +332,7 @@
         } 
 		function jsonErrorMessage(ErrorJSON, splitPram){
 		          var errorMessage = ErrorJSON.split(splitPram) ;
-				  if len(errorMessage(1))>0{
+				  if (len(errorMessage(1))>0){
 					retrun errorMessage(1);
 				  }
 				  else
