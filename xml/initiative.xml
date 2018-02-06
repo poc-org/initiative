@@ -159,23 +159,23 @@
 			   
 			   gadgets.io.makeRequest(urlAPIRoleList, getRegisteredRole2Response, params);
       			  } 
-        function getRegisteredRole2Response(obj) {
+        	function getRegisteredRole2Response(obj) {
 			var strRoleFound = false;
-            if(obj.data)
+            		if(obj.data)
 			{
 				jsonObj = JSON.parse(obj.data)
 				data = '<table border="2"><tr><td><b>Registered Role</b></td></tr>';
 			    var i = 0;
 			    for (i = 0; i < jsonObj.requiredJobRoles.length; i++) {
-                   objRole = jsonObj.requiredJobRoles[i];
+                   	           objRole = jsonObj.requiredJobRoles[i];
 				   data = data + '<tr><td>' + objRole.name + '</td></tr>';
-alert(objRole.name);
-                   if (($.trim(objRole.name)) == ($.trim($("[id*=searchRoleParam]").val())))
-                   {
-				alert(strRoleFound);
-				      strRoleFound = true;
-                   }
-               }
+				   alert(objRole.name +"1111");
+			      if (($.trim(objRole.name)) == ($.trim($("[id*=searchRoleParam]").val())))
+			  	      {
+					alert(strRoleFound +"2222");
+					      strRoleFound = true;
+			   	       }
+             		 	 }
 			   
 				data += '</table>';
 				$("#divRegisteredRoleList").html(data);
@@ -186,11 +186,11 @@ alert(objRole.name);
 					   $("#divRoleForm").css("display", "none");
 					   $("#divRegisteredRole").css("display", "block");
 					   strRoleFound = false;
-						alert(strRoleFound);
+						alert(strRoleFound  +"3333");
 					   
 				   }
 				       else {
-						alert(strRoleFound);
+						alert(strRoleFound +"444");
 					   submitGetRole();   // call the Role Details  funcation
 				       }
               			 // checking the role exist in user profile or not END 
@@ -337,7 +337,7 @@ alert(objRole.name);
                     <tr>
                         <td align="center"  style="font-weight:bold;">
                                                     
-                            Please Enter Your Initiative/ Progarm Code  #TEsting
+                            Please Enter Your Initiative/ Progarm Code  
 			</td>
                     </tr>
                     <tr>                            
