@@ -19,13 +19,13 @@
 		   var sabaCertificate ;
 		   var employeeID ;
 		   var userName ;
-		   var urlAPIRole ;	   
-		   var varRoleID;	
+		   var urlAPIRole ;   
+		   var varRoleID;
 		   var  errorAPIRoleAssigmnet = "Insufficient Privileges: You do not have Can add required/optional role for self privilege on Person, Internal";
 		   var varRoleDetailPDFlocation ;//= "https://raw.githubusercontent.com/poc-org/initiative/itg/doc/";
 	   /* Global Varaibles END */ 
 	   
-        viewData = gadgets.views.getParams();	   
+        viewData = gadgets.views.getParams();   
 	    sabaCertificate =  viewData.sabaContext.apiCertificate;
 	    userName = $.trim(viewData.sabaContext.userName);
 	    employeeID = $.trim(viewData.sabaContext.userId) ;
@@ -169,8 +169,9 @@
 			    for (i = 0; i < jsonObj.requiredJobRoles.length; i++) {
                    objRole = jsonObj.requiredJobRoles[i];
 				   data = data + '<tr><td>' + objRole.name + '</td></tr>';
-                   if ( $.trim(objRole.name))== ($.trim($("[id*=searchRoleParam]").val())))
+                   if (($.trim(objRole.name)) == ($.trim($("[id*=searchRoleParam]").val())))
                    {
+				alert(strRoleFound);
 				      strRoleFound = true;
                    }
                }
@@ -184,12 +185,14 @@
 					   $("#divRoleForm").css("display", "none");
 					   $("#divRegisteredRole").css("display", "block");
 					   strRoleFound = false;
-					   
+						alert(strRoleFound);
+					   return;
 				   }
-               else {
-                   submitGetRole();   // call the Role Details  funcation
-               }
-               // checking the role exist in user profile or not END 
+				       else {
+						alert(strRoleFound);
+					   submitGetRole();   // call the Role Details  funcation
+				       }
+              			 // checking the role exist in user profile or not END 
 			}
 			
 			if($.trim(obj.errors))
@@ -333,7 +336,7 @@
                     <tr>
                         <td align="center"  style="font-weight:bold;">
                                                     
-                            Please Enter Your Initiative/ Progarm Code TEsting
+                            Please Enter Your Initiative/ Progarm Code 
 			</td>
                     </tr>
                     <tr>                            
