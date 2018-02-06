@@ -175,36 +175,38 @@
 
            function OnSuccessGetRegisteredRole(response, status) {
                var strRoleFound = false;
-               var jsonObj = jQuery.parseJSON	
+               var jsonObj = JSON.parse(response);
                data = '<table border="1"><tr><td><b>Registred Role</b></td></tr>';
                var i = 0;
-               
+               alert(jsonObj);
                for (i = 0; i < jsonObj.requiredJobRoles.length; i++) {
+alert("0000");
                    objRole = jsonObj.requiredJobRoles[i];
                    data = data + '<tr><td>' + objRole.name + '</td></tr>';
                    if ((objRole.name) == ($.trim($("[id*=searchRoleParam]").val())))
                    {
                        strRoleFound = true;
-                       
+                       alert("22222");
                    }
                }
                data += '</table>';
                $("#divRegisteredRoleList").html(data);
                if (strRoleFound)
                {
-
+			alert("3333");
                    $("#divRoleForm").css("display", "none");
                    $("#divRegisteredRole").css("display", "block");
                    strRoleFound = false;
                }
                else {
+		alert("4444");
                    getRoleDetailsQuery();
 
                }
 
            }
            function OnErrorGetRegisteredRole(request, status, error) {
-		alert(erroe);
+		alert(error);
                $("#divAPIErrorMessage").css("display", "block");
                $("#divRoleForm").css("display", "none");                
 	       //var jsonObj = JSON.parse(request.text);	
