@@ -171,7 +171,7 @@
       			  } 
         	function getRegisteredRole2Response(obj) {
 			        var strRoleFound = false;
-            			if(obj.data)
+            		if(obj.data)
 					{			
 						roleJsonObj = JSON.parse(obj.data)
 						data = '<table border="2"><tr><td><b>Registered Role</b></td></tr>';
@@ -180,7 +180,7 @@
 					for (i = 0; i < roleJsonObj.requiredJobRoles.length; i++) {
 								   objRole = roleJsonObj.requiredJobRoles[i];
 					   data = data + '<tr><td>' + objRole.name + '</td></tr>';
-					     if (($.trim(objRole.name)) == ($.trim($("[id*=searchRoleParam]").val())))
+					 if (($.trim(objRole.name)) == ($.trim($("[id*=searchRoleParam]").val())))
 						  {
 						   strRoleFound = true;
 						   }
@@ -321,14 +321,25 @@
 				$("#divAffirmationAcknowledgement").css("display", "block");
 			}
 			if($.trim(obj.errors)){
-			     var jsonObj = JSON.parse(obj.text);	
-			    $("#divAPIErrorMessage").css("display", "block");
-                	    $("#divRoleSkillListPreview").css("display", "none");
-                	    $("#lbAPIError").html(jsonObj.errorMessage);
+			     var jsonObj = JSON.parse(obj.text);					 
+			    $("#divAPIErrorMessage").css("display", "block");				    
+                 $("#divRoleSkillListPreview").css("display", "none");
+                	    //$("#lbAPIError").html(jsonObj.errorMessage);
+						$("#lbAPIError").html(jsonErrorMessage(jsonObj.errorMessage,'(@001)'));
 				
 			}
 			
         } 
+		function jsonErrorMessage(ErrorJSON, splitPram){
+		          var errorMessage = ErrorJSON.split(splitPram) ;
+				  if len(errorMessage(1))>0{
+					retrun errorMessage(1);
+				  }
+				  else
+				  {
+					retrun errorMessage(ErrorJSON);
+				  }
+		} 
 		/*Call Role API to SET the Role Details in user profile. END*/
 		
     </script>
@@ -345,7 +356,7 @@
                     <tr>
                         <td align="center"  style="font-weight:bold;">
                                                     
-                            Please Enter Your Initiative/ Progarm Code  Testing
+                            Please Enter Your Initiative/ Progarm Code  00000
 			</td>
                     </tr>
                     <tr>                            
@@ -451,9 +462,10 @@
                         <td>
                             <table align="center">
                                 <tr>
-                                    <td align="center">
-									
-			               <input type="button" id="btnRoleConfrim" value="Confirm">&nbsp;&nbsp;&nbsp;&nbsp;										
+                                    <td align="center">									
+
+
+									    <input type="button" id="btnRoleConfrim" value="Confirm">&nbsp;&nbsp;&nbsp;&nbsp;										
                                         <input type="button" id="btnRoleBack" value="Back">
                                     </td>
                                 </tr>
