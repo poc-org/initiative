@@ -161,6 +161,17 @@ alert("Api Call ");
 				inputParam.empID = $.trim(employeeID);  
 			    var urlAPIRoleList = urlAPIRole + "people/" + inputParam.empID  + ":(requiredJobRoles)?SabaCertificate=" + sabaCertificate;
 				
+				 var ts = new Date().getTime();
+				var refreshInterval = 1;
+				  var sep = "?";
+				  if (refreshInterval && refreshInterval > 0) {
+					ts = Math.floor(ts / (refreshInterval * 1000));
+				  }
+				  if (urlAPIRoleList.indexOf("?") > -1) {
+					sep = "&";
+				  }
+				  urlAPIRoleList = [ urlAPIRoleList, sep, "nocache=", ts ].join("");
+				
 			   console.log(urlAPIRoleList);
 			   gadgets.io.makeRequest(urlAPIRoleList, getRegisteredRole2Response, params);
 				urlAPIRoleList ="";
@@ -348,7 +359,7 @@ alert("Api Call ");
                     <tr>
                         <td align="center"  style="font-weight:bold;">
                                                     
-                            Please Enter Your Initiative/ Progarm Code  00000
+                            Please Enter Your Initiative/ Progarm Code  111111
 			</td>
                     </tr>
                     <tr>                            
