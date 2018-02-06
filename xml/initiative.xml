@@ -330,15 +330,16 @@
 			}
 			
         } 
-		function jsonErrorMessage(ErrorJSON, splitPram){
-		          var errorMessage = ErrorJSON.split(splitPram) ;
-				  if (errorMessage[1].length)>0{
-					return errorMessage[1];
-				  }
-				  else
-				  {
-					return errorMessage(ErrorJSON);
-				  }
+			function jsonErrorMessage(ErrorJSON, splitPram){
+					  var errorMessage = ErrorJSON.split(splitPram) ;
+					  ver errorLenght = errorMessage[1].length;
+					  if (errorLenght > 0){
+						return errorMessage[1];
+					  }
+					  else
+					  {
+						return errorMessage(ErrorJSON);
+					  }
 		} 
 		/*Call Role API to SET the Role Details in user profile. END*/
 		
@@ -356,7 +357,7 @@
                     <tr>
                         <td align="center"  style="font-weight:bold;">
                                                     
-                            Please Enter Your Initiative/ Progarm Code  Testing
+                            Please Enter Your Initiative/ Progarm Code  00000
 			</td>
                     </tr>
                     <tr>                            
