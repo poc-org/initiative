@@ -187,8 +187,8 @@
              		 }
 			   
 				//data += '</table>';
-				   data = $.trim($("[id*=searchRoleParam]").val());
-				$("#divRegisteredRoleList").html(data);
+				   //data = $.trim($("[id*=searchRoleParam]").val());
+				//$("#divRegisteredRoleList").html(data);
 				// checking the role exist in user profile or not Start 
 				if (strRoleFound)
 				   {
