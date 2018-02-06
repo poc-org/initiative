@@ -333,11 +333,11 @@
 		function jsonErrorMessage(ErrorJSON, splitPram){
 		          var errorMessage = ErrorJSON.split(splitPram) ;
 				  if (len(errorMessage(1))>0){
-					retrun errorMessage(1);
+					return errorMessage(1);
 				  }
 				  else
 				  {
-					retrun errorMessage(ErrorJSON);
+					return errorMessage(ErrorJSON);
 				  }
 		} 
 		/*Call Role API to SET the Role Details in user profile. END*/
