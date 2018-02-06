@@ -332,7 +332,7 @@
         } 
 			function jsonErrorMessage(ErrorJSON, splitPram){
 					  var errorMessage = ErrorJSON.split(splitPram) ;
-					  ver errorLenght = errorMessage[1].length;
+					  var errorLenght = errorMessage[1].length;
 					  if (errorLenght > 0){
 						return errorMessage[1];
 					  }
@@ -357,7 +357,7 @@
                     <tr>
                         <td align="center"  style="font-weight:bold;">
                                                     
-                            Please Enter Your Initiative/ Progarm Code  00000
+                            Please Enter Your Initiative/ Progarm Code  1212121
 			</td>
                     </tr>
                     <tr>                            
