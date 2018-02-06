@@ -154,8 +154,13 @@
 			    params[gadgets.io.RequestParameters.CONTENT_TYPE] = gadgets.io.ContentType.TEXT;
 			    params[gadgets.io.RequestParameters.METHOD] = gadgets.io.MethodType.GET;
 alert("Api Call ");
-			    var inputParam = {};
-			    var urlAPIRoleList = urlAPIRole + 'people/' + employeeID + ':(requiredJobRoles)?SabaCertificate=' + sabaCertificate;
+			    //var inputParam = {};
+			    //var urlAPIRoleList = urlAPIRole + 'people/' + employeeID + ':(requiredJobRoles)?SabaCertificate=' + sabaCertificate;
+				
+				var inputParam = {};
+				inputParam.empID = $.trim(employeeID);  
+			    var urlAPIRoleList = urlAPIRole + "people/" + inputParam.empID  + ":(requiredJobRoles)?SabaCertificate=" + sabaCertificate;
+				
 			   console.log(urlAPIRoleList);
 			   gadgets.io.makeRequest(urlAPIRoleList, getRegisteredRole2Response, params);
 				urlAPIRoleList ="";
@@ -342,7 +347,7 @@ alert("Api Call ");
                     <tr>
                         <td align="center"  style="font-weight:bold;">
                                                     
-                            Please Enter Your Initiative/ Progarm Code  00000
+                            Please Enter Your Initiative/ Progarm Code  #####
 			</td>
                     </tr>
                     <tr>                            
