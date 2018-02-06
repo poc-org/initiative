@@ -150,15 +150,15 @@
 				OutPot: All registered Role 
 		*/
 		function submitGetRegisteredRoleQuery() {
-            var params = {};
-            params[gadgets.io.RequestParameters.CONTENT_TYPE] = gadgets.io.ContentType.TEXT;
-            params[gadgets.io.RequestParameters.METHOD] = gadgets.io.MethodType.GET;
-            
-            var inputParam = {};
-            var urlAPIRoleList = urlAPIRole + 'people/' + employeeID + ':(requiredJobRoles)?SabaCertificate=' + sabaCertificate;
-			console.log(urlAPIRoleList);
-			gadgets.io.makeRequest(urlAPIRoleList, getRegisteredRole2Response, params);
-        } 
+			    var params = {};
+			    params[gadgets.io.RequestParameters.CONTENT_TYPE] = gadgets.io.ContentType.TEXT;
+			    params[gadgets.io.RequestParameters.METHOD] = gadgets.io.MethodType.GET;
+
+			    var inputParam = {};
+			    var urlAPIRoleList = urlAPIRole + 'people/' + employeeID + ':(requiredJobRoles)?SabaCertificate=' + sabaCertificate;
+			   
+			   gadgets.io.makeRequest(urlAPIRoleList, getRegisteredRole2Response, params);
+      			  } 
         function getRegisteredRole2Response(obj) {
 			var strRoleFound = false;
             if(obj.data)
@@ -169,7 +169,7 @@
 			    for (i = 0; i < jsonObj.requiredJobRoles.length; i++) {
                    objRole = jsonObj.requiredJobRoles[i];
 				   data = data + '<tr><td>' + objRole.name + '</td></tr>';
-                   if ((objRole.name)== ($.trim($("[id*=searchRoleParam]").val())))
+                   if ( $.trim(objRole.name))== ($.trim($("[id*=searchRoleParam]").val())))
                    {
 				      strRoleFound = true;
                    }
@@ -333,7 +333,7 @@
                     <tr>
                         <td align="center"  style="font-weight:bold;">
                                                     
-                            Please Enter Your Initiative/ Progarm Code 
+                            Please Enter Your Initiative/ Progarm Code TEsting
 			</td>
                     </tr>
                     <tr>                            
