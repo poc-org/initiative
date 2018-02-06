@@ -21,6 +21,7 @@
 		   var userName ;
 		   var urlAPIRole ;   
 		   var varRoleID;
+		   var refreshInterval=1;
 		   var  errorAPIRoleAssigmnet = "Insufficient Privileges: You do not have Can add required/optional role for self privilege on Person, Internal";
 		   var varRoleDetailPDFlocation ;//= "https://raw.githubusercontent.com/poc-org/initiative/itg/doc/";
 	   /* Global Varaibles END */ 
@@ -150,53 +151,41 @@
 				OutPot: All registered Role 
 		*/
 		function submitGetRegisteredRoleQuery() {
-			    var params = {};
-			    params[gadgets.io.RequestParameters.CONTENT_TYPE] = gadgets.io.ContentType.TEXT;
-			    params[gadgets.io.RequestParameters.METHOD] = gadgets.io.MethodType.GET;
-alert("Api Call ");
-			    //var inputParam = {};
-			    //var urlAPIRoleList = urlAPIRole + 'people/' + employeeID + ':(requiredJobRoles)?SabaCertificate=' + sabaCertificate;
-				
-				var inputParam = {};
-				inputParam.empID = $.trim(employeeID);  
-			    var urlAPIRoleList = urlAPIRole + "people/" + inputParam.empID  + ":(requiredJobRoles)?SabaCertificate=" + sabaCertificate;
-				
-				 var ts = new Date().getTime();
-				var refreshInterval = 1;
-				  var sep = "?";
-				  if (refreshInterval && refreshInterval > 0) {
-					ts = Math.floor(ts / (refreshInterval * 1000));
-				  }
-				  if (urlAPIRoleList.indexOf("?") > -1) {
-					sep = "&";
-				  }
-				  urlAPIRoleList = [ urlAPIRoleList, sep, "nocache=", ts ].join("");
-				
-			   console.log(urlAPIRoleList);
-			   gadgets.io.makeRequest(urlAPIRoleList, getRegisteredRole2Response, params);
-				urlAPIRoleList ="";
-				obj.data ={};
+						var params = {};
+						params[gadgets.io.RequestParameters.CONTENT_TYPE] = gadgets.io.ContentType.TEXT;
+						params[gadgets.io.RequestParameters.METHOD] = gadgets.io.MethodType.GET;
+						var inputParam = {};
+						inputParam.empID = $.trim(employeeID);  
+						var urlAPIRoleList = urlAPIRole + "people/" + inputParam.empID  + ":(requiredJobRoles)?SabaCertificate=" + sabaCertificate;
+						
+						 var ts = new Date().getTime();
+						  var sep = "?";
+						  if (refreshInterval && refreshInterval > 0) {
+							ts = Math.floor(ts / (refreshInterval * 1000));
+						  }
+						  if (urlAPIRoleList.indexOf("?") > -1) {
+							sep = "&";
+						  }
+							urlAPIRoleList = [ urlAPIRoleList, sep, "nocache=", ts ].join("");					
+							gadgets.io.makeRequest(urlAPIRoleList, getRegisteredRole2Response, params);							
       			  } 
         	function getRegisteredRole2Response(obj) {
-			var strRoleFound = false;
+			        var strRoleFound = false;
             		if(obj.data)
-			{
-			alert("00000");
-				roleJsonObj = JSON.parse(obj.data)
-				data = '<table border="2"><tr><td><b>Registered Role</b></td></tr>';
-			    var i = 0;
-			alert(roleJsonObj.requiredJobRoles.length);
-			alert(obj.text);
-			    for (i = 0; i < roleJsonObj.requiredJobRoles.length; i++) {
-                   	           objRole = roleJsonObj.requiredJobRoles[i];
-				   data = data + '<tr><td>' + objRole.name + '</td></tr>';
-				   alert(objRole.name +"1111");
-			      if (($.trim(objRole.name)) == ($.trim($("[id*=searchRoleParam]").val())))
-			  	      {
-					alert(strRoleFound +"2222");
-					      strRoleFound = true;
-			   	       }
-             		 	 }
+					{			
+						roleJsonObj = JSON.parse(obj.data)
+						data = '<table border="2"><tr><td><b>Registered Role</b></td></tr>';
+						var i = 0;
+					
+					for (i = 0; i < roleJsonObj.requiredJobRoles.length; i++) {
+								   objRole = roleJsonObj.requiredJobRoles[i];
+					   data = data + '<tr><td>' + objRole.name + '</td></tr>';
+					   alert(objRole.name +"1111");
+					  if (($.trim(objRole.name)) == ($.trim($("[id*=searchRoleParam]").val())))
+						  {
+						   strRoleFound = true;
+						   }
+             		 }
 			   
 				data += '</table>';
 				$("#divRegisteredRoleList").html(data);
@@ -206,14 +195,12 @@ alert("Api Call ");
 				
 					   $("#divRoleForm").css("display", "none");
 					   $("#divRegisteredRole").css("display", "block");
-					   strRoleFound = false;
-					   alert(strRoleFound  +"3333");
+					   strRoleFound = false;				   
 					   
 				   }
-				       else {
-						alert(strRoleFound +"444");
+			   else {
 					   submitGetRole();   // call the Role Details  funcation
-				       }
+			        }
               			 // checking the role exist in user profile or not END 
 				 obj.data={};
 			}
@@ -359,7 +346,7 @@ alert("Api Call ");
                     <tr>
                         <td align="center"  style="font-weight:bold;">
                                                     
-                            Please Enter Your Initiative/ Progarm Code  111111
+                            Please Enter Your Initiative/ Progarm Code  Testing
 			</td>
                     </tr>
                     <tr>                            
@@ -467,8 +454,7 @@ alert("Api Call ");
                                 <tr>
                                     <td align="center">
 									
-									    <input type="button" id="btnRoleConfrim" value="Confirm">&nbsp;&nbsp;&nbsp;&nbsp;
-										
+			               <input type="button" id="btnRoleConfrim" value="Confirm">&nbsp;&nbsp;&nbsp;&nbsp;										
                                         <input type="button" id="btnRoleBack" value="Back">
                                     </td>
                                 </tr>
