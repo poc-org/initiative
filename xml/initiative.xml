@@ -149,72 +149,68 @@
 				Method : Get, Input: Employee Number
 				OutPot: All registered Role 
 		*/
-		function submitGetRegisteredRoleQuery() {
-			    var params = {};
-			    params[gadgets.io.RequestParameters.CONTENT_TYPE] = gadgets.io.ContentType.TEXT;
-			    params[gadgets.io.RequestParameters.METHOD] = gadgets.io.MethodType.GET;
-alert("Api Call " + employeeID);
-			    //var inputParam = {};
-			    //var urlAPIRoleList = urlAPIRole + 'people/' + employeeID + ':(requiredJobRoles)?SabaCertificate=' + sabaCertificate;
-				
-				var inputParam = {};
-				inputParam.empID = $.trim(employeeID);  
-			    var urlAPIRoleList = urlAPIRole + "people/" + inputParam.empID  + ":(requiredJobRoles)?SabaCertificate=" + sabaCertificate;
-				
-			   console.log(urlAPIRoleList);
-			   gadgets.io.makeRequest(urlAPIRoleList, getRegisteredRole2Response, params);
-				urlAPIRoleList ="";
-      			  } 
-        	function getRegisteredRole2Response(obj) {
-			var strRoleFound = false;
-            		if(obj.data)
-			{
-			alert("00000");
-				roleJsonObj = JSON.parse(obj.data)
-				data = '<table border="2"><tr><td><b>Registered Role</b></td></tr>';
-			    var i = 0;
-			alert(roleJsonObj.requiredJobRoles.length);
-			alert(obj.text);
-			    for (i = 0; i < roleJsonObj.requiredJobRoles.length; i++) {
-                   	           objRole = roleJsonObj.requiredJobRoles[i];
-				   data = data + '<tr><td>' + objRole.name + '</td></tr>';
-				   alert(objRole.name +"1111");
-			      if (($.trim(objRole.name)) == ($.trim($("[id*=searchRoleParam]").val())))
-			  	      {
-					alert(strRoleFound +"2222");
-					      strRoleFound = true;
-			   	       }
-             		 	 }
-			   
-				data += '</table>';
-				$("#divRegisteredRoleList").html(data);
-				// checking the role exist in user profile or not Start 
-				if (strRoleFound)
-				   {
-				
-					   $("#divRoleForm").css("display", "none");
-					   $("#divRegisteredRole").css("display", "block");
-					   strRoleFound = false;
-					   alert(strRoleFound  +"3333");
-					   
-				   }
-				       else {
-						alert(strRoleFound +"444");
-					   submitGetRole();   // call the Role Details  funcation
-				       }
-              			 // checking the role exist in user profile or not END 
-				 obj.data={};
-			}
-			
-			if($.trim(obj.errors))
-			{
-			
-				$("#divAPIErrorMessage").css("display", "block");
-                	        $("#divRoleForm").css("display", "none");                
-			        var jsonObj = JSON.parse(obj.text);	
-			        $("#lbAPIError").html(jsonObj.errorMessage);
-			}
-        } 
+		 function submitGetRegisteredRoleQuery() {
+               $("#result").empty();
+               
+               
+               urlAPIRoleList = urlAPIRole + 'people/' + employeeID + ':(requiredJobRoles)?SabaCertificate=' + sabaCertificate;
+               var payLoad = ''
+
+               $.ajax({
+                   type: "GET",
+                   url: urlAPIRoleList,
+                   contentType: "application/json; charset=utf-8",   //contentType is for request
+                   dataType: "text",
+		    headers: {
+              			  'Accept': 'application/rdf+xml',
+		                  'OSLC-Core-Version': '2.0'
+		              },
+                   success: OnSuccessGetRegisteredRole,
+                   error: OnErrorGetRegisteredRole
+                   
+               });
+
+           }
+        
+
+           function OnSuccessGetRegisteredRole(response, status) {
+               var strRoleFound = false;
+               var jsonObj = jQuery.parseJSON	
+               data = '<table border="1"><tr><td><b>Registred Role</b></td></tr>';
+               var i = 0;
+               
+               for (i = 0; i < jsonObj.requiredJobRoles.length; i++) {
+                   objRole = jsonObj.requiredJobRoles[i];
+                   data = data + '<tr><td>' + objRole.name + '</td></tr>';
+                   if ((objRole.name) == ($.trim($("[id*=searchRoleParam]").val())))
+                   {
+                       strRoleFound = true;
+                       
+                   }
+               }
+               data += '</table>';
+               $("#divRegisteredRoleList").html(data);
+               if (strRoleFound)
+               {
+
+                   $("#divRoleForm").css("display", "none");
+                   $("#divRegisteredRole").css("display", "block");
+                   strRoleFound = false;
+               }
+               else {
+                   getRoleDetailsQuery();
+
+               }
+
+           }
+           function OnErrorGetRegisteredRole(request, status, error) {
+		alert(erroe);
+               $("#divAPIErrorMessage").css("display", "block");
+               $("#divRoleForm").css("display", "none");                
+	       //var jsonObj = JSON.parse(request.text);	
+	       //$("#lbAPIError").html(jsonObj.errorMessage);
+           }
+
 /* Call ROle API to get the  registered Role to user profile.   END
 		
 		/* Call Role API to get the Role Details.   Start 
@@ -347,7 +343,7 @@ alert("Api Call " + employeeID);
                     <tr>
                         <td align="center"  style="font-weight:bold;">
                                                     
-                            Please Enter Your Initiative/ Progarm Code  #####1213
+                            Please Enter Your Initiative/ Progarm Code  121212121
 			</td>
                     </tr>
                     <tr>                            
