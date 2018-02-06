@@ -171,7 +171,7 @@
       			  } 
         	function getRegisteredRole2Response(obj) {
 			        var strRoleFound = false;
-            		if(obj.data)
+            			if(obj.data)
 					{			
 						roleJsonObj = JSON.parse(obj.data)
 						data = '<table border="2"><tr><td><b>Registered Role</b></td></tr>';
@@ -180,8 +180,7 @@
 					for (i = 0; i < roleJsonObj.requiredJobRoles.length; i++) {
 								   objRole = roleJsonObj.requiredJobRoles[i];
 					   data = data + '<tr><td>' + objRole.name + '</td></tr>';
-					   alert(objRole.name +"1111");
-					  if (($.trim(objRole.name)) == ($.trim($("[id*=searchRoleParam]").val())))
+					     if (($.trim(objRole.name)) == ($.trim($("[id*=searchRoleParam]").val())))
 						  {
 						   strRoleFound = true;
 						   }
