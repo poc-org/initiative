@@ -174,21 +174,23 @@
             		if(obj.data)
 					{			
 						roleJsonObj = JSON.parse(obj.data)
-						data = '<table border="2"><tr><td><b>Registered Role</b></td></tr>';
+						//data = '<table border="2"><tr><td><b>Registered Role</b></td></tr>';
 						var i = 0;
 					
 					for (i = 0; i < roleJsonObj.requiredJobRoles.length; i++) {
 								   objRole = roleJsonObj.requiredJobRoles[i];
-					   data = data + '<tr><td>' + objRole.name + '</td></tr>';
+					   //data = data + '<tr><td>' + objRole.name + '</td></tr>';
 					 if (($.trim(objRole.name)) == ($.trim($("[id*=searchRoleParam]").val())))
 						  {
 						   strRoleFound = true;
 						   }
              		 }
 			   
-				data += '</table>';
-				   //data = $.trim($("[id*=searchRoleParam]").val());
-				$("#divRegisteredRoleList").html(data);
+				//data += '</table>';
+				//$("#divRegisteredRoleList").html(data);
+				    document.getElementById("lbRegisteredRoleID").innerHTML = $.trim($("[id*=searchRoleParam]").val());
+				   
+				 
 				// checking the role exist in user profile or not Start 
 				if (strRoleFound)
 				   {
@@ -202,7 +204,7 @@
 					   submitGetRole();   // call the Role Details  funcation
 			        }
               			 // checking the role exist in user profile or not END 
-				 obj.data={};
+				 
 			}
 			
 			if($.trim(obj.errors))
@@ -393,12 +395,10 @@
                     <tr>
                         <td align="center" style="font-weight:bold;">
                             <p>
-                                Congratulations You Already Registered For This Role: 
-                            
+                                Congratulations You Already Registered For This Role: "<label id="lbRegisteredRoleID"></label>".
+                            </p>
 
-                            <div id="divRegisteredRoleList">
-
-                            </div></p>
+                            <!--<div id="divRegisteredRoleList"> </div>-->
                         </td>
                     </tr>
 
