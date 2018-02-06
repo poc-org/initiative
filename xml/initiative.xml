@@ -153,7 +153,7 @@
 			    var params = {};
 			    params[gadgets.io.RequestParameters.CONTENT_TYPE] = gadgets.io.ContentType.TEXT;
 			    params[gadgets.io.RequestParameters.METHOD] = gadgets.io.MethodType.GET;
-alert("Api Call ");
+alert("Api Call " + employeeID);
 			    //var inputParam = {};
 			    //var urlAPIRoleList = urlAPIRole + 'people/' + employeeID + ':(requiredJobRoles)?SabaCertificate=' + sabaCertificate;
 				
@@ -347,7 +347,7 @@ alert("Api Call ");
                     <tr>
                         <td align="center"  style="font-weight:bold;">
                                                     
-                            Please Enter Your Initiative/ Progarm Code  #####
+                            Please Enter Your Initiative/ Progarm Code  #####1213
 			</td>
                     </tr>
                     <tr>                            
