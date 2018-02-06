@@ -138,9 +138,9 @@
 			{
 			
 				$("#divAPIErrorMessage").css("display", "block");
-                		$("#divRoleForm").css("display", "none");
-               			 var jsonObj = JSON.parse(obj.text);	
-			         $("#lbAPIError").html(jsonObj.errorMessage);
+				$("#divRoleForm").css("display", "none");
+				 var jsonObj = JSON.parse(obj.text);	
+				$("#lbAPIError").html(jsonErrorMessage(jsonObj.errorMessage,'(@001)'));
 			}           	
 			
         } 
@@ -208,9 +208,10 @@
 			{
 			
 				$("#divAPIErrorMessage").css("display", "block");
-                	        $("#divRoleForm").css("display", "none");                
+                $("#divRoleForm").css("display", "none");                
 			        var jsonObj = JSON.parse(obj.text);	
-			        $("#lbAPIError").html(jsonObj.errorMessage);
+			        $("#lbAPIError").html(jsonErrorMessage(jsonObj.errorMessage,'(@001)'));
+					
 			}
         } 
 /* Call ROle API to get the  registered Role to user profile.   END
@@ -322,15 +323,17 @@
 			}
 			if($.trim(obj.errors)){
 			     var jsonObj = JSON.parse(obj.text);					 
-			    $("#divAPIErrorMessage").css("display", "block");				    
-                 $("#divRoleSkillListPreview").css("display", "none");
-                	    //$("#lbAPIError").html(jsonObj.errorMessage);
-						$("#lbAPIError").html(jsonErrorMessage(jsonObj.errorMessage,'(@001)'));
+			     $("#divAPIErrorMessage").css("display", "block");				    
+                 $("#divRoleSkillListPreview").css("display", "none");                	   
+				 $("#lbAPIError").html(jsonErrorMessage(jsonObj.errorMessage,'(@001)'));
 				
 			}
 			
         } 
-			function jsonErrorMessage(ErrorJSON, splitPram){
+			
+		/*Call Role API to SET the Role Details in user profile. END*/
+		/* Error Message Handling Start */
+		function jsonErrorMessage(ErrorJSON, splitPram){
 					  var errorMessage = ErrorJSON.split(splitPram) ;
 					  var errorLenght = errorMessage[1].length;
 					  if (errorMessage.length > 1){
@@ -340,9 +343,8 @@
 					  {
 						return errorMessage(ErrorJSON);
 					  }
-		} 
-		/*Call Role API to SET the Role Details in user profile. END*/
-		
+		        } 
+		/* Error Message Handling END */
     </script>
     <script type="text/os-template">
     <!-- Header of the Page Start -->
@@ -357,7 +359,7 @@
                     <tr>
                         <td align="center"  style="font-weight:bold;">
                                                     
-                            Please Enter Your Initiative/ Progarm Code  Testing1234
+                            Please Enter Your Initiative/ Progarm Code  00000
 			</td>
                     </tr>
                     <tr>                            
