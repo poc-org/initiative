@@ -162,8 +162,8 @@
                    contentType: "application/json; charset=utf-8",   //contentType is for request
                    dataType: "text",
 		    headers: {
-              			  'Accept': 'application/rdf+xml',
-		                  'OSLC-Core-Version': '2.0'
+              			  'Accept': 'application/rdf+xml'
+		                  //'OSLC-Core-Version': '2.0'
 		              },
                    success: OnSuccessGetRegisteredRole,
                    error: OnErrorGetRegisteredRole
@@ -206,7 +206,7 @@ alert("0000");
 
            }
            function OnErrorGetRegisteredRole(request, status, error) {
-		alert(error);
+		alert(request);
                $("#divAPIErrorMessage").css("display", "block");
                $("#divRoleForm").css("display", "none");                
 	       //var jsonObj = JSON.parse(request.text);	
@@ -345,7 +345,7 @@ alert("0000");
                     <tr>
                         <td align="center"  style="font-weight:bold;">
                                                     
-                            Please Enter Your Initiative/ Progarm Code  12121212
+                            Please Enter Your Initiative/ Progarm Code  11111
 			</td>
                     </tr>
                     <tr>                            
